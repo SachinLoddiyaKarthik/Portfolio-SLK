@@ -1,13 +1,13 @@
 @media screen and (max-width: 1400px) {
     #profile {
-      height: auto;
+      height: auto; /* Adjust height to auto to prevent issues */
       margin-bottom: 6rem;
     }
     .about-containers {
       flex-wrap: wrap;
     }
     #about {
-      margin-bottom: 8rem;
+      margin-bottom: 8rem; /* Space between Profile & About */
     }
   }
   
@@ -23,21 +23,21 @@
       margin-top: 2rem;
     }
     #profile {
-      display: flex;
+      display: flex; /* Ensure profile stays beside text */
       align-items: center;
       justify-content: center;
       gap: 3rem;
-      flex-wrap: nowrap;
+      flex-wrap: nowrap; /* Prevent stacking unless necessary */
     }
     .section-container {
-      display: flex;
+      display: flex; /* Ensure About image stays beside text */
       align-items: center;
       justify-content: center;
       gap: 4rem;
       flex-wrap: nowrap;
     }
     .about-pic-container {
-      max-width: 300px;
+      max-width: 300px; /* Limit About image size */
     }
     .about-details-container {
       flex: 1;
@@ -53,30 +53,30 @@
       margin: 0 5%;
     }
     .section__pic-container {
-      width: 200px; /* Adjusted size for this breakpoint */
-      height: 200px; /* Adjusted size for this breakpoint */
+      width: 275px;
+      height: 275px;
       margin: 0 auto 2rem;
     }
     .about-containers {
       margin-top: 0;
     }
     #about {
-      margin-top: 5rem;
+      margin-top: 5rem;  /* Reduce space slightly */
     }
   }
   
   @media screen and (max-width: 900px) {
     #profile {
-      flex-direction: column;
+      flex-direction: column; /* Stack profile image and text */
       text-align: center;
     }
     .title {
-      font-size: 2.5rem;
-      white-space: normal;
+      font-size: 2.5rem; /* Reduce font size for smaller screens */
+      white-space: normal; /* Allow breaking if necessary */
     }
     .section__pic-container {
-      width: 180px; /* Further adjusted size for tablets */
-      height: 180px; /* Further adjusted size for tablets */
+      width: 200px;
+      height: 200px;
       margin-bottom: 1rem;
     }
     /* Stack About image & content */
@@ -90,7 +90,7 @@
       margin: 0 auto;
     }
     #about {
-      margin-top: 4rem;
+      margin-top: 4rem; /* Reduce space for smaller screens */
     }
   }
   
@@ -103,11 +103,11 @@
       height: auto;
       margin-bottom: 4rem;
       margin-top: 5rem;
-      flex-direction: column;
+      flex-direction: column; /* Stack image and text */
       text-align: center;
     }
     .title {
-      font-size: 2rem;
+      font-size: 2rem; /* Further reduce for mobile screens */
     }
     article {
       font-size: 1rem;
@@ -140,8 +140,8 @@
       text-align: center;
     }
     .section__pic-container {
-      width: 120px; /* Further adjusted size for mobile */
-      height: 120px; /* Further adjusted size for mobile */
+      width: auto;
+      height: 46vw;
       justify-content: center;
     }
     .section__text__p2 {
@@ -158,6 +158,7 @@
       max-width: 200px;
     }
     #about {
-      margin-top: 3rem;
+      margin-top: 3rem; /* Adjust space for mobile */
     }
   }
+  

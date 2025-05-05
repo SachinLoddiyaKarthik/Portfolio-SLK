@@ -240,16 +240,16 @@ section {
 /* PROFILE SECTION */
 
 #profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5rem;
-    height: auto; /* Adjust height to auto */
-    margin-top: 16rem;
-    margin-bottom: 16rem;
-    flex-wrap: nowrap;
-    text-align: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  height: auto;
+  margin-top: 16rem; /* Added more space above */
+  margin-bottom: 16rem; /* Added space below */
+  flex-wrap: nowrap; /* Ensures image and text stay side-by-side */
+  text-align: center;
+}
 
 /* Ensure profile picture stays beside the text */
 .profile-pic-container {
