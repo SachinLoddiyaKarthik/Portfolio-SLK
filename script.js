@@ -25,8 +25,21 @@ function toggleMenu() {
     }
   }
   
+  const hamburgerIcon = document.querySelector(".hamburger-icon");
+  const menuLinks = document.querySelector(".menu-links");
   
+  function toggleMenu() {
+    hamburgerIcon.classList.toggle("open");
+    menuLinks.classList.toggle("open");
+  }
   
+  // Optional: Close the menu if a link is clicked (already present in your HTML structure)
+  const menuLinksAnchors = document.querySelectorAll(".menu-links a");
+  menuLinksAnchors.forEach(link => {
+    link.addEventListener("click", () => {
+      toggleMenu(); // Call the toggleMenu function to close the menu
+    });
+  });
   
   
   // Dark / light mode
