@@ -1,0 +1,163 @@
+@media screen and (max-width: 1400px) {
+    #profile {
+      height: auto;
+      margin-bottom: 6rem;
+    }
+    .about-containers {
+      flex-wrap: wrap;
+    }
+    #about {
+      margin-bottom: 8rem;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    #desktop-nav {
+      display: none;
+    }
+    #hamburger-nav {
+      display: flex;
+    }
+    #experience,
+    .experience-details-container {
+      margin-top: 2rem;
+    }
+    #profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: nowrap;
+    }
+    .section-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: nowrap;
+    }
+    .about-pic-container {
+      max-width: 300px;
+    }
+    .about-details-container {
+      flex: 1;
+    }
+    .arrow {
+      display: none;
+    }
+    section,
+    .section-container {
+      height: fit-content;
+    }
+    section {
+      margin: 0 5%;
+    }
+    .section__pic-container {
+      width: 200px; /* Adjusted size for this breakpoint */
+      height: 200px; /* Adjusted size for this breakpoint */
+      margin: 0 auto 2rem;
+    }
+    .about-containers {
+      margin-top: 0;
+    }
+    #about {
+      margin-top: 5rem;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    #profile {
+      flex-direction: column;
+      text-align: center;
+    }
+    .title {
+      font-size: 2.5rem;
+      white-space: normal;
+    }
+    .section__pic-container {
+      width: 180px; /* Further adjusted size for tablets */
+      height: 180px; /* Further adjusted size for tablets */
+      margin-bottom: 1rem;
+    }
+    /* Stack About image & content */
+    .section-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+    .about-pic-container {
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    #about {
+      margin-top: 4rem;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    #contact,
+    footer {
+      height: 40vh;
+    }
+    #profile {
+      height: auto;
+      margin-bottom: 4rem;
+      margin-top: 5rem;
+      flex-direction: column;
+      text-align: center;
+    }
+    .title {
+      font-size: 2rem;
+    }
+    article {
+      font-size: 1rem;
+    }
+    footer nav {
+      height: fit-content;
+      margin-bottom: 2rem;
+    }
+    .about-containers,
+    .contact-info-upper-container,
+    .btn-container {
+      flex-wrap: wrap;
+    }
+    .contact-info-container {
+      margin: 0;
+    }
+    .contact-info-container p,
+    .nav-links li a {
+      font-size: 1rem;
+    }
+    .experience-sub-title {
+      font-size: 1.25rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+    }
+    .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    .section__pic-container {
+      width: 120px; /* Further adjusted size for mobile */
+      height: 120px; /* Further adjusted size for mobile */
+      justify-content: center;
+    }
+    .section__text__p2 {
+      font-size: 1.25rem;
+    }
+    .title {
+      font-size: 2rem;
+    }
+    .text-container {
+      text-align: justify;
+    }
+    /* Reduce image size on small screens */
+    .about-pic-container {
+      max-width: 200px;
+    }
+    #about {
+      margin-top: 3rem;
+    }
+  }

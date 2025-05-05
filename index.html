@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Sachin Loddiya Karthik</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav id="hamburger-nav">
+        <div class="logo">Sachin Loddiya Karthik</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </div>
+        </div>
+    </nav>
+    <section id="profile">
+        <div class="section__pic-container">
+            <img src="./assets/Profile-picture.png" alt="Sachin Loddiya Karthik Profile Picture"/>
+        </div>
+        <div class="section__text">
+            <p class="section__text__p1">Hello, I'm</p>
+            <h1 class="title">Sachin Loddiya Karthik</h1>
+            <p class="section__text__p2">Data Engineer</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2"
+                onclick="window.open('./assets/Sachin_Resume.pdf')">Download CV</button>
+                <button class="btn btn-color-1"
+                onclick="location.href='./#contact'">Contact Info</button>
+            </div>
+            <div id="socials-container">
+                <img src="./assets/linkedin_light.png" alt="My LinkedIn profile"
+                class="icon" onclick="location.href='https://www.linkedin.com/in/sachin-lk/'">
+                <img src="./assets/github_light.png" alt="My GitHub profile"
+                class="icon" onclick="location.href='https://github.com/SachinLoddiyaKarthik'">
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">About Me</h1>
+        <div class="section-container">
+          <div class="section__pic-container about-pic-container">
+            <img src="./assets/About_me.png" alt="About picture" class="about-pic" />
+          </div>
+          <div class="about-details-container">
+            <div class="about-containers">
+              <div class="details-container" onclick="showExperience()">
+                <img
+                  src="./assets/experience_light.png"
+                  src-light="./assets/experience_light.png"
+                  src-dark="./assets/experience_dark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <h3>Experience</h3>
+                <p>3 years <br />Data Engineer</p>
+              </div>
+              <div class="details-container" onclick="showEducation()">
+                <img
+                  src="./assets/education_light.png"
+                  src-light="./assets/education_light.png"
+                  src-dark="./assets/education_dark.png"
+                  alt="Education icon"
+                  class="icon"
+                />
+                <h3>Education</h3>
+                <p>B.E Bachelors Degree<br />M.S Masters Degree</p>
+              </div>
+            </div>
+            <div class="text-container">
+              <p>
+                Data Engineer with 3+ years of experience building scalable data pipelines, optimizing ETL workflows, and enabling real-time analytics. Proficient in PySpark, SQL, Azure Databricks, and Synapse, with hands-on experience in data modeling and lakehouse architecture. Skilled at transforming raw data into actionable insights to support business intelligence and strategic decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    <section id="skills">
+        <p class="section_text_p3">Explore My</p>
+        <h1 class="title">Technical Skills</h1>
+        <div class="skills-container">
+      
+          <div class="skill-card">
+            <h2 class="skills-sub-title">Cloud Technologies</h2>
+            <div class="tags">
+              <span>Azure (Data Factory, Synapse Analytics, Databricks)</span>
+              <span>AWS (EC2, S3, Athena, Redshift, Glue, Lambda)</span>
+              <span>Google Cloud (BigQuery, Pub/Sub, Dataflow)</span>
+              <span>Apache Airflow</span>
+              <span>Apache Spark</span>
+              <span>Apache Kafka</span>
+            </div>
+          </div>
+      
+          <div class="skill-card">
+            <h2 class="skills-sub-title">Programming</h2>
+            <div class="tags">
+              <span>Python</span>
+              <span>SQL</span>
+              <span>R</span>
+              <span>T-SQL</span>
+              <span>Java</span>
+              <span>Shell Scripting</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+      
+          <div class="skill-card">
+            <h2 class="skills-sub-title">Databases</h2>
+            <div class="tags">
+              <span>MYSQL</span>
+              <span>Azure SQL</span>
+              <span>Oracle SQL</span>
+              <span>PostgreSQL</span>
+              <span>SQL Server</span>
+              <span>Snowflake</span>
+              <span>DynamoDB</span>
+            </div>
+          </div>
+      
+          <div class="skill-card">
+            <h2 class="skills-sub-title">Data Visualization</h2>
+            <div class="tags">
+              <span>Power BI</span>
+              <span>Tableau</span>
+              <span>Microsoft Excel</span>
+            </div>
+          </div>
+      
+          <div class="skill-card">
+            <h2 class="skills-sub-title">Libraries & Tools</h2>
+            <div class="tags">
+              <span>Pandas</span>
+              <span>NumPy</span>
+              <span>Matplotlib</span>
+              <span>Seaborn</span>
+              <span>SciPy</span>
+              <span>Scikit-learn</span>
+              <span>TensorFlow</span>
+              <span>PyTorch</span>
+              <span>Keras</span>
+              <span>OpenCV</span>
+              <span>PySpark</span>
+              <span>Git</span>
+              <span>Jupyter Notebook</span>
+              <span>Pycharm</span>
+              <span>VS Code</span>
+              <span>JIRA</span>
+            </div>
+          </div>
+  
+          <div class="skill-card">
+            <h2 class="skills-sub-title">Machine Learning & AI</h2>
+            <div class="tags">
+              <span>Supervised Learning (Linear Regression, Logistic Regression, KNN, Naive Bayes, Decision Trees, Random Forest, Support Vector Machines, XGBoost)</span>
+              <span>Unsupervised Learning (K-Means Clustering, Principal Component Analysis)</span>
+              <span>Deep Learning (CNN, RNN, LSTM, BiLSTM)</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h2 class="skills-sub-title">Statistics</h2>
+            <div class="tags">
+              <span>ANOVA</span>
+              <span>Hypothesis Testing</span>
+              <span>Regression Analysis</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    <section id="experience">
+        <p class="section__text__p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+        <div class="experience-details-container">
+          <div class="experience-card">
+            <div class="experience-header">
+              <h2 class="experience-sub-title">Data Engineer</h2>
+              <p class="experience-duration">Jan 2025 - Apr 2025</p>
+            </div>
+            <h3 class="experience-company">Western Michigan University, USA</h3>
+            <ul class="experience-list">
+              <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming, optimizing faculty-course assignments by factoring in availability, preferences, and time-slot constraints.</li>
+              <li>Created and deployed a Streamlit-based UI for versatile CSV input processing, real-time validation, and interactive visualizations of optimized schedules.</li>
+              <li>Minimized scheduling conflicts and manual effort through the integration of advanced optimization algorithms and a user-friendly frontend.</li>
+            </ul>
+          </div>
+          
+          <div class="experience-card">
+            <div class="experience-header">
+              <h2 class="experience-sub-title">Data Engineer</h2>
+              <p class="experience-duration">Jan 2024 - Apr 2024</p>
+            </div>
+            <h3 class="experience-company">Green Expectations LLC, USA</h3>
+            <ul class="experience-list">
+              <li>Constructed the backend infrastructure for an AI-powered web application that evaluates home sustainability, transforming user data into structured pipelines through a rule-based House Sustainability Calculator.</li>
+              <li>Spearheaded a secure user authentication framework with persistent storage, facilitating individualized access and enabling real-time sustainability tracking.</li>
+              <li>Orchestrated data flows for a conversational AI chatbot to enhance NLP-driven recommendations and improve user interaction.</li>
+            </ul>
+          </div>
+          
+          <div class="experience-card">
+            <div class="experience-header">
+              <h2 class="experience-sub-title">Data Engineer</h2>
+              <p class="experience-duration">Jul 2021 - Jul 2023</p>
+            </div>
+            <h3 class="experience-company">Accenture, India</h3>
+            <ul class="experience-list">
+              <li>Engineered ETL pipelines with Azure Data Factory to migrate and reformat critical supply chain data into Parquet format, boosting processing efficiency by 40% while minimizing disruption.</li>
+              <li>Utilized Azure Databricks to process raw supply chain data from Data Lake Gen2, enhancing accuracy by 25% and halving transformation times.</li>
+              <li>Developed external tables and views within Azure SQL and implemented interactive Power BI dashboards, enhancing data access and delivering insights that resulted in a 25% increase in operational efficiency.</li>
+              <li>Improved data workflows by integrating ADF triggers, Databricks notebooks, and CI/CD pipelines via Azure DevOps, boosting team efficiency by 15% and accelerating SCPO upgrade project delivery by 30%.</li>
+            </ul>
+          </div>
+  
+          <div class="experience-card">
+            <div class="experience-header">
+              <h2 class="experience-sub-title">Data Engineer</h2>
+              <p class="experience-duration">Nov 2020 - May 2021</p>
+            </div>
+            <h3 class="experience-company">Claritrics India Pvt Limited, India</h3>
+            <ul class="experience-list">
+              <li>Pioneered an advanced ETL pipeline using Azure Data Factory and Azure Databricks to create an OCR solution for extracting text from images, improving extraction accuracy by 30%.</li>
+              <li>Crafted and scheduled an end-to-end automated workflow using Azure Data Factory for orchestration and Azure Databricks for scalable image processing, reducing text extraction processing time by 40%.</li>
+              <li>Enhanced development and deployment cycles with Azure Data Factory triggers and Databricks job scheduling, resulting in a 20% gain in team efficiency and a 30% acceleration of project timelines.</li>
+            </ul>
+          </div>
+        </div>   
+      </section>
+    <section id="projects">
+        <p class="section__text__p1">Browse My Recent</p>
+        <h1 class="title">Projects</h1>
+        <div class="projects-container">
+            <!-- Class Scheduler for Administrator -->
+            <div class="project-item">
+                <div class="project-header">
+                  <h2 class="project-title">Class Scheduler for Administrator</h2>
+                  <span class="project-time">Jan 2025 - Apr 2025</span>
+                </div>
+                <div class="project-buttons">
+                  <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/SachinLoddiyaKarthik/Class-Scheduler'">GitHub</button>
+                  <button class="btn btn-description" onclick="toggleDescription(this)">Description</button>
+                </div>
+                <div class="project-description">
+                  <ul>
+                    <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming, optimizing faculty-course assignments by factoring in availability, preferences, and time-slot constraints.</li>
+                    <li>Created and deployed a Streamlit-based UI for versatile CSV input processing, real-time validation, and interactive visualizations of optimized schedules.</li>
+                    <li>Minimized scheduling conflicts and manual effort through the integration of advanced optimization algorithms and a user-friendly frontend.</li>
+                  </ul>
+                  <div class="tools-container">
+                    <p><strong>Tools Used:</strong> Python, PyQt, MIP</p>
+                  </div>
+                </div>
+              </div>
+            <!-- Tokyo Olympics Data Analytics -->
+            <div class="project-item">
+                <div class="project-header">
+                  <h2 class="project-title">Tokyo Olympic Data Analytics | Cloud-Powered Data Engineering Pipeline</h2>
+                  <span class="project-time">Mar 2025 - Apr 2025</span>
+                </div>
+                <div class="project-buttons">
+                  <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/SachinLoddiyaKarthik/tokyo-olympic-data-engineering-project'">GitHub</button>
+                  <button class="btn btn-description" onclick="toggleDescription(this)">Description</button>
+                </div>
+                <div class="project-description">
+                  <ul>
+                    <li>Designed and deployed an end-to-end data pipeline using Azure Data Factory, Data Lake Gen2, Databricks (PySpark), and Synapse Analytics to process and analyze 500K+ Olympic athlete and medal records.</li>
+                    <li>Reduced processing time by 60% through scalable PySpark transformations, enabling real-time analytics on athlete performance, gender trends, and medal distribution.</li>
+                    <li>Delivered interactive Power BI dashboards for deep, multi-dimensional insights into country-wise results, event-specific trends, and statistical comparisons across teams.</li>
+                  </ul>
+                  <div class="tools-container">
+                    <p><strong>Tools Used:</strong> Azure Data Factory, Databricks, PySpark, SQL, Power BI</p>
+                  </div>
+                </div>
+              </div>  
+      
+          <!-- Netflix Data Engineering -->
+          <div class="project-item">
+            <div class="project-header">
+              <h2 class="project-title">Netflix Data Engineering</h2>
+              <span class="project-time">Feb 2025 - Mar 2025</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/SachinLoddiyaKarthik/Netflix_Data_Engineering_Project'">GitHub</button>
+              <button class="btn btn-description" onclick="toggleDescription(this)">Description</button>
+            </div>
+            <div class="project-description">
+              <ul>
+                <li>Developed a cloud-native, layered data pipeline for Netflix analytics using Azure Data Factory, Databricks (PySpark), and Delta Live Tables to automate ingestion, transformation, and storage of streaming and batch data.</li>
+                <li>Implemented a Delta Lake architecture (Bronze-Silver-Gold layers) with AutoLoader for incremental processing, DLT for real-time quality enforcement, and star schema modeling for analytical efficiency.</li>
+                <li>Delivered Power BI dashboards with rich insights into Netflix content trends, leveraging Azure Synapse for fast, scalable querying and integrated access control via Azure AD and Key Vault.</li>
+              </ul>
+              <div class="tools-container">
+                <p><strong>Tools Used:</strong> Azure Data Factory, Databricks, Azure Data Lake, PySpark, SQL</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Covid19 Data Engineering -->
+          <div class="project-item">
+            <div class="project-header">
+              <h2 class="project-title">Covid19 Data Engineering</h2>
+              <span class="project-time">Jun 2024 - Jul 2024</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/SachinLoddiyaKarthik/Covid19-Data-Engineering-Project'">GitHub</button>
+              <button class="btn btn-description" onclick="toggleDescription(this)">Description</button>
+            </div>
+            <div class="project-description">
+              <ul>
+                <li>Built real-time data pipelines using Azure Data Factory and Kafka, enabling scalable ingestion and processing of COVID-19 data streams, which improved processing efficiency by 30% and enhanced trend prediction accuracy.</li>
+                <li>Developed metadata-driven pipelines for dynamic data transformation across streaming and batch sources, reducing development time by 25% and increasing overall analytical flexibility.</li>
+                <li>Implemented CI/CD with Azure DevOps and Azure Monitor, streamlining deployments and monitoring, which reduced release cycle time by 35% and system downtime by 20%.</li>
+              </ul>
+              <div class="tools-container">
+                <p><strong>Tools Used:</strong> Azure Data Factory, Databricks, Apache Kafka, Azure Devops, Power BI, PySpark, SQL, Delta Lake</p>
+              </div>
+            </div>
+          </div>
+  
+           <!-- F1 Data Analytics -->
+           <div class="project-item">
+            <div class="project-header">
+              <h2 class="project-title">F1 Data Analytics</h2>
+              <span class="project-time">May 2024 - Jun 2024</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/SachinLoddiyaKarthik/F1-Data-Analytics-Project'">GitHub</button>
+              <button class="btn btn-description" onclick="toggleDescription(this)">Description</button>
+            </div>
+            <div class="project-description">
+              <ul>
+                <li>Engineered end-to-end ETL pipelines in Azure Synapse, integrating data from the Ergast API with PySpark and SparkSQL to enable high-performance processing through partitioning, caching, and parallel execution.</li>
+                <li>Established advanced analytics and monitoring with schema enforcement, data quality checks, and Azure Monitor integration—ensuring data integrity, scalability, and responsive insight delivery for dynamic F1 trend analysis.</li>
+              </ul>
+              <div class="tools-container">
+                <p><strong>Tools Used:</strong> Azure Databricks, Azure Synapse, Power BI, PySpark, SparkSQL</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Twitter Sentiment Analysis -->
+          <div class="project-item">
+            <div class="project-header">
+              <h2 class="project-title">Twitter Sentiment Analysis</h2>
+              <span class="project-time">Nov 2023 - Dec 2023</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/SachinLoddiyaKarthik/Twitter_Sentiment_Analysis'">GitHub</button>
+              <button class="btn btn-description" onclick="toggleDescription(this)">Description</button>
+            </div>
+            <div class="project-description">
+              <ul>
+                <li>Developed an end-to-end NLP pipeline for classifying tweets into sentiment categories using a BiLSTM model with GloVe embeddings, achieving strong accuracy through advanced text preprocessing and deep learning in PyTorch.</li>
+                <li>Enhanced interpretability and insights through sentiment-specific word clouds, named entity recognition, and robust evaluation metrics, showcasing real-world application of deep learning for social media text analysis.</li>
+              </ul>
+              <div class="tools-container">
+                <p><strong>Tools Used:</strong> Python, Deep Learning, NLP</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Automated Attendance System -->
+          <div class="project-item">
+            <div class="project-header">
+              <h2 class="project-title">Automated Attendance System using Python</h2>
+              <span class="project-time">Feb 2020 - Apr 2020</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/SachinLoddiyaKarthik/Automated_Attendance_System_Using_Python'">GitHub</button>
+              <button class="btn btn-description" onclick="toggleDescription(this)">Description</button>
+            </div>
+            <div class="project-description">
+              <ul>
+                <li>Built a real-time attendance system using OpenCV and AdaBoost, automating facial recognition from video footage with Haar Cascades, capturing 30-frame trainsets per individual to ensure high recognition accuracy.</li>
+                <li>Automated timestamped attendance logging and cloud sync via SMTP integration, creating a full-stack Windows-deployable solution that improves efficiency, reduces errors, and enables remote access to records.</li>
+              </ul>
+              <div class="tools-container">
+                <p><strong>Tools Used:</strong> OpenCV, ML, Python, SMTP</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>     
+      <section id="education" class="education-container">
+        <p class="section_text_p1">My Academic Journey</p>
+        <h1 class="title">Education</h1>
+      
+        <!-- Masters Degree -->
+        <div class="education-box-container">
+          <div class="university-logo">
+            <img alt="University Logo" src="./assets/wmu.png">
+          </div>
+          <div class="education-details">
+            <h3>Masters in Data Science</h3>
+            <span>Aug 2023 - Apr 2025</span>
+            <p>Western Michigan University, MI, USA</p>
+          </div>
+          <div class="gpa-container">
+            <div class="gpa-text">3.86/4</div>        
+          </div>
+        </div>
+      
+        <!-- B.Tech Degree -->
+        <div class="education-box-container">
+          <div class="university-logo">
+            <img alt="University Logo" src="./assets/AU.png">
+          </div>
+          <div class="education-details">
+            <h3>B.Engineering in Electronics and Communication Engineering</h3>
+            <span>Aug 2016 - May 2020</span>
+            <p>Anna University, India</p>
+          </div>
+          <div class="gpa-container">
+            <div class="gpa-text">7.34/10</div>        
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <p class="section__text__p1">Get in Touch</p>
+        <h1 class="title">Contact Me</h1>
+        <div class="contact-info-upper-container">
+          <div class="contact-info-container">
+            <img
+              src="./assets/email_light.png"
+              src-light="./assets/email_light.png"
+              src-dark="./assets/email_dark.png"
+              alt="Email icon"
+              class="icon contact-icon email-icon"
+            />
+            <p><a href="mailto:sachinlkece@gmail.com">sachinlkece@gmail.com</a></p>
+          </div>
+          <div class="contact-info-container">
+            <img
+              src="./assets/linkedin_light.png"
+              src-light="./assets/linkedin_light.png"
+              src-dark="./assets/linkedin_dark.png"
+              alt="My LinkedIn profile"
+              class="icon linkedin-icon"
+              onclick="location.href='https://www.linkedin.com/in/sachin-lk/'"
+            />
+            <p><a href="https://www.linkedin.com/in/sachin-lk/">LinkedIn</a></p>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <nav>
+          <div class="nav-links-container">
+            <ul class="nav-links">
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#projects">Projects</a></li>
+  
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+        <p>Copyright &#169; SLK. All Rights Reserved.</p>
+      </footer>
+      <script src="script.js"></script>
+    </body>
+  </html> 

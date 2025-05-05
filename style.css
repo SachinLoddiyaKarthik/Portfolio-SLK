@@ -1,0 +1,863 @@
+/* GENERAL */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+/* Default Light Mode */
+:root {
+  --primary-color: white;
+  --primary-color-2: rgb(250, 250, 250);
+  --primary-color-3: rgb(181, 181, 181);
+  --background-color: rgb(255, 255, 255);
+  --secondary-color: black;
+  --secondary-color-2: rgb(85, 85, 85);
+  --button-background: rgb(53, 53, 53);
+  --button-text-hover: grey;
+  --button-border: rgb(53, 53, 53) 0.1rem solid;
+  --button-border-2: rgb(255, 255, 255) 0.1rem solid;
+  --container-border: rgb(163, 163, 163);
+}
+
+/* Dark Mode */
+[theme="dark"] {
+  --primary-color: black;
+  --primary-color-2: rgb(39, 39, 39);
+  --primary-color-3: rgb(74, 74, 74);
+  --background-color: rgb(33, 33, 33);
+  --secondary-color: white;
+  --secondary-color-2: rgb(170, 170, 170);
+  --button-background: rgb(202, 202, 202);
+  --button-text-hover: lightgrey;
+  --button-border: rgb(202, 202, 202) 0.1rem solid;
+  --button-border-2: rgb(0, 0, 0) 0.1rem solid;
+  --container-border: rgb(92, 92, 92);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  color: var(--secondary-color);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: var(--secondary-color-2);
+}
+
+/* TRANSITION */
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* DESKTOP NAV */
+/* Fixed Desktop Navigation */
+/* Reduced Fixed Desktop Navigation */
+#desktop-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color); /* Keep background color */
+  z-index: 1000; /* Keeps it above other elements */
+  padding: 2px 0; /* Reduce padding to decrease height */
+  height: 8vh; /* Reduce height */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+}
+
+/* Adjust the body padding so content does not hide behind the fixed nav */
+body {
+  padding-top: -5vh; /* Adjust according to new nav height */
+}
+
+/* Reduce font size in nav links for better fit */
+.nav-links {
+  gap: 1.5rem;
+  list-style: none;
+  font-size: 1.2rem; /* Reduce font size */
+}
+
+/* Adjust logo size */
+.logo {
+  font-size: 1.8rem; /* Reduce logo font size */
+  color: var(--secondary-color);
+}
+
+nav,
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  justify-content: space-around;
+  height: 17vh;
+}
+
+nav li:last-child {
+  width: max-content;
+  display: flex;
+  margin: auto;
+  padding: 10px;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  text-decoration-color: var(--primary-color);
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: var(--secondary-color);
+}
+
+nav a:hover {
+  color: var(--secondary-color);
+  text-decoration-color: var(--secondary-color);
+}
+
+
+.logo:hover {
+  cursor: default;
+}
+
+/* HAMBURGER MENU */
+
+#hamburger-nav {
+  display: none;
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--primary-color);
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden; /* Completely hide when closed */
+}
+
+.menu-links a {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-links li {
+  list-style: none;
+  padding: 8px 12px;
+}
+
+.menu-links.open {
+  max-height: 400px; /* Expand fully */
+  opacity: 1;
+  visibility: visible;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+.hamburger-icon span:first-child {
+  opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+/* SECTIONS */
+
+section {
+  padding-top: 12vh;
+  height: 96vh;
+  margin: 0 10rem;
+  margin-top: -12vh; /* Pull section up to keep layout intact */
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+
+
+.section-container {
+  display: flex;
+}
+
+/* PROFILE SECTION */
+
+#profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    height: auto; /* Adjust height to auto */
+    margin-top: 16rem;
+    margin-bottom: 16rem;
+    flex-wrap: nowrap;
+    text-align: center;
+  }
+
+/* Ensure profile picture stays beside the text */
+.profile-pic-container {
+  flex-shrink: 0;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.section__text {
+  text-align: left;
+  max-width: 600px;
+  word-wrap: break-word;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+}
+
+/* Keep name in one line and adjust if needed */
+.title {
+  color: var(--secondary-color);
+  font-size: 3rem;
+  text-align: center;
+  white-space: nowrap; /* Prevents breaking into two lines */
+  overflow: visible;
+  text-overflow: clip;
+  max-width: 100%; /* Ensures it doesn’t overflow */
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section_text_p3 {
+  text-align: center;
+  align-self: center;
+}
+
+
+.title {
+  color: var(--secondary-color);
+  font-size: 3rem;
+  text-align: center;
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* ICONS */
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+/* BUTTONS */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+}
+
+.btn-color-1,
+.btn-color-2 {
+  border: var(--button-border);
+  color: var(--secondary-color-2);
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+  cursor: pointer;
+}
+
+.btn-color-1,
+.btn-color-2:hover {
+  background: var(--button-background);
+  color: var(--primary-color);
+}
+
+.btn-color-1:hover {
+  background: var(--secondary-color);
+}
+
+.btn-color-2 {
+  background: none;
+}
+
+.btn-color-2:hover {
+  border: var(--button-border);
+  background: var(--secondary-color);
+}
+
+.btn-container {
+  gap: 1rem;
+}
+
+/* ABOUT SECTION */
+#about {
+  position: relative;
+  margin-bottom: 0rem; /* Adjust spacing between About and Profile */
+  margin-top: 6em; /* Ensures gap above the About section */
+}
+
+/* Ensure About section stays side by side */
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: nowrap; /* Prevents wrapping until necessary */
+  height: auto;
+}
+
+.about-details-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-pic-container {
+  flex: 1;
+  max-width: 350px; /* Ensures image size is controlled */
+}
+
+.about-pic {
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: var(--primary-color-2);
+  border-radius: 2rem;
+  border: var(--button-border);
+  border-color: var(--container-border);
+  text-align: center;
+}
+
+
+/* SKILLS SECTION */
+#skills {
+  position: relative;
+  margin-top: -3rem;
+  text-align: center; 
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.skill-card {
+  background-color: var(--primary-color-2);
+  border-radius: 1rem;
+  border: var(--button-border);
+  border-color: var(--container-border);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  min-height: 200px;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.skill-card h2 {
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  background-color: var(--button-text-hover);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--background-color);
+  display: inline-block;
+}
+
+/* Adjust section spacing */
+#skills h1 {
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .skills-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+/* EXPERIENCE SECTION */
+#experience {
+  position: relative;
+  margin-top: -2.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.experience-card-container {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding-top: 2rem; /* Add some gap between the heading and the card layout */
+}
+
+.experience-card {
+  padding: 2rem;
+  background-color: var(--primary-color-2);
+  border-radius: 1rem;
+  border: var(--button-border);
+  border-color: var(--container-border);
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Reduced space between header and company name */
+}
+
+.experience-duration {
+  font-weight: 600;
+  color: var(--secondary-color); /* Lighter shade color for year */
+}
+
+.experience-sub-title {
+  margin-bottom: 0;
+  color: var(--secondary-color);
+}
+
+.experience-company {
+  margin-top: 0.5rem; /* Small gap added between job details and company name */
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--secondary-color); /* Lighter shade for the company name */
+}
+
+.experience-list {
+  list-style-type: disc; /* Added bullet points */
+  padding-left: 20px;
+  color: var(--secondary-color-2);
+}
+
+.experience-list li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Add gap here */
+#experience h1 {
+  margin-bottom: 2rem; /* Adjust this value to your preference */
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .experience-card-container {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+}
+
+
+/* PROJECTS SECTION */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Small gap between projects */
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.project-item {
+  background: var(--primary-color-2);
+  border: 1px solid var(--container-border);
+  padding: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Project Header (Title & Time) */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.project-title {
+  color: var(--secondary-color);
+}
+
+.project-time {
+  font-size: 1rem;
+  color: var(--secondary-color-2);
+}
+
+#projects h1 {
+  margin-bottom: 2rem; /* Adjust this value to your preference */
+}
+
+/* Buttons in Same Row */
+.project-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+/* GitHub & Description Button */
+.project-btn, .btn-description {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-description {
+  background: var(--button-text-hover);
+  color: var(--background-color);
+}
+
+/* Description Container (Initially Hidden) */
+.project-description {
+  display: none;
+  padding: 1rem;
+  background: var(--primary-color-3);
+  color: var(--secondary-color-2);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+  .projects-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* EDUCATION SECTION */
+#education {
+  position: relative;
+  padding-top: 6vh; /* Increase spacing */
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%; /* Full width */
+  max-width: 1100px; /* Align width with other sections */
+  margin: 5rem auto 0 auto; /* Added more margin for spacing */
+}
+
+/* Ensuring the title and paragraph are centered */
+#education .section_text_p1,
+#education .title {
+  text-align: center;
+  width: 100%; /* Make full width */
+}
+
+/* Education Boxes */
+.education-box-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Center align */
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background: var(--primary-color-2);
+  border: var(--button-border);
+  border-color: var(--container-border);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Ensure width consistency */
+  max-width: 900px; /* Align with other sections */
+  margin: 1rem auto; /* Center and add spacing */
+}
+
+/* University Logo */
+.university-logo img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Education Details */
+.education-details {
+  flex: 1;
+  text-align: center; /* Center align */
+  color: var(--secondary-color);
+}
+
+/* Fixing Text Alignment */
+.education-details h3 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-align: center; /* Ensure text is centered */
+}
+
+.education-details span,
+.education-details p {
+  font-size: 1.2rem;
+  color: var(--secondary-color-2);
+  margin-top: 5px;
+}
+
+/* GPA Styling */
+.gpa-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  background: var(--secondary-color-2);
+  border-radius: 50%;
+}
+
+/* Ensure GPA Text is centered properly */
+.gpa-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 1200px) {
+  .education-box-container {
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+  }
+
+  .gpa-container {
+    width: 70px;
+    height: 70px;
+    font-size: 1rem;
+  }
+
+  .education-details {
+    text-align: center;
+  }
+
+  .university-logo img {
+    width: 60px;
+  }
+}
+
+
+/* CONTACT */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  border: var(--button-border);
+  border-color: var(--container-border);
+  background: var(--background-color);
+  margin: 2rem auto;
+  padding: 0.5rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+}
+
+.contact-icon {
+  cursor: default;
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* FOOTER SECTION */
+
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
+}
