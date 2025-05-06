@@ -803,6 +803,95 @@ section {
   }
 }
 
+/* CERTIFICATIONS SECTION (SIMPLIFIED) */
+#certifications {
+    position: relative;
+    padding-top: 6vh;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 5rem auto 0 auto;
+}
+
+#certifications .section_text_p1,
+#certifications .title {
+    text-align: center;
+    width: 100%;
+}
+
+.certification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 700px; /* Adjust max-width as needed */
+    margin: 2rem auto;
+}
+
+.certification-item {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: var(--primary-color-2);
+    border: var(--button-border);
+    border-color: var(--container-border);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    position: relative; /* Make this the positioning context */
+    display: flex; /* Use flexbox to manage the main content flow */
+    flex-direction: column; /* Stack title, issuer, and position link */
+    justify-content: space-between; /* Distribute space to push link to the bottom */
+    min-height: 80px; /* Ensure enough height for spacing */
+}
+
+.certification-item h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.certification-item p {
+    font-size: 1.1rem;
+    color: var(--secondary-color-2);
+    margin-bottom: 0;
+}
+
+.certification-item p:first-of-type {
+    font-weight: bold; /* Style the "Issuer:" label */
+}
+
+.certification-item p a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: background-color 300ms ease, color 300ms ease;
+    position: absolute; /* Position it absolutely within the item */
+    bottom: 1.5rem; /* Position it in the bottom */
+    right: 1.5rem; /* Position it in the right corner */
+}
+
+.certification-item p a:hover {
+    background-color: #000;
+    color: var(--primary-color);
+}
+/* RESPONSIVENESS FOR CERTIFICATIONS (SIMPLIFIED) */
+@media screen and (max-width: 768px) {
+    .certification-list {
+        width: 95%;
+    }
+
+    .certification-item {
+        text-align: left; /* Keep left-aligned on smaller screens too, for readability */
+    }
+}
 
 /* CONTACT */
 
