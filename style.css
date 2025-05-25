@@ -586,6 +586,13 @@ section {
 
 
 /* PROJECTS SECTION */
+#projects {
+  position: relative;
+  margin-top: 4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
 .projects-container {
   display: flex;
   flex-direction: column;
@@ -803,7 +810,6 @@ section {
   }
 }
 
-/* CERTIFICATIONS SECTION (SIMPLIFIED) */
 #certifications {
     position: relative;
     padding-top: 6vh;
@@ -827,25 +833,26 @@ section {
 .certification-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    width: 90%;
-    max-width: 700px; /* Adjust max-width as needed */
-    margin: 2rem auto;
+    gap: 1rem; /* Same gap as projects */
+    align-items: center;
+    width: 100%;
+    max-width: 900px; /* Same max-width as projects */
+    margin: auto; /* Same margin as projects */
 }
 
 .certification-item {
-    padding: 1.5rem;
-    border-radius: 1rem;
+    padding: 1rem; /* Same padding as projects */
+    border-radius: 10px; /* Same border-radius as projects */
     background: var(--primary-color-2);
-    border: var(--button-border);
-    border-color: var(--container-border);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--container-border); /* Same border as projects */
+    width: 100%; /* Same width as projects */
+    position: relative;
     text-align: left;
-    position: relative; /* Make this the positioning context */
-    display: flex; /* Use flexbox to manage the main content flow */
-    flex-direction: column; /* Stack title, issuer, and position link */
-    justify-content: space-between; /* Distribute space to push link to the bottom */
-    min-height: 80px; /* Ensure enough height for spacing */
+    transition: all 0.3s ease-in-out; /* Same transition as projects */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 80px;
 }
 
 .certification-item h3 {
@@ -882,7 +889,8 @@ section {
     background-color: #000;
     color: var(--primary-color);
 }
-/* RESPONSIVENESS FOR CERTIFICATIONS (SIMPLIFIED) */
+
+/* RESPONSIVENESS FOR CERTIFICATIONS */
 @media screen and (max-width: 768px) {
     .certification-list {
         width: 95%;
