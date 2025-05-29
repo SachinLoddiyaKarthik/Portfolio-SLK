@@ -886,7 +886,7 @@ section {
 }
 
 .certification-item p a:hover {
-    background-color: #000;
+    background-color: var(--secondary-color);
     color: var(--primary-color);
 }
 
