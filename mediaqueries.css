@@ -162,3 +162,9 @@
     }
   }
   
+  @media screen and (max-width: 600px) {
+  [theme="dark"] .github-icon {
+    height: 2.1rem; /* Adjust for mobile dark mode */
+    width: 2.1rem;
+  }
+}

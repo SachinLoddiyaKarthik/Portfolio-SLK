@@ -951,3 +951,15 @@ footer {
 footer p {
   text-align: center;
 }
+
+/* ICONS */
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+/* Dark Mode GitHub Icon Fix - Using the specific class from your HTML */
+[theme="dark"] .github-icon {
+  height: 1.9rem;
+  width: 1.9rem;
+}
