@@ -96,3 +96,53 @@ function toggleMenu() {
   function showEducation() {
     window.location.href = "#education";
   }
+  function showExperience(id) {
+  // Hide all experience content
+  document.querySelectorAll('.experience-content').forEach((section) => {
+    section.classList.remove('active');
+  });
+
+  // Remove 'active' class from all buttons
+  document.querySelectorAll('.tab-btn').forEach((btn) => {
+    btn.classList.remove('active');
+  });
+
+  // Show the selected experience
+  document.getElementById(`exp-${id}`).classList.add('active');
+
+  // Add 'active' to the clicked button
+  event.target.classList.add('active');
+}
+
+function showProject(id) {
+  // Hide all project content
+  document.querySelectorAll('.project-content').forEach((proj) => {
+    proj.classList.remove('active');
+  });
+
+  // Remove 'active' from all buttons
+  document.querySelectorAll('.project-tab-btn').forEach((btn) => {
+    btn.classList.remove('active');
+  });
+
+  // Show the selected project content
+  const selected = document.getElementById(`project-${id}`);
+  if (selected) {
+    selected.classList.add('active');
+  }
+
+  // Add 'active' to the clicked button
+  event.target.classList.add('active');
+}
+function showCerts(provider) {
+  document.querySelectorAll('.certification-content').forEach((el) => {
+    el.classList.remove('active');
+  });
+
+  document.querySelectorAll('.project-tab-btn').forEach((btn) => {
+    btn.classList.remove('active');
+  });
+
+  document.getElementById(`certs-${provider}`).classList.add('active');
+  event.target.classList.add('active');
+}
