@@ -347,10 +347,10 @@
 
       <!-- Project Tabs -->
       <div class="project-tabs">
-      <button class="project-tab-btn active" onclick="showProject('scheduler')">Scheduler</button>
       <button class="project-tab-btn" onclick="showProject('atsresume')">ATS Resume</button>
-      <button class="project-tab-btn" onclick="showProject('chatbot')">AI Chatbot</button>
       <button class="project-tab-btn" onclick="showProject('askpdf')">Ask My PDF</button>
+      <button class="project-tab-btn active" onclick="showProject('scheduler')">Scheduler</button>
+      <button class="project-tab-btn" onclick="showProject('chatbot')">AI Chatbot</button>
       <button class="project-tab-btn" onclick="showProject('olympics')">Olympics</button>
       <button class="project-tab-btn" onclick="showProject('netflix')">Netflix</button>
       <button class="project-tab-btn" onclick="showProject('covid')">Covid19</button>
@@ -361,20 +361,7 @@
 
 
       <!-- Project Panels -->
-      <div class="projects-container">
-        <div id="project-scheduler" class="project-item project-content active">
-          <h2 class="project-title">Class Scheduler for Administrator</h2>
-          <p class="project-time">Jan 2025 - Apr 2025</p>
-          <ul>
-            <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming.</li>
-            <li>Streamlit-based UI for CSV processing and schedule visualization.</li>
-            <li>Minimized conflicts using optimization logic and frontend UX.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/Class-Scheduler" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
+       <div class="projects-container"></div>
         <div id="project-atsresume" class="project-item project-content">
           <h2 class="project-title">Enhanced ATS Resume Expert Pro – AI Resume Analyzer</h2>
           <p class="project-time">May 2025 – Jun 2025</p>
@@ -389,6 +376,31 @@
           </div>
         </div>
 
+        <div id="project-askpdf" class="project-item project-content">
+          <h2 class="project-title">Ask My PDF Pro – Multilingual AI Document Q&A</h2>
+          <p class="project-time">Apr 2025 - May 2025</p>
+          <ul>
+            <li>Developed a multi-PDF chat system using LangChain, FAISS + BM25 for hybrid retrieval, and Gemini/OpenAI LLMs.</li>
+            <li>Enabled contextual Q&A via PyMuPDF chunking, multilingual translation, and Streamlit-based interactive UI.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/SachinLoddiyaKarthik/ask-my-pdf" target="_blank" class="github-btn">GitHub ↗</a>
+            <a href="https://ask-my-pdf-pro.streamlit.app" target="_blank" class="demo-btn">Live Demo ↗</a>
+          </div>
+        </div>
+
+        <div id="project-scheduler" class="project-item project-content active">
+          <h2 class="project-title">Class Scheduler for Administrator</h2>
+          <p class="project-time">Jan 2025 - Apr 2025</p>
+          <ul>
+            <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming.</li>
+            <li>Streamlit-based UI for CSV processing and schedule visualization.</li>
+            <li>Minimized conflicts using optimization logic and frontend UX.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/SachinLoddiyaKarthik/Class-Scheduler" target="_blank" class="github-btn">GitHub ↗</a>
+          </div>
+        </div>
 
         <div id="project-chatbot" class="project-item project-content">
           <h2 class="project-title">Conversational AI Chatbot</h2>
@@ -400,18 +412,6 @@
           </ul>
           <div class="project-links">
             <a href="https://github.com/SachinLoddiyaKarthik/Conversational-AI-Chatbot-with-LangChain-and-OpenAI" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div id="project-askpdf" class="project-item project-content">
-          <h2 class="project-title">Ask My PDF – AI Document Q&A</h2>
-          <p class="project-time">Apr 2025 - May 2025</p>
-          <ul>
-            <li>Built semantic retrieval Q&A over PDFs using LangChain + FAISS.</li>
-            <li>Chunking via PyMuPDF and contextual answering with LLMs.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/ask-my-pdf" target="_blank" class="github-btn">GitHub ↗</a>
           </div>
         </div>
 
@@ -599,7 +599,7 @@
 
         <div id="certs-uc" class="certification-content">
           <div class="certification-item">
-            <p>Issuer: University of California</p>
+            <h3>SQL for Data Science</h3>
             <p><a href="https://www.coursera.org/account/accomplishments/records/ZSBT2MG999SN" target="_blank">View Credential</a></p>
           </div>
         </div>
