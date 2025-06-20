@@ -1,6 +1,7 @@
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
   const hamburgerIcon = document.querySelector(".hamburger-icon");
+  const hamburgerNav = document.getElementById("hamburger-nav");
   
   if (!menu || !hamburgerIcon) {
     console.error("Menu elements not found");
@@ -8,15 +9,21 @@ function toggleMenu() {
   }
 
   hamburgerIcon.classList.toggle("open");
+  const isOpen = hamburgerIcon.classList.contains("open");
+  hamburgerIcon.setAttribute("aria-expanded", isOpen ? "true" : "false");
   
-  if (menu.classList.contains("open")) {
+  if (isOpen) {
+    menu.classList.add("open");
+    menu.style.visibility = "visible";
+    if (hamburgerNav) hamburgerNav.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  } else {
     menu.classList.remove("open");
     setTimeout(() => {
       menu.style.visibility = "hidden";
+      if (hamburgerNav) hamburgerNav.style.display = "none";
+      document.body.style.overflow = "";
     }, 300);
-  } else {
-    menu.classList.add("open");
-    menu.style.visibility = "visible";
   }
 }
   
@@ -40,7 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuLinksAnchors = document.querySelectorAll(".menu-links a");
   menuLinksAnchors.forEach(link => {
     link.addEventListener("click", () => {
-      toggleMenu();
+      const hamburgerIcon = document.querySelector(".hamburger-icon");
+      if (hamburgerIcon && hamburgerIcon.classList.contains("open")) {
+        toggleMenu();
+      }
     });
   });
 
