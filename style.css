@@ -1593,16 +1593,32 @@ footer p {
 
 @media screen and (max-width: 900px) {
   #profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
     height: auto;
     margin-bottom: 3rem;
   }
-  .title {
-    font-size: 2.5rem;
-    white-space: normal;
+
+  .section__text {
+    text-align: center;
+    align-items: center;
   }
+
+  .profile-pic-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
   .section__pic-container {
-    width: 200px;
-    height: 200px;
+    width: 275px;
+    height: 275px;
     margin-bottom: 1rem;
   }
   #about {

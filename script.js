@@ -85,26 +85,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
   
 // Dark / light mode with improved error handling
-const btn = document.getElementById("modeToggle");
-const btn2 = document.getElementById("modeToggle2");
+const modeToggle = document.getElementById("modeToggle");
+const modeToggle2 = document.getElementById("modeToggle2");
 const themeIcons = document.querySelectorAll(".icon");
-const currentTheme = localStorage.getItem("theme");
 
+const currentTheme = localStorage.getItem("theme");
 if (currentTheme === "dark") {
   setDarkMode();
 }
 
 // Add event listeners with error handling
-if (btn) {
-  btn.addEventListener("click", setTheme);
+if (modeToggle) {
+  modeToggle.addEventListener("click", setTheme);
 }
 
-if (btn2) {
-  btn2.addEventListener("click", setTheme);
+if (modeToggle2) {
+  modeToggle2.addEventListener("click", setTheme);
 }
 
 function setTheme() {
-  const currentTheme = document.body.getAttribute("theme");
+  const currentTheme = document.documentElement.getAttribute("theme");
   
   if (currentTheme === "dark") {
     setLightMode();
@@ -114,7 +114,7 @@ function setTheme() {
 }
 
 function setDarkMode() {
-  document.body.setAttribute("theme", "dark");
+  document.documentElement.setAttribute("theme", "dark");
   localStorage.setItem("theme", "dark");
 
   themeIcons.forEach((icon) => {
@@ -129,7 +129,7 @@ function setDarkMode() {
 }
 
 function setLightMode() {
-  document.body.removeAttribute("theme");
+  document.documentElement.removeAttribute("theme");
   localStorage.setItem("theme", "light");
 
   themeIcons.forEach((icon) => {
