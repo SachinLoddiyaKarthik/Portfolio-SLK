@@ -4,645 +4,723 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sachin LK - Data Engineer Portfolio showcasing expertise in data pipelines, ETL workflows, and real-time analytics using PySpark, SQL, Azure Databricks, and Synapse.">
+    <meta name="keywords" content="Data Engineer, Data Science, Azure, PySpark, SQL, Portfolio">
+    <meta name="author" content="Sachin Loddiya Karthik">
     <meta property="og:title" content="Sachin LK – Data Engineer Portfolio">
+    <meta property="og:description" content="Data Engineer with 4+ years of experience in scalable data pipelines and real-time analytics">
     <meta property="og:image" content="assets/Profile-picture.png">
+    <meta property="og:url" content="https://your-portfolio-url.com">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <title>My Portfolio</title>
+    <title>Sachin LK - Data Engineer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="performance.css" />
 </head>
 <body>
-    <nav id="desktop-nav">
-        <div class="logo">Sachin Loddiya Karthik</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li>
-                    <img
-                      id="modeToggle"
-                      class="icon color-icon"
-                      src="./assets/theme_light.png"
-                      src-light="./assets/theme_light.png"
-                      src-dark="./assets/theme_dark.png"
-                      alt="Color them icon"
-                    />
-                  </li>
-            </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">Sachin Loddiya Karthik</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-              <span></span>
-              <span></span>
-              <span></span>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav id="desktop-nav" aria-label="Main navigation">
+            <div class="logo">Sachin Loddiya Karthik</div>
+            <div>
+                <ul class="nav-links">
+                    <li><a href="#about" aria-label="Go to About section">About</a></li>
+                    <li><a href="#experience" aria-label="Go to Experience section">Experience</a></li>
+                    <li><a href="#skills" aria-label="Go to Skills section">Skills</a></li>
+                    <li><a href="#projects" aria-label="Go to Projects section">Projects</a></li>
+                    <li><a href="#certifications" aria-label="Go to Certifications section">Certifications</a></li>
+                    <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
+                    <li>
+                        <button
+                          id="modeToggle"
+                          class="icon color-icon theme-toggle"
+                          aria-label="Toggle dark/light mode"
+                        >
+                          <img
+                            src="./assets/theme_light.png"
+                            src-light="./assets/theme_light.png"
+                            src-dark="./assets/theme_dark.png"
+                            alt="Theme toggle icon"
+                          />
+                        </button>
+                      </li>
+                </ul>
             </div>
-            <ul class="menu-links">
-              <li><a href="#about" onclick="toggleMenu()">About</a></li>
-              <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-              <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-              <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-              <li><a href="#education" onclick="toggleMenu()">Education</a></li>
-              <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
-              <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-              <li>
-                <img
-                  id="modeToggle2"
-                  class="icon color-icon"
-                  src="./assets/theme_light.png"
-                  src-light="./assets/theme_light.png"
-                  src-dark="./assets/theme_dark.png"
-                  alt="Color them icon"
-                />
-              </li>
-            </ul>
-          </div>
         </nav>
-        <section id="profile">
+        <nav id="hamburger-nav" aria-label="Mobile navigation">
+            <div class="logo">Sachin Loddiya Karthik</div>
+            <div class="hamburger-menu">
+                <button class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+                <ul class="menu-links">
+                  <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                  <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                  <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+                  <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                  <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
+                  <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                  <li>
+                    <button
+                      id="modeToggle2"
+                      class="icon color-icon theme-toggle"
+                      aria-label="Toggle dark/light mode"
+                    >
+                      <img
+                        src="./assets/theme_light.png"
+                        src-light="./assets/theme_light.png"
+                        src-dark="./assets/theme_dark.png"
+                        alt="Theme toggle icon"
+                      />
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="profile" aria-labelledby="profile-title" class="fade-in-section">
             <div class="profile-pic-container">
-              <img src="./assets/Profile-picture.png" alt="Sachin Profile picture" class="profile-pic" />
+              <img src="./assets/Profile-picture.png" alt="Sachin LK Profile picture" class="profile-pic" />
             </div>            
             <div class="section__text">
               <p class="section__text__p1">Hello, I'm</p>
-              <h1 class="title">Sachin Loddiya Karthik</h1>
-              <p class="section__text__p2">Data Engineer</p>
+              <h1 id="profile-title" class="title">Sachin Loddiya Karthik</h1>
+              <p class="section__text__p2" aria-label="My professional title"><span id="typing-tagline">Building Scalable Data Solutions</span></p>
               <div class="btn-container">
                 <button
                   class="btn btn-color-2"
                   onclick="window.open('./assets/Sachin_Resume.pdf')"
+                  aria-label="Download Resume"
                 >
                   Resume
                 </button>
-                <button class="btn btn-color-1" onclick="location.href='./#contact'">
+                <button class="btn btn-color-1" onclick="location.href='./#contact'" aria-label="Go to Contact section">
                   Contact Info
                 </button>
               </div>
               <div id="socials-container">
+                <button
+                  class="icon linkedin-icon"
+                  onclick="location.href='https://www.linkedin.com/in/sachin-lk/'"
+                  aria-label="Visit LinkedIn profile"
+                >
+                  <img
+                    src="./assets/linkedin_light.png"
+                    src-light="./assets/linkedin_light.png"
+                    src-dark="./assets/linkedin_dark.png"
+                    alt="LinkedIn icon"
+                  />
+                </button>
+                <button
+                  class="icon github-icon"
+                  onclick="location.href='https://github.com/SachinLoddiyaKarthik'"
+                  aria-label="Visit GitHub profile"
+                >
+                  <img
+                    src="./assets/github_light.png"
+                    src-light="./assets/github_light.png"
+                    src-dark="./assets/github_dark.png"
+                    alt="GitHub icon"
+                  />
+                </button>
+              </div>
+            </div>
+          </section>
+
+        <section id="about" aria-labelledby="about-title" class="fade-in-section">
+          <div class="section-container about-layout">
+            <div class="section__pic-container about-pic-container">
+              <img src="./assets/About_me.png" alt="A professional headshot of Sachin LK, a data engineer, in a casual setting." class="about-pic" />
+            </div>
+            <div class="about-details-container">
+              <div class="text-container">
+                <p class="section__text__p1">Get To Know More</p>
+                <h1 id="about-title" class="title">About Me</h1>
+                <p class="about-me-text">
+                  I'm a Data Engineer who thrives on transforming complex data into actionable insights. With over 4 years of experience, I specialize in building and automating robust ETL pipelines and architecting scalable data lakehouses in the cloud. 
+                  <br><br>
+                  My passion lies at the intersection of data and cloud technology, where I enjoy leveraging tools like PySpark, Azure Databricks, and Synapse to design solutions that not only meet technical requirements but also drive real business outcomes. I'm driven by a constant curiosity to learn and a desire to build data systems that are not just efficient, but elegant.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" aria-labelledby="experience-title" class="fade-in-section">
+          <p class="section__text__p1">Explore My</p>
+          <h1 id="experience-title" class="title">Experience</h1>
+
+          <!-- Tabs -->
+          <div class="experience-tabs" role="tablist" aria-label="Experience tabs">
+            <button class="tab-btn active" onclick="showExperience(event, 'wmu')" role="tab" aria-selected="true" aria-controls="exp-wmu">WMU</button>
+            <button class="tab-btn" onclick="showExperience(event, 'green')" role="tab" aria-selected="false" aria-controls="exp-green">Green Expectations</button>
+            <button class="tab-btn" onclick="showExperience(event, 'accenture')" role="tab" aria-selected="false" aria-controls="exp-accenture">Accenture</button>
+            <button class="tab-btn" onclick="showExperience(event, 'claritrics')" role="tab" aria-selected="false" aria-controls="exp-claritrics">Claritrics</button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="experience-details-container">
+            <div id="exp-wmu" class="experience-card experience-content active" role="tabpanel" aria-labelledby="exp-wmu">
+              <div class="experience-header">
+                <h2 class="experience-sub-title">Data Scientist</h2>
+                <p class="experience-duration">Jan 2025 - Apr 2025</p>
+              </div>
+              <h3 class="experience-company">Western Michigan University, USA</h3>
+              <ul class="experience-list">
+                <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming, reducing manual scheduling time by 85% and optimizing faculty-course assignments for 200+ courses across 15 departments.</li>
+                <li>Created and deployed a Streamlit-based UI processing 50+ CSV files with real-time validation, reducing data input errors by 90% and enabling interactive visualizations of optimized schedules for 100+ faculty members.</li>
+                <li>Minimized scheduling conflicts by 95% and eliminated 40+ hours of weekly manual effort through integration of advanced optimization algorithms and a user-friendly frontend interface.</li>
+              </ul>
+            </div>
+
+            <div id="exp-green" class="experience-card experience-content" role="tabpanel" aria-labelledby="exp-green">
+              <div class="experience-header">
+                <h2 class="experience-sub-title">Data Scientist</h2>
+                <p class="experience-duration">Jan 2024 - Apr 2024</p>
+              </div>
+              <h3 class="experience-company">Green Expectations LLC, USA</h3>
+              <ul class="experience-list">
+                <li>Built the backend infrastructure for an AI-powered home sustainability platform, processing 1K+ data points per user via a rule-based House Sustainability Calculator, boosting recommendation accuracy by 35%.</li>
+                <li>Led the development of a secure user authentication system with persistent storage, enabling 100% individualized access and supporting real-time tracking for 500+ active users.</li>
+                <li>Engineered data flows for an NLP-driven conversational AI chatbot, reducing response latency by 40% and increasing user engagement by 25%.</li>
+              </ul>
+            </div>
+
+            <div id="exp-accenture" class="experience-card experience-content" role="tabpanel" aria-labelledby="exp-accenture">
+              <div class="experience-header">
+                <h2 class="experience-sub-title">Data Engineer</h2>
+                <p class="experience-duration">Jul 2021 - Jul 2023</p>
+              </div>
+              <h3 class="experience-company">Accenture, India</h3>
+              <ul class="experience-list">
+                <li>Engineered ETL pipelines with Azure Data Factory to migrate and reformat critical supply chain data into Parquet format, boosting processing efficiency by 40% while minimizing disruption.</li>
+                <li>Utilized Azure Databricks to process raw supply chain data from Data Lake Gen2, enhancing accuracy by 25% and halving transformation times.</li>
+                <li>Developed external tables and views within Azure SQL and implemented interactive Power BI dashboards, enhancing data access and delivering insights that resulted in a 25% increase in operational efficiency.</li>
+                <li>Improved data workflows by integrating ADF triggers, Databricks notebooks, and CI/CD pipelines via Azure DevOps, boosting team efficiency by 15% and accelerating SCPO upgrade project delivery by 30%.</li>
+              </ul>
+            </div>
+
+            <div id="exp-claritrics" class="experience-card experience-content" role="tabpanel" aria-labelledby="exp-claritrics">
+              <div class="experience-header">
+                <h2 class="experience-sub-title">Data Engineer</h2>
+                <p class="experience-duration">Nov 2020 - May 2021</p>
+              </div>
+              <h3 class="experience-company">Claritrics India Pvt Limited, India</h3>
+              <ul class="experience-list">
+                <li>Pioneered an advanced ETL pipeline using Azure Data Factory and Azure Databricks to create an OCR solution for extracting text from images, improving extraction accuracy by 30%.</li>
+                <li>Crafted and scheduled an end-to-end automated workflow using Azure Data Factory for orchestration and Azure Databricks for scalable image processing, reducing text extraction processing time by 40%.</li>
+                <li>Enhanced development and deployment cycles with Azure Data Factory triggers and Databricks job scheduling, resulting in a 20% gain in team efficiency and a 30% acceleration of project timelines.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" aria-labelledby="skills-title" class="fade-in-section">
+          <p class="section_text_p3">Explore My</p>
+          <h1 id="skills-title" class="title">Technical Skills by Role</h1>
+
+          <div class="skills-role-container">
+
+            <!-- Data Engineer -->
+            <div class="skills-role-block">
+              <h2><i class="fas fa-cogs" aria-hidden="true"></i> Data Engineering</h2>
+              <div class="skills-grid">
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-cloud" aria-hidden="true"></i> Cloud Platforms</h3>
+                  <div class="tags">
+                    <span>Azure (ADF, Synapse, Databricks)</span>
+                    <span>AWS (S3, Glue, Lambda, Redshift, SageMaker)</span>
+                    <span>GCP (BigQuery, Dataflow)</span>
+                    <span>Snowflake</span>
+                  </div>
+                </div>
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-cogs" aria-hidden="true"></i> Orchestration & Pipelines</h3>
+                  <div class="tags">
+                    <span>Apache Spark</span>
+                    <span>Apache Kafka</span>
+                    <span>Apache Airflow</span>
+                    <span>Delta Live Tables</span>
+                    <span>CI/CD (DevOps, GitHub Actions)</span>
+                    <span>Docker</span>
+                    <span>MLflow</span>
+                    <span>FastAPI</span>
+                  </div>
+                </div>
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-database" aria-hidden="true"></i> Databases</h3>
+                  <div class="tags">
+                    <span>Azure SQL</span>
+                    <span>PostgreSQL</span>
+                    <span>Oracle SQL</span>
+                    <span>DynamoDB</span>
+                    <span>MongoDB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Science -->
+            <div class="skills-role-block">
+              <h2><i class="fas fa-flask" aria-hidden="true"></i> Data Science</h2>
+              <div class="skills-grid">
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-code" aria-hidden="true"></i> Programming & ML</h3>
+                  <div class="tags">
+                    <span>Python</span>
+                    <span>PySpark</span>
+                    <span>Scikit-learn</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>OpenAI / LangChain</span>
+                    <span>XGBoost</span>
+                    <span>TensorFlow</span>
+                    <span>PyTorch</span>
+                    <span>Keras</span>
+                  </div>
+                </div>
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-chart-bar" aria-hidden="true"></i> Statistics & Modeling</h3>
+                  <div class="tags">
+                    <span>Regression</span>
+                    <span>Classification</span>
+                    <span>Clustering</span>
+                    <span>Time Series</span>
+                    <span>Text Analysis</span>
+                  </div>
+                </div>
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-tools" aria-hidden="true"></i> Tools</h3>
+                  <div class="tags">
+                    <span>Jupyter</span>
+                    <span>VS Code</span>
+                    <span>Pycharm</span>
+                    <span>Git</span>
+                    <span>RStudio</span>
+                    <span>WinSCP</span>
+                    <span>PuTTY</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Analyst -->
+            <div class="skills-role-block">
+              <h2><i class="fas fa-chart-line" aria-hidden="true"></i> Data Analysis & BI</h2>
+              <div class="skills-grid">
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-table" aria-hidden="true"></i> Visualization</h3>
+                  <div class="tags">
+                    <span>Power BI</span>
+                    <span>Tableau</span>
+                    <span>Excel</span>
+                    <span>Plotly</span>
+                    <span>Matplotlib</span>
+                  </div>
+                </div>
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-database" aria-hidden="true"></i> Query & Exploration</h3>
+                  <div class="tags">
+                    <span>SQL</span>
+                    <span>Presto</span>
+                    <span>Athena</span>
+                    <span>Exploratory Data Analysis</span>
+                  </div>
+                </div>
+
+                <div class="skill-category">
+                  <h3><i class="fas fa-bell" aria-hidden="true"></i> Monitoring & Reporting</h3>
+                  <div class="tags">
+                    <span>CloudWatch</span>
+                    <span>Datadog</span>
+                    <span>Logging Pipelines</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-title" class="fade-in-section">
+          <p class="section__text__p1">Browse My Recent</p>
+          <h1 id="projects-title" class="title">Projects</h1>
+
+          <!-- Project Tabs -->
+          <div class="project-tabs" role="tablist" aria-label="Project tabs">
+            <button class="project-tab-btn active" onclick="showProject(event, 'atsresume')" role="tab" aria-selected="true" aria-controls="project-atsresume">ATS Resume</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'askpdf')" role="tab" aria-selected="false" aria-controls="project-askpdf">Ask My PDF</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'scheduler')" role="tab" aria-selected="false" aria-controls="project-scheduler">Scheduler</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'chatbot')" role="tab" aria-selected="false" aria-controls="project-chatbot">AI Chatbot</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'olympics')" role="tab" aria-selected="false" aria-controls="project-olympics">Olympics</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'netflix')" role="tab" aria-selected="false" aria-controls="project-netflix">Netflix</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'covid')" role="tab" aria-selected="false" aria-controls="project-covid">Covid19</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'f1')" role="tab" aria-selected="false" aria-controls="project-f1">F1</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'twitter')" role="tab" aria-selected="false" aria-controls="project-twitter">Twitter NLP</button>
+            <button class="project-tab-btn" onclick="showProject(event, 'attendance')" role="tab" aria-selected="false" aria-controls="project-attendance">Attendance</button>
+          </div>
+
+          <!-- Project Panels -->
+           <div class="projects-container">
+            <div id="project-atsresume" class="project-item project-content active" role="tabpanel" aria-labelledby="project-atsresume">
+              <div class="project-icon-container">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Enhanced ATS Resume Expert Pro – AI Resume Analyzer</h2>
+                <p class="project-time">May 2025 – Jun 2025</p>
+                <ul>
+                  <li>Developed an AI-powered Streamlit web app using Google Gemini Pro to evaluate resume–JD alignment with semantic scoring and NLP techniques.</li>
+                  <li>Integrated PDF & DOCX parsing, TF-IDF + cosine similarity, skill gap detection, and AI career coaching modes.</li>
+                  <li>Built interactive visualizations using Plotly, WordCloud, and Radar Charts, with exportable PDF, TXT, and JSON reports.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/ats-resume-expert" target="_blank" class="github-btn" aria-label="View ATS Resume project on GitHub">GitHub ↗</a>
+                  <a href="https://ats-resume-expert-slk.streamlit.app/" target="_blank" class="demo-btn" aria-label="View ATS Resume project live demo">Live Demo ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-askpdf" class="project-item project-content" role="tabpanel" aria-labelledby="project-askpdf">
+              <div class="project-icon-container">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Ask My PDF Pro – Multilingual AI Document Q&A</h2>
+                <p class="project-time">Apr 2025 - May 2025</p>
+                <ul>
+                  <li>Developed a multi-PDF chat system using LangChain, FAISS + BM25 for hybrid retrieval, and Gemini/OpenAI LLMs.</li>
+                  <li>Enabled contextual Q&A via PyMuPDF chunking, multilingual translation, and Streamlit-based interactive UI.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/ask-my-pdf" target="_blank" class="github-btn" aria-label="View Ask My PDF project on GitHub">GitHub ↗</a>
+                  <a href="https://ask-my-pdf-pro.streamlit.app" target="_blank" class="demo-btn" aria-label="View Ask My PDF project live demo">Live Demo ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-scheduler" class="project-item project-content" role="tabpanel" aria-labelledby="project-scheduler">
+              <div class="project-icon-container">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Class Scheduler for Administrator</h2>
+                <p class="project-time">Jan 2025 - Apr 2025</p>
+                <ul>
+                  <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming.</li>
+                  <li>Streamlit-based UI for CSV processing and schedule visualization.</li>
+                  <li>Minimized conflicts using optimization logic and frontend UX.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/Class-Scheduler" target="_blank" class="github-btn" aria-label="View Class Scheduler project on GitHub">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-chatbot" class="project-item project-content" role="tabpanel" aria-labelledby="project-chatbot">
+              <div class="project-icon-container">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Conversational AI Chatbot</h2>
+                <p class="project-time">May 2025 - Jun 2025</p>
+                <ul>
+                  <li>Built using LangChain, OpenAI GPT-3.5-turbo, and Streamlit.</li>
+                  <li>Session memory with natural dialogue flow and secure API management.</li>
+                  <li>Engaging assistant persona created for user interaction.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/Conversational-AI-Chatbot-with-LangChain-and-OpenAI" target="_blank" class="github-btn" aria-label="View AI Chatbot project on GitHub">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-olympics" class="project-item project-content" role="tabpanel" aria-labelledby="project-olympics">
+              <div class="project-icon-container">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Tokyo Olympic Data Analytics Pipeline</h2>
+                <p class="project-time">Mar 2025 - Apr 2025</p>
+                <ul>
+                  <li>Built Azure pipeline with Databricks and Synapse to process 500K+ athlete records.</li>
+                  <li>Created Power BI dashboards for medal and performance analysis.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/tokyo-olympic-data-engineering-project" target="_blank" class="github-btn" aria-label="View Olympics project on GitHub">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-netflix" class="project-item project-content" role="tabpanel" aria-labelledby="project-netflix">
+              <div class="project-icon-container">
+                <i class="fas fa-tv"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Netflix Data Engineering</h2>
+                <p class="project-time">Feb 2025 - Mar 2025</p>
+                <ul>
+                  <li>Delta Lake pipeline using AutoLoader + DLT on Databricks.</li>
+                  <li>Real-time dashboards for content analytics.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/Netflix_Data_Engineering_Project" target="_blank" class="github-btn" aria-label="View Netflix project on GitHub">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-covid" class="project-item project-content" role="tabpanel" aria-labelledby="project-covid">
+              <div class="project-icon-container">
+                <i class="fas fa-virus"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Covid19 Data Engineering</h2>
+                <p class="project-time">Jun 2024 - Jul 2024</p>
+                <ul>
+                  <li>Real-time pipeline with Kafka + ADF + Power BI for trend monitoring.</li>
+                  <li>Metadata-driven pipeline design for flexibility.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/Covid19-Data-Engineering-Project" target="_blank" class="github-btn" aria-label="View Covid19 project on GitHub">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-f1" class="project-item project-content" role="tabpanel" aria-labelledby="project-f1">
+              <div class="project-icon-container">
+                <i class="fas fa-flag-checkered"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">F1 Data Analytics</h2>
+                <p class="project-time">May 2024 - Jun 2024</p>
+                <ul>
+                  <li>ETL pipeline using Azure Synapse + PySpark for real-time telemetry.</li>
+                  <li>Optimized Spark jobs and schema enforcement with monitoring.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/F1-Data-Analytics-Project" target="_blank" class="github-btn" aria-label="View F1 project on GitHub">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-twitter" class="project-item project-content" role="tabpanel" aria-labelledby="project-twitter">
+              <div class="project-icon-container">
+                <i class="fab fa-twitter"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Twitter Sentiment Analysis</h2>
+                <p class="project-time">Nov 2023 - Dec 2023</p>
+                <ul>
+                  <li>BiLSTM model with GloVe embeddings to analyze tweet sentiments.</li>
+                  <li>NER, word clouds, and metrics for interpretability.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/Twitter_Sentiment_Analysis" target="_blank" class="github-btn" aria-label="View Twitter NLP project on GitHub">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="project-attendance" class="project-item project-content" role="tabpanel" aria-labelledby="project-attendance">
+              <div class="project-icon-container">
+                <i class="fas fa-user-check"></i>
+              </div>
+              <div class="project-details-container">
+                <h2 class="project-title">Automated Attendance System</h2>
+                <p class="project-time">Feb 2020 - Apr 2020</p>
+                <ul>
+                  <li>Real-time face detection using OpenCV + Haar Cascades.</li>
+                  <li>Email-based timestamped attendance logs.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/SachinLoddiyaKarthik/Automated_Attendance_System_Using_Python" target="_blank" class="github-btn" aria-label="View Attendance project on GitHub">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="education" class="education-container fade-in-section" aria-labelledby="education-title">
+            <p class="section_text_p1">My Academic Journey</p>
+            <h1 id="education-title" class="title">Education</h1>
+          
+            <!-- Masters Degree -->
+            <div class="education-box-container">
+              <div class="university-logo">
+                <img alt="Western Michigan University logo" src="./assets/wmu.png">
+              </div>
+              <div class="education-details">
+                <h3>Masters in Data Science</h3>
+                <span>Aug 2023 - Apr 2025</span>
+                <p>Western Michigan University, USA</p>
+              </div>
+              <div class="gpa-container">
+                <div class="gpa-text">3.86/4</div>        
+              </div>
+            </div>
+          
+            <!-- B.Tech Degree -->
+            <div class="education-box-container">
+              <div class="university-logo">
+                <img alt="Anna University logo" src="./assets/AU.png">
+              </div>
+              <div class="education-details">
+                <h3>B.E in Electronics and Communication Engineering</h3>
+                <span>Aug 2016 - May 2020</span>
+                <p>Anna University, India</p>
+              </div>
+              <div class="gpa-container">
+                <div class="gpa-text">7.34/10</div>        
+              </div>
+            </div>
+          </section>
+
+        <section id="certifications" aria-labelledby="certifications-title" class="fade-in-section">
+          <p class="section_text_p1">My Achievements</p>
+          <h1 id="certifications-title" class="title">Certifications</h1>
+
+          <!-- Tabs for Providers -->
+          <div class="project-tabs" role="tablist" aria-label="Certification provider tabs">
+            <button class="project-tab-btn active" onclick="showCerts(event, 'google')" role="tab" aria-selected="true" aria-controls="certs-google">Google</button>
+            <button class="project-tab-btn" onclick="showCerts(event, 'ibm')" role="tab" aria-selected="false" aria-controls="certs-ibm">IBM</button>
+            <button class="project-tab-btn" onclick="showCerts(event, 'cisco')" role="tab" aria-selected="false" aria-controls="certs-cisco">Cisco</button>
+            <button class="project-tab-btn" onclick="showCerts(event, 'udemy')" role="tab" aria-selected="false" aria-controls="certs-udemy">Udemy</button>
+            <button class="project-tab-btn" onclick="showCerts(event, 'uc')" role="tab" aria-selected="false" aria-controls="certs-uc">UC</button>
+          </div>
+
+          <!-- Certifications by Provider -->
+          <div class="certification-list">
+            <div id="certs-google" class="certification-content active" role="tabpanel" aria-labelledby="certs-google">
+              <div class="certification-item">
+                <h3>Google Cloud Big Data and Machine Learning Fundamentals</h3>
+                <p><a href="https://www.coursera.org/account/accomplishments/verify/FHTD5JW1AS9G" target="_blank" aria-label="View Google Cloud Big Data certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Modernizing Data Lakes and Data Warehouses with Google Cloud</h3>
+                <p><a href="https://www.coursera.org/account/accomplishments/records/LXV1BOOEJ3O7" target="_blank" aria-label="View Data Lakes certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Foundations: Data, Data, Everywhere</h3>
+                <p><a href="https://www.coursera.org/account/accomplishments/records/FTWG76YHNEXV" target="_blank" aria-label="View Data Foundations certification">View Credential</a></p>
+              </div>
+            </div>
+
+            <div id="certs-ibm" class="certification-content" role="tabpanel" aria-labelledby="certs-ibm">
+              <div class="certification-item">
+                <h3>Gen AI Foundational Models for NLP & Language Understanding</h3>
+                <p><a href="https://www.coursera.org/account/accomplishments/records/7MD3CPZKCN8G" target="_blank" aria-label="View Gen AI Foundational Models for NLP & Language Understanding certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Generative AI and LLMs: Architecture and Data Preparation</h3>
+                <p><a href="https://www.coursera.org/account/accomplishments/records/1EYAG9AR53X1" target="_blank" aria-label="View Generative AI and LLMs: Architecture and Data Preparation certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>ETL and Data Pipelines with Shell, Airflow and Kafka</h3>
+                <p><a href="https://www.credly.com/badges/b5318d18-646f-4b2d-bafe-c212c1670871/public_url" target="_blank" aria-label="View ETL and Data Pipelines certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Introduction to Relational Databases (RDBMS)</h3>
+                <p><a href="https://www.coursera.org/account/accomplishments/records/ENP93S8JFBSE" target="_blank" aria-label="View RDBMS certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Databases and SQL for Data Science with Python (with Honors)</h3>
+                <p><a href="https://www.coursera.org/account/accomplishments/records/GS7Q83QQJBB4" target="_blank" aria-label="View SQL for Data Science certification">View Credential</a></p>
+              </div>
+            </div>
+
+            <div id="certs-cisco" class="certification-content" role="tabpanel" aria-labelledby="certs-cisco">
+              <div class="certification-item">
+                <h3>Data Analytics Essentials</h3>
+                <p><a href="https://www.credly.com/badges/e7996b06-8702-404e-adb8-bcf313159876/public_url" target="_blank" aria-label="View Data Analytics Essentials certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Introduction to Data Science</h3>
+                <p><a href="https://www.credly.com/badges/17c7bd6b-9309-4e51-8d8b-64b652a014fa/public_url" target="_blank" aria-label="View Introduction to Data Science certification">View Credential</a></p>
+              </div>
+            </div>
+
+            <div id="certs-udemy" class="certification-content" role="tabpanel" aria-labelledby="certs-udemy">
+              <div class="certification-item">
+                <h3>Apache Kafka</h3>
+                <p><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-b5d40860-4f59-4db0-b403-1a917f87fac4.jpg" target="_blank" aria-label="View Apache Kafka certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Azure Data Factory for Data Engineers</h3>
+                <p><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-1f8d4434-4969-4db6-80c4-689dd848611e.jpg" target="_blank" aria-label="View Azure Data Factory certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Azure Databricks & Spark For Data Engineers (PySpark / SQL)</h3>
+                <p><a href="https://www.udemy.com/certificate/UC-9f9ef6bd-04ec-4f47-a561-53ae7c497fc6/" target="_blank" aria-label="View Azure Databricks certification">View Credential</a></p>
+              </div>
+              <div class="certification-item">
+                <h3>Azure Synapse Analytics For Data Engineers</h3>
+                <p><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-772ee72c-b868-4d34-8a22-443bdd7e3239.jpg" target="_blank" aria-label="View Azure Synapse Analytics certification">View Credential</a></p>
+              </div>
+            </div>
+
+            <div id="certs-uc" class="certification-content" role="tabpanel" aria-labelledby="certs-uc">
+              <div class="certification-item">
+                <h3>SQL for Data Science</h3>
+                <p><a href="https://www.coursera.org/account/accomplishments/records/ZSBT2MG999SN" target="_blank" aria-label="View SQL for Data Science certification">View Credential</a></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-title" class="fade-in-section">
+            <p class="section__text__p1">Get in Touch</p>
+            <h1 id="contact-title" class="title">Contact Me</h1>
+            <div class="contact-info-upper-container">
+              <a href="mailto:sachinlkece@gmail.com" class="contact-info-container" aria-label="Send email to sachinlkece@gmail.com">
+                <img
+                  src="./assets/email_light.png"
+                  src-light="./assets/email_light.png"
+                  src-dark="./assets/email_dark.png"
+                  alt="Email icon"
+                  class="icon contact-icon email-icon"
+                />
+                <p>sachinlkece@gmail.com</p>
+              </a>
+              <a href="https://www.linkedin.com/in/sachin-lk/" target="_blank" class="contact-info-container" aria-label="Visit LinkedIn profile">
                 <img
                   src="./assets/linkedin_light.png"
                   src-light="./assets/linkedin_light.png"
                   src-dark="./assets/linkedin_dark.png"
-                  alt="My LinkedIn profile"
+                  alt="LinkedIn icon"
                   class="icon linkedin-icon"
-                  onclick="location.href='https://www.linkedin.com/in/sachin-lk/'"
                 />
-                <img
-                  src="./assets/github_light.png"
-                  src-light="./assets/github_light.png"
-                  src-dark="./assets/github_dark.png"
-                  alt="My github profile"
-                  class="icon github-icon"
-                  onclick="location.href='https://github.com/SachinLoddiyaKarthik'"
-                />
-              </div>
+                <p>LinkedIn</p>
+              </a>
             </div>
           </section>
-    <section id="about">
-  <p class="section__text__p1">Get To Know More</p>
-  <h1 class="title">About Me</h1>
-  <div class="section-container">
-    <!-- Profile Image -->
-    <div class="section__pic-container about-pic-container">
-      <img src="./assets/About_me.png" alt="About picture" class="about-pic" />
-    </div>
+    </main>
 
-    <!-- Info and Description -->
-    <div class="about-details-container">
-      <div class="about-containers">
-        <div class="details-container minimal-card" onclick="showExperience()">
-          <h3>👨‍💻 Experience</h3>
-          <p>4+ years<br>Data Engineering</p>
-        </div>
-        <div class="details-container minimal-card" onclick="showEducation()">
-          <h3>🎓 Education</h3>
-          <p>B.E in Electronics and Communication Engineering<br>M.S in Data Science</p>
-        </div>
-      </div>
-
-      <div class="text-container">
-        <p class="minimal-text">
-          Passionate Data Engineer with 4+ years of experience designing scalable data pipelines,
-          automating ETL workflows, and delivering real-time analytics. Skilled in PySpark, SQL,
-          Azure Databricks, and Synapse, with a focus on data modeling, lakehouse architecture,
-          and deriving insights that influence business outcomes.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-
-      <!-- Tabs -->
-      <div class="experience-tabs">
-        <button class="tab-btn active" onclick="showExperience('wmu')">WMU</button>
-        <button class="tab-btn" onclick="showExperience('green')">Green Expectations</button>
-        <button class="tab-btn" onclick="showExperience('accenture')">Accenture</button>
-        <button class="tab-btn" onclick="showExperience('claritrics')">Claritrics</button>
-      </div>
-
-      <!-- Tab Content -->
-      <div class="experience-details-container">
-        <div id="exp-wmu" class="experience-card experience-content active">
-          <div class="experience-header">
-            <h2 class="experience-sub-title">Data Scientist</h2>
-            <p class="experience-duration">Jan 2025 - Apr 2025</p>
-          </div>
-          <h3 class="experience-company">Western Michigan University, USA</h3>
-          <ul class="experience-list">
-            <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming, reducing manual scheduling time by 85% and optimizing faculty-course assignments for 200+ courses across 15 departments.</li>
-            <li>Created and deployed a Streamlit-based UI processing 50+ CSV files with real-time validation, reducing data input errors by 90% and enabling interactive visualizations of optimized schedules for 100+ faculty members.</li>
-            <li>Minimized scheduling conflicts by 95% and eliminated 40+ hours of weekly manual effort through integration of advanced optimization algorithms and a user-friendly frontend interface.</li>
-          </ul>
-        </div>
-
-        <div id="exp-green" class="experience-card experience-content">
-          <div class="experience-header">
-            <h2 class="experience-sub-title">Data Scientist</h2>
-            <p class="experience-duration">Jan 2024 - Apr 2024</p>
-          </div>
-          <h3 class="experience-company">Green Expectations LLC, USA</h3>
-          <ul class="experience-list">
-            <li>Built the backend infrastructure for an AI-powered home sustainability platform, processing 1K+ data points per user via a rule-based House Sustainability Calculator, boosting recommendation accuracy by 35%.</li>
-            <li>Led the development of a secure user authentication system with persistent storage, enabling 100% individualized access and supporting real-time tracking for 500+ active users.</li>
-            <li>Engineered data flows for an NLP-driven conversational AI chatbot, reducing response latency by 40% and increasing user engagement by 25%.</li>
-          </ul>
-        </div>
-
-        <div id="exp-accenture" class="experience-card experience-content">
-          <div class="experience-header">
-            <h2 class="experience-sub-title">Data Engineer</h2>
-            <p class="experience-duration">Jul 2021 - Jul 2023</p>
-          </div>
-          <h3 class="experience-company">Accenture, India</h3>
-          <ul class="experience-list">
-            <li>Engineered ETL pipelines with Azure Data Factory to migrate and reformat critical supply chain data into Parquet format, boosting processing efficiency by 40% while minimizing disruption.</li>
-            <li>Utilized Azure Databricks to process raw supply chain data from Data Lake Gen2, enhancing accuracy by 25% and halving transformation times.</li>
-            <li>Developed external tables and views within Azure SQL and implemented interactive Power BI dashboards, enhancing data access and delivering insights that resulted in a 25% increase in operational efficiency.</li>
-            <li>Improved data workflows by integrating ADF triggers, Databricks notebooks, and CI/CD pipelines via Azure DevOps, boosting team efficiency by 15% and accelerating SCPO upgrade project delivery by 30%.</li>
-          </ul>
-        </div>
-
-        <div id="exp-claritrics" class="experience-card experience-content">
-          <div class="experience-header">
-            <h2 class="experience-sub-title">Data Engineer</h2>
-            <p class="experience-duration">Nov 2020 - May 2021</p>
-          </div>
-          <h3 class="experience-company">Claritrics India Pvt Limited, India</h3>
-          <ul class="experience-list">
-            <li>Pioneered an advanced ETL pipeline using Azure Data Factory and Azure Databricks to create an OCR solution for extracting text from images, improving extraction accuracy by 30%.</li>
-            <li>Crafted and scheduled an end-to-end automated workflow using Azure Data Factory for orchestration and Azure Databricks for scalable image processing, reducing text extraction processing time by 40%.</li>
-            <li>Enhanced development and deployment cycles with Azure Data Factory triggers and Databricks job scheduling, resulting in a 20% gain in team efficiency and a 30% acceleration of project timelines.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-      <section id="skills">
-  <p class="section_text_p3">Explore My</p>
-  <h1 class="title">Technical Skills by Role</h1>
-
-  <div class="skills-role-container">
-
-    <!-- Data Engineer -->
-    <div class="skills-role-block">
-      <h2>🧱 Data Engineering</h2>
-      <div class="skills-grid">
-
-        <div class="skill-category">
-          <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
-          <div class="tags">
-            <span>Azure (ADF, Synapse, Databricks)</span>
-            <span>AWS (S3, Glue, Lambda, Redshift, SageMaker)</span>
-            <span>GCP (BigQuery, Dataflow)</span>
-            <span>Snowflake</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-cogs"></i> Orchestration & Pipelines</h3>
-          <div class="tags">
-            <span>Apache Spark</span>
-            <span>Apache Kafka</span>
-            <span>Apache Airflow</span>
-            <span>Delta Live Tables</span>
-            <span>CI/CD (DevOps, GitHub Actions)</span>
-            <span>Docker</span>
-            <span>MLflow</span>
-            <span>FastAPI</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-database"></i> Databases</h3>
-          <div class="tags">
-            <span>Azure SQL</span>
-            <span>PostgreSQL</span>
-            <span>Oracle SQL</span>
-            <span>DynamoDB</span>
-            <span>MongoDB</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Data Science -->
-    <div class="skills-role-block">
-      <h2>📊 Data Science</h2>
-      <div class="skills-grid">
-
-        <div class="skill-category">
-          <h3><i class="fas fa-code"></i> Programming & ML</h3>
-          <div class="tags">
-            <span>Python</span>
-            <span>PySpark</span>
-            <span>Scikit-learn</span>
-            <span>Pandas</span>
-            <span>NumPy</span>
-            <span>OpenAI / LangChain</span>
-            <span>XGBoost</span>
-            <span>TensorFlow</span>
-            <span>PyTorch</span>
-            <span>Keras</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-chart-bar"></i> Statistics & Modeling</h3>
-          <div class="tags">
-            <span>Regression</span>
-            <span>Classification</span>
-            <span>Clustering</span>
-            <span>Time Series</span>
-            <span>Text Analysis</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-tools"></i> Tools</h3>
-          <div class="tags">
-            <span>Jupyter</span>
-            <span>VS Code</span>
-            <span>Pycharm</span>
-            <span>Git</span>
-            <span>RStudio</span>
-            <span>WinSCP</span>
-            <span>PuTTY</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Data Analyst -->
-    <div class="skills-role-block">
-      <h2>📈 Data Analysis & BI</h2>
-      <div class="skills-grid">
-
-        <div class="skill-category">
-          <h3><i class="fas fa-table"></i> Visualization</h3>
-          <div class="tags">
-            <span>Power BI</span>
-            <span>Tableau</span>
-            <span>Excel</span>
-            <span>Plotly</span>
-            <span>Matplotlib</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-database"></i> Query & Exploration</h3>
-          <div class="tags">
-            <span>SQL</span>
-            <span>Presto</span>
-            <span>Athena</span>
-            <span>Exploratory Data Analysis</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3><i class="fas fa-bell"></i> Monitoring & Reporting</h3>
-          <div class="tags">
-            <span>CloudWatch</span>
-            <span>Datadog</span>
-            <span>Logging Pipelines</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-
-      <!-- Project Tabs -->
-      <div class="project-tabs">
-      <button class="project-tab-btn" onclick="showProject('atsresume')">ATS Resume</button>
-      <button class="project-tab-btn" onclick="showProject('askpdf')">Ask My PDF</button>
-      <button class="project-tab-btn active" onclick="showProject('scheduler')">Scheduler</button>
-      <button class="project-tab-btn" onclick="showProject('chatbot')">AI Chatbot</button>
-      <button class="project-tab-btn" onclick="showProject('olympics')">Olympics</button>
-      <button class="project-tab-btn" onclick="showProject('netflix')">Netflix</button>
-      <button class="project-tab-btn" onclick="showProject('covid')">Covid19</button>
-      <button class="project-tab-btn" onclick="showProject('f1')">F1</button>
-      <button class="project-tab-btn" onclick="showProject('twitter')">Twitter NLP</button>
-      <button class="project-tab-btn" onclick="showProject('attendance')">Attendance</button>
-    </div>
-
-
-      <!-- Project Panels -->
-       <div class="projects-container"></div>
-        <div id="project-atsresume" class="project-item project-content">
-          <h2 class="project-title">Enhanced ATS Resume Expert Pro – AI Resume Analyzer</h2>
-          <p class="project-time">May 2025 – Jun 2025</p>
-          <ul>
-            <li>Developed an AI-powered Streamlit web app using Google Gemini Pro to evaluate resume–JD alignment with semantic scoring and NLP techniques.</li>
-            <li>Integrated PDF & DOCX parsing, TF-IDF + cosine similarity, skill gap detection, and AI career coaching modes.</li>
-            <li>Built interactive visualizations using Plotly, WordCloud, and Radar Charts, with exportable PDF, TXT, and JSON reports.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/ats-resume-expert" target="_blank" class="github-btn">GitHub ↗</a>
-            <a href="https://ats-resume-expert-slk.streamlit.app/" target="_blank" class="demo-btn">Live Demo ↗</a>
-          </div>
-        </div>
-
-        <div id="project-askpdf" class="project-item project-content">
-          <h2 class="project-title">Ask My PDF Pro – Multilingual AI Document Q&A</h2>
-          <p class="project-time">Apr 2025 - May 2025</p>
-          <ul>
-            <li>Developed a multi-PDF chat system using LangChain, FAISS + BM25 for hybrid retrieval, and Gemini/OpenAI LLMs.</li>
-            <li>Enabled contextual Q&A via PyMuPDF chunking, multilingual translation, and Streamlit-based interactive UI.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/ask-my-pdf" target="_blank" class="github-btn">GitHub ↗</a>
-            <a href="https://ask-my-pdf-pro.streamlit.app" target="_blank" class="demo-btn">Live Demo ↗</a>
-          </div>
-        </div>
-
-        <div id="project-scheduler" class="project-item project-content active">
-          <h2 class="project-title">Class Scheduler for Administrator</h2>
-          <p class="project-time">Jan 2025 - Apr 2025</p>
-          <ul>
-            <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming.</li>
-            <li>Streamlit-based UI for CSV processing and schedule visualization.</li>
-            <li>Minimized conflicts using optimization logic and frontend UX.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/Class-Scheduler" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div id="project-chatbot" class="project-item project-content">
-          <h2 class="project-title">Conversational AI Chatbot</h2>
-          <p class="project-time">May 2025 - Jun 2025</p>
-          <ul>
-            <li>Built using LangChain, OpenAI GPT-3.5-turbo, and Streamlit.</li>
-            <li>Session memory with natural dialogue flow and secure API management.</li>
-            <li>Engaging assistant persona created for user interaction.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/Conversational-AI-Chatbot-with-LangChain-and-OpenAI" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div id="project-olympics" class="project-item project-content">
-          <h2 class="project-title">Tokyo Olympic Data Analytics Pipeline</h2>
-          <p class="project-time">Mar 2025 - Apr 2025</p>
-          <ul>
-            <li>Built Azure pipeline with Databricks and Synapse to process 500K+ athlete records.</li>
-            <li>Created Power BI dashboards for medal and performance analysis.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/tokyo-olympic-data-engineering-project" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div id="project-netflix" class="project-item project-content">
-          <h2 class="project-title">Netflix Data Engineering</h2>
-          <p class="project-time">Feb 2025 - Mar 2025</p>
-          <ul>
-            <li>Delta Lake pipeline using AutoLoader + DLT on Databricks.</li>
-            <li>Real-time dashboards for content analytics.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/Netflix_Data_Engineering_Project" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div id="project-covid" class="project-item project-content">
-          <h2 class="project-title">Covid19 Data Engineering</h2>
-          <p class="project-time">Jun 2024 - Jul 2024</p>
-          <ul>
-            <li>Real-time pipeline with Kafka + ADF + Power BI for trend monitoring.</li>
-            <li>Metadata-driven pipeline design for flexibility.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/Covid19-Data-Engineering-Project" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div id="project-f1" class="project-item project-content">
-          <h2 class="project-title">F1 Data Analytics</h2>
-          <p class="project-time">May 2024 - Jun 2024</p>
-          <ul>
-            <li>ETL pipeline using Azure Synapse + PySpark for real-time telemetry.</li>
-            <li>Optimized Spark jobs and schema enforcement with monitoring.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/F1-Data-Analytics-Project" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div id="project-twitter" class="project-item project-content">
-          <h2 class="project-title">Twitter Sentiment Analysis</h2>
-          <p class="project-time">Nov 2023 - Dec 2023</p>
-          <ul>
-            <li>BiLSTM model with GloVe embeddings to analyze tweet sentiments.</li>
-            <li>NER, word clouds, and metrics for interpretability.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/Twitter_Sentiment_Analysis" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div id="project-attendance" class="project-item project-content">
-          <h2 class="project-title">Automated Attendance System</h2>
-          <p class="project-time">Feb 2020 - Apr 2020</p>
-          <ul>
-            <li>Real-time face detection using OpenCV + Haar Cascades.</li>
-            <li>Email-based timestamped attendance logs.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/SachinLoddiyaKarthik/Automated_Attendance_System_Using_Python" target="_blank" class="github-btn">GitHub ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="education" class="education-container">
-        <p class="section_text_p1">My Academic Journey</p>
-        <h1 class="title">Education</h1>
-      
-        <!-- Masters Degree -->
-        <div class="education-box-container">
-          <div class="university-logo">
-            <img alt="University Logo" src="./assets/wmu.png">
-          </div>
-          <div class="education-details">
-            <h3>Masters in Data Science</h3>
-            <span>Aug 2023 - Apr 2025</span>
-            <p>Western Michigan University, USA</p>
-          </div>
-          <div class="gpa-container">
-            <div class="gpa-text">3.86/4</div>        
-          </div>
-        </div>
-      
-        <!-- B.Tech Degree -->
-        <div class="education-box-container">
-          <div class="university-logo">
-            <img alt="University Logo" src="./assets/AU.png">
-          </div>
-          <div class="education-details">
-            <h3>B.E in Electronics and Communication Engineering</h3>
-            <span>Aug 2016 - May 2020</span>
-            <p>Anna University, India</p>
-          </div>
-          <div class="gpa-container">
-            <div class="gpa-text">7.34/10</div>        
-          </div>
-        </div>
-      </section>
-    <section id="certifications">
-      <p class="section_text_p1">My Achievements</p>
-      <h1 class="title">Certifications</h1>
-
-      <!-- Tabs for Providers -->
-      <div class="project-tabs">
-        <button class="project-tab-btn active" onclick="showCerts('google')">Google</button>
-        <button class="project-tab-btn" onclick="showCerts('ibm')">IBM</button>
-        <button class="project-tab-btn" onclick="showCerts('cisco')">Cisco</button>
-        <button class="project-tab-btn" onclick="showCerts('udemy')">Udemy</button>
-        <button class="project-tab-btn" onclick="showCerts('uc')">UC</button>
-      </div>
-
-      <!-- Certifications by Provider -->
-      <div class="certification-list">
-        <div id="certs-google" class="certification-content active">
-          <div class="certification-item">
-            <h3>Google Cloud Big Data and Machine Learning Fundamentals</h3>
-            <p><a href="https://www.coursera.org/account/accomplishments/verify/FHTD5JW1AS9G" target="_blank">View Credential</a></p>
-          </div>
-          <div class="certification-item">
-            <h3>Modernizing Data Lakes and Data Warehouses with Google Cloud</h3>
-            <p><a href="https://www.coursera.org/account/accomplishments/records/LXV1BOOEJ3O7" target="_blank">View Credential</a></p>
-          </div>
-          <div class="certification-item">
-            <h3>Foundations: Data, Data, Everywhere</h3>
-            <p><a href="https://www.coursera.org/account/accomplishments/records/FTWG76YHNEXV" target="_blank">View Credential</a></p>
-          </div>
-        </div>
-
-        <div id="certs-ibm" class="certification-content">
-          <div class="certification-item">
-            <h3>ETL and Data Pipelines with Shell, Airflow and Kafka</h3>
-            <p><a href="https://www.credly.com/badges/b5318d18-646f-4b2d-bafe-c212c1670871/public_url" target="_blank">View Credential</a></p>
-          </div>
-          <div class="certification-item">
-            <h3>Introduction to Relational Databases (RDBMS)</h3>
-            <p><a href="https://www.coursera.org/account/accomplishments/records/ENP93S8JFBSE" target="_blank">View Credential</a></p>
-          </div>
-          <div class="certification-item">
-            <h3>Databases and SQL for Data Science with Python (with Honors)</h3>
-            <p><a href="https://www.coursera.org/account/accomplishments/records/GS7Q83QQJBB4" target="_blank">View Credential</a></p>
-          </div>
-        </div>
-
-        <div id="certs-cisco" class="certification-content">
-          <div class="certification-item">
-            <h3>Data Analytics Essentials</h3>
-            <p><a href="https://www.credly.com/badges/e7996b06-8702-404e-adb8-bcf313159876/public_url" target="_blank">View Credential</a></p>
-          </div>
-          <div class="certification-item">
-            <h3>Introduction to Data Science</h3>
-            <p><a href="https://www.credly.com/badges/17c7bd6b-9309-4e51-8d8b-64b652a014fa/public_url" target="_blank">View Credential</a></p>
-          </div>
-        </div>
-
-        <div id="certs-udemy" class="certification-content">
-          <div class="certification-item">
-            <h3>Apache Kafka</h3>
-            <p><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-b5d40860-4f59-4db0-b403-1a917f87fac4.jpg" target="_blank">View Credential</a></p>
-          </div>
-          <div class="certification-item">
-            <h3>Azure Data Factory for Data Engineers</h3>
-            <p><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-1f8d4434-4969-4db6-80c4-689dd848611e.jpg" target="_blank">View Credential</a></p>
-          </div>
-          <div class="certification-item">
-            <h3>Azure Databricks & Spark For Data Engineers (PySpark / SQL)</h3>
-            <p><a href="https://www.udemy.com/certificate/UC-9f9ef6bd-04ec-4f47-a561-53ae7c497fc6/" target="_blank">View Credential</a></p>
-          </div>
-          <div class="certification-item">
-            <h3>Azure Synapse Analytics For Data Engineers</h3>
-            <p><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-772ee72c-b868-4d34-8a22-443bdd7e3239.jpg" target="_blank">View Credential</a></p>
-          </div>
-        </div>
-
-        <div id="certs-uc" class="certification-content">
-          <div class="certification-item">
-            <h3>SQL for Data Science</h3>
-            <p><a href="https://www.coursera.org/account/accomplishments/records/ZSBT2MG999SN" target="_blank">View Credential</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-          <div class="contact-info-container">
-            <img
-              src="./assets/email_light.png"
-              src-light="./assets/email_light.png"
-              src-dark="./assets/email_dark.png"
-              alt="Email icon"
-              class="icon contact-icon email-icon"
-            />
-            <p><a href="mailto:sachinlkece@gmail.com">sachinlkece@gmail.com</a></p>
-          </div>
-          <div class="contact-info-container">
-            <img
-              src="./assets/linkedin_light.png"
-              src-light="./assets/linkedin_light.png"
-              src-dark="./assets/linkedin_dark.png"
-              alt="My LinkedIn profile"
-              class="icon linkedin-icon"
-              onclick="location.href='https://www.linkedin.com/in/sachin-lk/'"
-            />
-            <p><a href="https://www.linkedin.com/in/sachin-lk/">LinkedIn</a></p>
-          </div>
-        </div>
-      </section>
-      <footer>
-        <nav>
+    <footer>
+        <nav aria-label="Footer navigation">
           <div class="nav-links-container">
             <ul class="nav-links">
-              <li><a href="#about">About</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#education">Education</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#certifications">Certifications</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about" aria-label="Go to About section">About</a></li>
+              <li><a href="#experience" aria-label="Go to Experience section">Experience</a></li>
+              <li><a href="#skills" aria-label="Go to Skills section">Skills</a></li>
+              <li><a href="#education" aria-label="Go to Education section">Education</a></li>
+              <li><a href="#projects" aria-label="Go to Projects section">Projects</a></li>
+              <li><a href="#certifications" aria-label="Go to Certifications section">Certifications</a></li>
+              <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
             </ul>
           </div>
         </nav>
