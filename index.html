@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
     <link rel="stylesheet" href="performance.css" />
 </head>
 <body>
@@ -158,68 +157,79 @@
         <section id="experience" aria-labelledby="experience-title" class="fade-in-section">
           <p class="section__text__p1">Explore My</p>
           <h1 id="experience-title" class="title">Experience</h1>
-
-          <!-- Tabs -->
-          <div class="experience-tabs" role="tablist" aria-label="Experience tabs">
-            <button class="tab-btn active" onclick="showExperience(event, 'wmu')" role="tab" aria-selected="true" aria-controls="exp-wmu">WMU</button>
-            <button class="tab-btn" onclick="showExperience(event, 'green')" role="tab" aria-selected="false" aria-controls="exp-green">Green Expectations</button>
-            <button class="tab-btn" onclick="showExperience(event, 'accenture')" role="tab" aria-selected="false" aria-controls="exp-accenture">Accenture</button>
-            <button class="tab-btn" onclick="showExperience(event, 'claritrics')" role="tab" aria-selected="false" aria-controls="exp-claritrics">Claritrics</button>
-          </div>
-
-          <!-- Tab Content -->
-          <div class="experience-details-container">
-            <div id="exp-wmu" class="experience-card experience-content active" role="tabpanel" aria-labelledby="exp-wmu">
-              <div class="experience-header">
-                <h2 class="experience-sub-title">Data Scientist</h2>
-                <p class="experience-duration">Jan 2025 - Apr 2025</p>
+          <div class="timeline-container">
+            <!-- Timeline Item 1: WMU -->
+            <div class="timeline-item">
+              <div class="experience-card">
+                <div class="experience-header">
+                  <h2 class="experience-sub-title">Data Scientist</h2>
+                  <p class="experience-duration">Jan 2025 - Apr 2025</p>
+                </div>
+                <h3 class="experience-company">Western Michigan University, USA</h3>
+                <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+                <div class="experience-details-content">
+                  <ul class="experience-list">
+                    <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming, reducing manual scheduling time by 85% and optimizing faculty-course assignments for 200+ courses across 15 departments.</li>
+                    <li>Created and deployed a Streamlit-based UI processing 50+ CSV files with real-time validation, reducing data input errors by 90% and enabling interactive visualizations of optimized schedules for 100+ faculty members.</li>
+                    <li>Minimized scheduling conflicts by 95% and eliminated 40+ hours of weekly manual effort through integration of advanced optimization algorithms and a user-friendly frontend interface.</li>
+                  </ul>
+                </div>
               </div>
-              <h3 class="experience-company">Western Michigan University, USA</h3>
-              <ul class="experience-list">
-                <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming, reducing manual scheduling time by 85% and optimizing faculty-course assignments for 200+ courses across 15 departments.</li>
-                <li>Created and deployed a Streamlit-based UI processing 50+ CSV files with real-time validation, reducing data input errors by 90% and enabling interactive visualizations of optimized schedules for 100+ faculty members.</li>
-                <li>Minimized scheduling conflicts by 95% and eliminated 40+ hours of weekly manual effort through integration of advanced optimization algorithms and a user-friendly frontend interface.</li>
-              </ul>
             </div>
-
-            <div id="exp-green" class="experience-card experience-content" role="tabpanel" aria-labelledby="exp-green">
-              <div class="experience-header">
-                <h2 class="experience-sub-title">Data Scientist</h2>
-                <p class="experience-duration">Jan 2024 - Apr 2024</p>
+            <!-- Timeline Item 2: Green Expectations -->
+            <div class="timeline-item">
+              <div class="experience-card">
+                <div class="experience-header">
+                  <h2 class="experience-sub-title">Data Scientist</h2>
+                  <p class="experience-duration">Jan 2024 - Apr 2024</p>
+                </div>
+                <h3 class="experience-company">Green Expectations LLC, USA</h3>
+                <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+                <div class="experience-details-content">
+                  <ul class="experience-list">
+                    <li>Built the backend infrastructure for an AI-powered home sustainability platform, processing 1K+ data points per user via a rule-based House Sustainability Calculator, boosting recommendation accuracy by 35%.</li>
+                    <li>Led the development of a secure user authentication system with persistent storage, enabling 100% individualized access and supporting real-time tracking for 500+ active users.</li>
+                    <li>Engineered data flows for an NLP-driven conversational AI chatbot, reducing response latency by 40% and increasing user engagement by 25%.</li>
+                  </ul>
+                </div>
               </div>
-              <h3 class="experience-company">Green Expectations LLC, USA</h3>
-              <ul class="experience-list">
-                <li>Built the backend infrastructure for an AI-powered home sustainability platform, processing 1K+ data points per user via a rule-based House Sustainability Calculator, boosting recommendation accuracy by 35%.</li>
-                <li>Led the development of a secure user authentication system with persistent storage, enabling 100% individualized access and supporting real-time tracking for 500+ active users.</li>
-                <li>Engineered data flows for an NLP-driven conversational AI chatbot, reducing response latency by 40% and increasing user engagement by 25%.</li>
-              </ul>
             </div>
-
-            <div id="exp-accenture" class="experience-card experience-content" role="tabpanel" aria-labelledby="exp-accenture">
-              <div class="experience-header">
-                <h2 class="experience-sub-title">Data Engineer</h2>
-                <p class="experience-duration">Jul 2021 - Jul 2023</p>
+            <!-- Timeline Item 3: Accenture -->
+            <div class="timeline-item">
+              <div class="experience-card">
+                <div class="experience-header">
+                  <h2 class="experience-sub-title">Data Engineer</h2>
+                  <p class="experience-duration">Jul 2021 - Jul 2023</p>
+                </div>
+                <h3 class="experience-company">Accenture, India</h3>
+                <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+                <div class="experience-details-content">
+                  <ul class="experience-list">
+                    <li>Engineered ETL pipelines with Azure Data Factory to migrate and reformat critical supply chain data into Parquet format, boosting processing efficiency by 40% while minimizing disruption.</li>
+                    <li>Utilized Azure Databricks to process raw supply chain data from Data Lake Gen2, enhancing accuracy by 25% and halving transformation times.</li>
+                    <li>Developed external tables and views within Azure SQL and implemented interactive Power BI dashboards, enhancing data access and delivering insights that resulted in a 25% increase in operational efficiency.</li>
+                    <li>Improved data workflows by integrating ADF triggers, Databricks notebooks, and CI/CD pipelines via Azure DevOps, boosting team efficiency by 15% and accelerating SCPO upgrade project delivery by 30%.</li>
+                  </ul>
+                </div>
               </div>
-              <h3 class="experience-company">Accenture, India</h3>
-              <ul class="experience-list">
-                <li>Engineered ETL pipelines with Azure Data Factory to migrate and reformat critical supply chain data into Parquet format, boosting processing efficiency by 40% while minimizing disruption.</li>
-                <li>Utilized Azure Databricks to process raw supply chain data from Data Lake Gen2, enhancing accuracy by 25% and halving transformation times.</li>
-                <li>Developed external tables and views within Azure SQL and implemented interactive Power BI dashboards, enhancing data access and delivering insights that resulted in a 25% increase in operational efficiency.</li>
-                <li>Improved data workflows by integrating ADF triggers, Databricks notebooks, and CI/CD pipelines via Azure DevOps, boosting team efficiency by 15% and accelerating SCPO upgrade project delivery by 30%.</li>
-              </ul>
             </div>
-
-            <div id="exp-claritrics" class="experience-card experience-content" role="tabpanel" aria-labelledby="exp-claritrics">
-              <div class="experience-header">
-                <h2 class="experience-sub-title">Data Engineer</h2>
-                <p class="experience-duration">Nov 2020 - May 2021</p>
+            <!-- Timeline Item 4: Claritrics -->
+            <div class="timeline-item">
+              <div class="experience-card">
+                <div class="experience-header">
+                  <h2 class="experience-sub-title">Data Engineer</h2>
+                  <p class="experience-duration">Nov 2020 - May 2021</p>
+                </div>
+                <h3 class="experience-company">Claritrics India Pvt Limited, India</h3>
+                <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+                <div class="experience-details-content">
+                  <ul class="experience-list">
+                    <li>Pioneered an advanced ETL pipeline using Azure Data Factory and Azure Databricks to create an OCR solution for extracting text from images, improving extraction accuracy by 30%.</li>
+                    <li>Crafted and scheduled an end-to-end automated workflow using Azure Data Factory for orchestration and Azure Databricks for scalable image processing, reducing text extraction processing time by 40%.</li>
+                    <li>Enhanced development and deployment cycles with Azure Data Factory triggers and Databricks job scheduling, resulting in a 20% gain in team efficiency and a 30% acceleration of project timelines.</li>
+                  </ul>
+                </div>
               </div>
-              <h3 class="experience-company">Claritrics India Pvt Limited, India</h3>
-              <ul class="experience-list">
-                <li>Pioneered an advanced ETL pipeline using Azure Data Factory and Azure Databricks to create an OCR solution for extracting text from images, improving extraction accuracy by 30%.</li>
-                <li>Crafted and scheduled an end-to-end automated workflow using Azure Data Factory for orchestration and Azure Databricks for scalable image processing, reducing text extraction processing time by 40%.</li>
-                <li>Enhanced development and deployment cycles with Azure Data Factory triggers and Databricks job scheduling, resulting in a 20% gain in team efficiency and a 30% acceleration of project timelines.</li>
-              </ul>
             </div>
           </div>
         </section>
@@ -231,126 +241,138 @@
           <div class="skills-role-container">
 
             <!-- Data Engineer -->
-            <div class="skills-role-block">
-              <h2><i class="fas fa-cogs" aria-hidden="true"></i> Data Engineering</h2>
-              <div class="skills-grid">
-
-                <div class="skill-category">
-                  <h3><i class="fas fa-cloud" aria-hidden="true"></i> Cloud Platforms</h3>
-                  <div class="tags">
-                    <span>Azure (ADF, Synapse, Databricks)</span>
-                    <span>AWS (S3, Glue, Lambda, Redshift, SageMaker)</span>
-                    <span>GCP (BigQuery, Dataflow)</span>
-                    <span>Snowflake</span>
+            <div class="skills-role-block accordion">
+              <button class="accordion-header" aria-expanded="false">
+                <h2><i class="fas fa-cogs" aria-hidden="true"></i> Data Engineering</h2>
+                <i class="fas fa-chevron-down chevron"></i>
+              </button>
+              <div class="accordion-content">
+                <div class="skills-grid">
+                  <div class="skill-category">
+                    <h3><i class="fas fa-cloud" aria-hidden="true"></i> Cloud Platforms</h3>
+                    <div class="tags">
+                      <span>Azure (ADF, Synapse, Databricks)</span>
+                      <span>AWS (S3, Glue, Lambda, Redshift, SageMaker)</span>
+                      <span>GCP (BigQuery, Dataflow)</span>
+                      <span>Snowflake</span>
+                    </div>
                   </div>
-                </div>
 
-                <div class="skill-category">
-                  <h3><i class="fas fa-cogs" aria-hidden="true"></i> Orchestration & Pipelines</h3>
-                  <div class="tags">
-                    <span>Apache Spark</span>
-                    <span>Apache Kafka</span>
-                    <span>Apache Airflow</span>
-                    <span>Delta Live Tables</span>
-                    <span>CI/CD (DevOps, GitHub Actions)</span>
-                    <span>Docker</span>
-                    <span>MLflow</span>
-                    <span>FastAPI</span>
+                  <div class="skill-category">
+                    <h3><i class="fas fa-cogs" aria-hidden="true"></i> Orchestration & Pipelines</h3>
+                    <div class="tags">
+                      <span>Apache Spark</span>
+                      <span>Apache Kafka</span>
+                      <span>Apache Airflow</span>
+                      <span>Delta Live Tables</span>
+                      <span>CI/CD (DevOps, GitHub Actions)</span>
+                      <span>Docker</span>
+                      <span>MLflow</span>
+                      <span>FastAPI</span>
+                    </div>
                   </div>
-                </div>
 
-                <div class="skill-category">
-                  <h3><i class="fas fa-database" aria-hidden="true"></i> Databases</h3>
-                  <div class="tags">
-                    <span>Azure SQL</span>
-                    <span>PostgreSQL</span>
-                    <span>Oracle SQL</span>
-                    <span>DynamoDB</span>
-                    <span>MongoDB</span>
+                  <div class="skill-category">
+                    <h3><i class="fas fa-database" aria-hidden="true"></i> Databases</h3>
+                    <div class="tags">
+                      <span>Azure SQL</span>
+                      <span>PostgreSQL</span>
+                      <span>Oracle SQL</span>
+                      <span>DynamoDB</span>
+                      <span>MongoDB</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Data Science -->
-            <div class="skills-role-block">
-              <h2><i class="fas fa-flask" aria-hidden="true"></i> Data Science</h2>
-              <div class="skills-grid">
-
-                <div class="skill-category">
-                  <h3><i class="fas fa-code" aria-hidden="true"></i> Programming & ML</h3>
-                  <div class="tags">
-                    <span>Python</span>
-                    <span>PySpark</span>
-                    <span>Scikit-learn</span>
-                    <span>Pandas</span>
-                    <span>NumPy</span>
-                    <span>OpenAI / LangChain</span>
-                    <span>XGBoost</span>
-                    <span>TensorFlow</span>
-                    <span>PyTorch</span>
-                    <span>Keras</span>
+            <div class="skills-role-block accordion">
+              <button class="accordion-header" aria-expanded="false">
+                <h2><i class="fas fa-flask" aria-hidden="true"></i> Data Science</h2>
+                <i class="fas fa-chevron-down chevron"></i>
+              </button>
+              <div class="accordion-content">
+                <div class="skills-grid">
+                  <div class="skill-category">
+                    <h3><i class="fas fa-code" aria-hidden="true"></i> Programming & ML</h3>
+                    <div class="tags">
+                      <span>Python</span>
+                      <span>PySpark</span>
+                      <span>Scikit-learn</span>
+                      <span>Pandas</span>
+                      <span>NumPy</span>
+                      <span>OpenAI / LangChain</span>
+                      <span>XGBoost</span>
+                      <span>TensorFlow</span>
+                      <span>PyTorch</span>
+                      <span>Keras</span>
+                    </div>
                   </div>
-                </div>
 
-                <div class="skill-category">
-                  <h3><i class="fas fa-chart-bar" aria-hidden="true"></i> Statistics & Modeling</h3>
-                  <div class="tags">
-                    <span>Regression</span>
-                    <span>Classification</span>
-                    <span>Clustering</span>
-                    <span>Time Series</span>
-                    <span>Text Analysis</span>
+                  <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar" aria-hidden="true"></i> Statistics & Modeling</h3>
+                    <div class="tags">
+                      <span>Regression</span>
+                      <span>Classification</span>
+                      <span>Clustering</span>
+                      <span>Time Series</span>
+                      <span>Text Analysis</span>
+                    </div>
                   </div>
-                </div>
 
-                <div class="skill-category">
-                  <h3><i class="fas fa-tools" aria-hidden="true"></i> Tools</h3>
-                  <div class="tags">
-                    <span>Jupyter</span>
-                    <span>VS Code</span>
-                    <span>Pycharm</span>
-                    <span>Git</span>
-                    <span>RStudio</span>
-                    <span>WinSCP</span>
-                    <span>PuTTY</span>
+                  <div class="skill-category">
+                    <h3><i class="fas fa-tools" aria-hidden="true"></i> Tools</h3>
+                    <div class="tags">
+                      <span>Jupyter</span>
+                      <span>VS Code</span>
+                      <span>Pycharm</span>
+                      <span>Git</span>
+                      <span>RStudio</span>
+                      <span>WinSCP</span>
+                      <span>PuTTY</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Data Analyst -->
-            <div class="skills-role-block">
-              <h2><i class="fas fa-chart-line" aria-hidden="true"></i> Data Analysis & BI</h2>
-              <div class="skills-grid">
-
-                <div class="skill-category">
-                  <h3><i class="fas fa-table" aria-hidden="true"></i> Visualization</h3>
-                  <div class="tags">
-                    <span>Power BI</span>
-                    <span>Tableau</span>
-                    <span>Excel</span>
-                    <span>Plotly</span>
-                    <span>Matplotlib</span>
+            <div class="skills-role-block accordion">
+              <button class="accordion-header" aria-expanded="false">
+                <h2><i class="fas fa-chart-line" aria-hidden="true"></i> Data Analysis & BI</h2>
+                <i class="fas fa-chevron-down chevron"></i>
+              </button>
+              <div class="accordion-content">
+                <div class="skills-grid">
+                  <div class="skill-category">
+                    <h3><i class="fas fa-table" aria-hidden="true"></i> Visualization</h3>
+                    <div class="tags">
+                      <span>Power BI</span>
+                      <span>Tableau</span>
+                      <span>Excel</span>
+                      <span>Plotly</span>
+                      <span>Matplotlib</span>
+                    </div>
                   </div>
-                </div>
 
-                <div class="skill-category">
-                  <h3><i class="fas fa-database" aria-hidden="true"></i> Query & Exploration</h3>
-                  <div class="tags">
-                    <span>SQL</span>
-                    <span>Presto</span>
-                    <span>Athena</span>
-                    <span>Exploratory Data Analysis</span>
+                  <div class="skill-category">
+                    <h3><i class="fas fa-database" aria-hidden="true"></i> Query & Exploration</h3>
+                    <div class="tags">
+                      <span>SQL</span>
+                      <span>Presto</span>
+                      <span>Athena</span>
+                      <span>Exploratory Data Analysis</span>
+                    </div>
                   </div>
-                </div>
 
-                <div class="skill-category">
-                  <h3><i class="fas fa-bell" aria-hidden="true"></i> Monitoring & Reporting</h3>
-                  <div class="tags">
-                    <span>CloudWatch</span>
-                    <span>Datadog</span>
-                    <span>Logging Pipelines</span>
+                  <div class="skill-category">
+                    <h3><i class="fas fa-bell" aria-hidden="true"></i> Monitoring & Reporting</h3>
+                    <div class="tags">
+                      <span>CloudWatch</span>
+                      <span>Datadog</span>
+                      <span>Logging Pipelines</span>
+                    </div>
                   </div>
                 </div>
               </div>

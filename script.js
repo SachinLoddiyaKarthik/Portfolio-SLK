@@ -1,30 +1,10 @@
-function toggleMenu() {
-  const menu = document.querySelector(".menu-links");
-  const hamburgerIcon = document.querySelector(".hamburger-icon");
-  const hamburgerNav = document.getElementById("hamburger-nav");
-  
-  if (!menu || !hamburgerIcon) {
-    console.error("Menu elements not found");
-    return;
-  }
+const menu = document.querySelector(".menu-links");
+const icon = document.querySelector(".hamburger-icon");
 
-  hamburgerIcon.classList.toggle("open");
-  const isOpen = hamburgerIcon.classList.contains("open");
-  hamburgerIcon.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  
-  if (isOpen) {
-    menu.classList.add("open");
-    menu.style.visibility = "visible";
-    if (hamburgerNav) hamburgerNav.style.display = "flex";
-    document.body.style.overflow = "hidden";
-  } else {
-    menu.classList.remove("open");
-    setTimeout(() => {
-      menu.style.visibility = "hidden";
-      if (hamburgerNav) hamburgerNav.style.display = "none";
-      document.body.style.overflow = "";
-    }, 300);
-  }
+function toggleMenu() {
+  menu.classList.toggle("open");
+  icon.classList.toggle("open");
+  document.body.classList.toggle("body-no-scroll");
 }
   
 function toggleDescription(button) {
@@ -263,5 +243,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => {
     observer.observe(section);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const accordions = document.querySelectorAll(".accordion .accordion-header");
+
+  accordions.forEach((accordion) => {
+    accordion.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+
+  const timelineItems = document.querySelectorAll(".timeline-item");
+  const detailButtons = document.querySelectorAll(".btn-details");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
+
+  timelineItems.forEach((item) => {
+    observer.observe(item);
+  });
+
+  detailButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const content = this.nextElementSibling;
+      const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+      this.setAttribute("aria-expanded", !isExpanded);
+      this.innerHTML = isExpanded ? "View Details" : "Hide Details";
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
   });
 });

@@ -355,25 +355,22 @@ section {
 
 /* Keep name in one line and adjust if needed */
 .section__text__p2 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  margin-bottom: 2rem;
-  color: var(--secondary-color-2);
-  max-width: 500px;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
 }
 
-.section_text_p3 {
-  font-family: "Poppins", sans-serif;
+.section_text_p3,
+.section__text__p1 {
   text-align: center;
-  align-self: center;
+  color: var(--secondary-color-2);
+  font-size: 1.25rem;
 }
 
 #socials-container {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 /* Updated icon styles for buttons */
@@ -455,6 +452,93 @@ section {
   color: var(--secondary-color-2);
 }
 
+/* EXPERIENCE SECTION - TIMELINE */
+.timeline-container {
+  position: relative;
+  width: 90%;
+  max-width: 650px; /* Adjust for a more compact single-column layout */
+  margin: 3rem auto;
+  padding: 2rem 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px; /* Position the line to the left */
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background-color: var(--container-border);
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
+  padding-left: 4rem; /* Give space for the line and dot */
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.5s ease-in-out;
+  text-align: left;
+}
+
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Remove alternating styles */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 0;
+  text-align: left;
+}
+
+.timeline-item:nth-child(even) {
+  left: 0;
+  padding-left: 4rem;
+  text-align: left;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--background-color);
+  border: 4px solid var(--accent-color);
+  top: 1.5rem;
+  left: 0; /* Align dot with the line */
+  z-index: 1;
+}
+
+/* Remove alternating dot positioning */
+.timeline-item:nth-child(odd)::after {
+  right: auto;
+  left: 0;
+}
+
+.timeline-item:nth-child(even)::after {
+  left: 0;
+}
+
+.experience-card {
+  transition-delay: 0.1s;
+  padding: 1.5rem;
+}
+
+.experience-details-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.btn-details {
+  margin-top: 1rem;
+}
+
 /* EXPERIENCE SECTION */
 
 #experience {
@@ -533,15 +617,15 @@ section {
   gap: 2rem;
   margin-top: 3rem;
   text-align: left;
+  align-items: start; /* Prevents columns from stretching */
 }
 
 .skills-role-block {
   background-color: var(--primary-color);
   border: 1px solid var(--container-border);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 0; /* Remove padding for the accordion structure */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skills-role-block:hover {
@@ -549,13 +633,39 @@ section {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.skills-role-block h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+.accordion-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
+  width: 100%;
+  padding: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion-header h2 {
+  margin-bottom: 0;
   color: var(--secondary-color);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.accordion-content .skills-grid {
+  padding: 0 2rem 2rem 2rem; /* Add padding to the content */
+}
+
+.chevron {
+  transition: transform 0.4s ease;
+}
+
+.accordion-header.active .chevron {
+  transform: rotate(180deg);
 }
 
 .skills-grid {
@@ -570,6 +680,12 @@ section {
   align-items: center;
   gap: 0.5rem;
   color: var(--secondary-color-2);
+}
+
+.skill-category {
+  background-color: var(--primary-color-2);
+  padding: 1.5rem;
+  border-radius: 8px;
 }
 
 .tags {
@@ -1648,39 +1764,35 @@ footer p {
     align-items: center;
   }
   .menu-links {
-    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: 100vw;
-    min-height: 60vh;
-    background: transparent;
-    box-shadow: none;
-    position: static;
-    opacity: 1 !important;
-    visibility: visible !important;
-    max-height: none !important;
-    border-radius: 0;
-    font-size: 2rem;
-    gap: 2rem;
-    z-index: 2100;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  .menu-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
   .menu-links a, .menu-links button {
     font-size: 2rem;
-    color: #fff;
-    background: none;
-    border: none;
-    padding: 0.5rem 2rem;
+    padding: 1.5rem 0;
+    color: white;
     width: 100%;
     text-align: center;
   }
   .hamburger-icon {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    z-index: 2200;
-    background: none;
-    border: none;
+    z-index: 1001; /* Sit on top of the overlay */
   }
   .logo {
     color: #fff;
@@ -1711,4 +1823,8 @@ footer p {
     font-size: 1rem;
     max-width: 98vw;
   }
+}
+
+body.body-no-scroll {
+  overflow: hidden;
 }
