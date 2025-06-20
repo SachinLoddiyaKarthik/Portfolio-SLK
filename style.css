@@ -1554,10 +1554,28 @@ footer p {
   #desktop-nav {
     display: none;
   }
+
   #hamburger-nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
   }
+
+  /* Force correct colors in dark mode on mobile */
+  [theme="dark"] .logo {
+    color: #e9ecef !important;
+  }
+
+  [theme="dark"] .hamburger-icon span {
+    background-color: #e9ecef !important;
+  }
+
+  [theme="dark"] #profile .section__text p,
+  [theme="dark"] #profile .title {
+     color: #e9ecef !important;
+  }
+
   #experience,
   .experience-details-container {
     margin-top: 2rem;
