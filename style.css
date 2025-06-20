@@ -1542,11 +1542,11 @@ footer p {
 /* --- MOVED FROM mediaqueries.css --- */
 @media screen and (max-width: 1400px) {
   #profile {
-    height: auto;
+    height: 83vh;
     margin-bottom: 6rem;
   }
   #about {
-    margin-bottom: 8rem;
+    margin-top: 5rem;
   }
 }
 
@@ -1556,25 +1556,18 @@ footer p {
   }
   #hamburger-nav {
     display: flex;
+    justify-content: space-between;
   }
   #experience,
   .experience-details-container {
     margin-top: 2rem;
   }
-  #profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    gap: 2rem;
-    padding: 2rem 5%;
-    margin-top: 5rem;
+  #profile,
+  .section-container {
+    display: block;
   }
-  .section__pic-container {
-    width: 275px;
-    height: 275px;
-    margin: 0 auto 2rem;
+  .arrow {
+    display: none;
   }
   section,
   .section-container {
@@ -1582,6 +1575,14 @@ footer p {
   }
   section {
     margin: 0 5%;
+  }
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+  .about-containers {
+    margin-top: 0;
   }
   .title {
     font-size: 2.5rem;
@@ -1592,7 +1593,8 @@ footer p {
 
 @media screen and (max-width: 900px) {
   #profile {
-    margin-top: 5rem;
+    height: auto;
+    margin-bottom: 3rem;
   }
   .title {
     font-size: 2.5rem;
@@ -1827,4 +1829,22 @@ footer p {
 
 body.body-no-scroll {
   overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline-container::before {
+    left: 10px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 1rem;
+  }
+  .timeline-item:nth-child(even) {
+    left: 0;
+    padding-left: 3rem;
+  }
+  .timeline-item::after {
+    left: 1px;
+  }
 }
