@@ -153,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Dark / light mode with improved error handling
 const modeToggle = document.getElementById("modeToggle");
 const modeToggle2 = document.getElementById("modeToggle2");
+const mobileThemeToggle = document.getElementById("mobileThemeToggle");
+const themeIcons = document.querySelectorAll(".icon");
 
 // Add event listeners with error handling
 if (modeToggle) {
@@ -161,6 +163,10 @@ if (modeToggle) {
 
 if (modeToggle2) {
   modeToggle2.addEventListener("click", setTheme);
+}
+
+if (mobileThemeToggle) {
+  mobileThemeToggle.addEventListener("click", setTheme);
 }
 
 function setTheme() {
@@ -176,19 +182,18 @@ function setTheme() {
 function setDarkMode() {
   document.documentElement.setAttribute("theme", "dark");
   localStorage.setItem("theme", "dark");
-  updateThemeIcons("dark");
+  updateImageSources("dark");
 }
 
 function setLightMode() {
   document.documentElement.removeAttribute("theme");
   localStorage.setItem("theme", "light");
-  updateThemeIcons("light");
+  updateImageSources("light");
 }
 
-function updateThemeIcons(theme) {
-  const themeToggles = document.querySelectorAll(".theme-toggle");
-  themeToggles.forEach(toggle => {
-    const img = toggle.querySelector("img");
+function updateImageSources(theme) {
+  const images = document.querySelectorAll("img[src-light][src-dark]");
+  images.forEach(img => {
     if (img) {
       if (theme === "dark") {
         img.src = img.getAttribute("src-dark");
@@ -299,58 +304,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => {
     observer.observe(section);
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const accordions = document.querySelectorAll(".accordion .accordion-header");
-
-  accordions.forEach((accordion) => {
-    accordion.addEventListener("click", function () {
-      this.classList.toggle("active");
-      const content = this.nextElementSibling;
-
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
-  });
-
-  const timelineItems = document.querySelectorAll(".timeline-item");
-  const detailButtons = document.querySelectorAll(".btn-details");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-    }
-  );
-
-  timelineItems.forEach((item) => {
-    observer.observe(item);
-  });
-
-  detailButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const content = this.nextElementSibling;
-      const isExpanded = this.getAttribute("aria-expanded") === "true";
-
-      this.setAttribute("aria-expanded", !isExpanded);
-      this.innerHTML = isExpanded ? "View Details" : "Hide Details";
-
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
   });
 });

@@ -219,9 +219,30 @@ nav a:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.mobile-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#hamburger-nav .theme-toggle {
+  border: 1px solid var(--container-border);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hamburger-nav .theme-toggle img {
+  width: 20px;
+  height: 20px;
+}
+
 .hamburger-menu {
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .hamburger-icon {
@@ -246,37 +267,56 @@ nav a:hover {
 }
 
 .menu-links {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: var(--primary-color);
-  width: fit-content;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  opacity: 0;
-  visibility: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.menu-links a {
-  display: block;
-  font-size: 1.5rem;
-  color: var(--secondary-color);
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  padding: 12px 16px;
-}
-
-.menu-links li {
+  position: fixed;
+  top: 8vh;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 8vh);
+  background-color: var(--background-color);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  display: flex;
+  transform: translateY(-110%);
+  transition: transform 0.5s ease-in-out, background-color 0.3s ease;
+  padding: 2rem;
+  overflow-y: auto;
+  z-index: 1001;
   list-style: none;
 }
 
 .menu-links.open {
-  max-height: 400px;
-  opacity: 1;
-  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu-links a,
+.menu-links button {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  transition: background-color 0.2s;
+  background: none;
+  border: none;
+}
+
+.menu-links li {
+  display: block;
+  width: 100%;
+  list-style: none;
+}
+
+.menu-links .theme-toggle {
+  display: block;
+  margin: 1rem auto;
+}
+
+.menu-links .theme-toggle img {
+  width: 2rem;
+  height: 2rem;
 }
 
 /* Fixed transform values for the X animation */
@@ -1802,6 +1842,40 @@ footer p {
     padding: 0 1.5rem;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   }
+  
+  .mobile-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .mobile-theme-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    z-index: 1003;
+  }
+  
+  .mobile-theme-toggle:hover {
+    background-color: var(--primary-color-2);
+  }
+  
+  .mobile-theme-toggle img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .mobile-theme-toggle:hover img {
+    transform: scale(1.1);
+  }
+  
   .hamburger-menu {
     position: relative;
     display: flex;
@@ -1816,13 +1890,17 @@ footer p {
     background: rgba(0, 0, 0, 0.95);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to start */
     align-items: center;
+    padding: 2rem 0; /* Add padding for better spacing */
+    overflow-y: auto; /* Make it scrollable */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
     z-index: 1001; /* Lower than header */
+    scroll-behavior: smooth;
   }
   .menu-links.open {
     transform: translateY(0);
@@ -1830,26 +1908,54 @@ footer p {
     pointer-events: auto;
   }
   .menu-links a, .menu-links button {
-    font-size: 2rem;
-    padding: 1.5rem 0;
+    font-size: 1.8rem; /* Slightly smaller to fit more items */
+    padding: 1.2rem 0; /* Reduced padding for better fit */
     color: white;
     width: 100%;
     text-align: center;
     text-decoration: none;
     background: none;
     border: none;
+    flex-shrink: 0; /* Prevent items from shrinking */
+    min-height: 60px; /* Ensure minimum touch target size */
   }
   
   .menu-links .theme-toggle {
     background: none;
     border: none;
     padding: 1rem;
+    margin-top: 1rem; /* Add space above theme toggle */
   }
   
   .menu-links .theme-toggle img {
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1); /* Make icons white in dark overlay */
+  }
+  
+  /* Add a subtle scrollbar styling for better UX */
+  .menu-links::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .menu-links::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .menu-links::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+  }
+  
+  .menu-links::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Add hover effects for better interaction feedback */
+  .menu-links a:hover, .menu-links button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+    transition: all 0.2s ease;
   }
   .hamburger-icon {
     z-index: 1003; /* Highest z-index to stay on top */
@@ -1947,24 +2053,23 @@ body.body-no-scroll {
     color: var(--secondary-color);
   }
 
-  .section__text__p1,
-  .section__text__p2,
-  .project-description,
-  .experience-list li,
-  .education-details span,
-  .education-details p {
+  [theme="dark"] .section__text__p1,
+  [theme="dark"] .section__text__p2,
+  [theme="dark"] .project-description,
+  [theme="dark"] .experience-list li,
+  [theme="dark"] .education-details span,
+  [theme="dark"] .education-details p {
     color: var(--secondary-color-2) !important;
   }
 
-  .btn,
-  .project-btn,
-  .btn-description {
+  [theme="dark"] .project-btn,
+  [theme="dark"] .btn-description {
     background-color: var(--button-background) !important;
     color: var(--button-text-hover) !important;
     border: 1px solid var(--secondary-color);
   }
 
-  .project-description {
+  [theme="dark"] .project-description {
     background-color: var(--primary-color-2) !important;
   }
 }

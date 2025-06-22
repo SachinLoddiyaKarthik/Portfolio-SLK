@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sachin LK - Data Engineer Portfolio showcasing expertise in data pipelines, ETL workflows, and real-time analytics using PySpark, SQL, Azure Databricks, and Synapse.">
     <meta name="keywords" content="Data Engineer, Data Science, Azure, PySpark, SQL, Portfolio">
     <meta name="author" content="Sachin Loddiya Karthik">
@@ -53,12 +53,18 @@
         </nav>
         <nav id="hamburger-nav" aria-label="Mobile navigation">
             <div class="logo">Sachin Loddiya Karthik</div>
-            <div class="hamburger-menu">
-                <button class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+            <div class="mobile-header-actions">
+                <button id="mobileThemeToggle" class="icon color-icon theme-toggle mobile-theme-toggle" aria-label="Toggle dark/light mode">
+                    <img src="./assets/theme_light.png" src-light="./assets/theme_light.png" src-dark="./assets/theme_dark.png" alt="Theme toggle icon">
                 </button>
+                <div class="hamburger-menu">
+                    <button class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+                </div>
+            </div>
                 <ul class="menu-links">
                   <li><a href="#about" onclick="toggleMenu()">About</a></li>
                   <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
@@ -66,22 +72,8 @@
                   <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
                   <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
                   <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-                  <li>
-                    <button
-                      id="modeToggle2"
-                      class="icon color-icon theme-toggle"
-                      aria-label="Toggle dark/light mode"
-                    >
-                      <img
-                        src="./assets/theme_light.png"
-                        src-light="./assets/theme_light.png"
-                        src-dark="./assets/theme_dark.png"
-                        alt="Theme toggle icon"
-                      />
-                    </button>
-                  </li>
                 </ul>
-              </div>
+            </div>
             </nav>
     </header>
 

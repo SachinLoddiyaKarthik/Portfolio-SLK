@@ -2,7 +2,7 @@
 
 /* Reduce paint and layout operations */
 * {
-  will-change: unset;
+  will-change: auto;
 }
 
 /* Optimize animations */
