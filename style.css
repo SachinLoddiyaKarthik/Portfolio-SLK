@@ -1790,30 +1790,31 @@ footer p {
 @media (max-width: 900px) {
   #hamburger-nav {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(20, 20, 20, 0.96);
-    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Fixed height for header bar */
+    background-color: var(--background-color);
+    z-index: 1002; /* Higher than menu overlay */
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-start;
-    padding-top: 2.5rem;
+    padding: 0 1.5rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   }
   .hamburger-menu {
-    width: 100vw;
+    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
   }
   .menu-links {
     position: fixed;
-    top: 0;
+    top: 60px; /* Start below the header */
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px); /* Adjust height to account for header */
     background: rgba(0, 0, 0, 0.95);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1821,7 +1822,7 @@ footer p {
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 1001; /* Lower than header */
   }
   .menu-links.open {
     transform: translateY(0);
@@ -1834,15 +1835,39 @@ footer p {
     color: white;
     width: 100%;
     text-align: center;
+    text-decoration: none;
+    background: none;
+    border: none;
+  }
+  
+  .menu-links .theme-toggle {
+    background: none;
+    border: none;
+    padding: 1rem;
+  }
+  
+  .menu-links .theme-toggle img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Make icons white in dark overlay */
   }
   .hamburger-icon {
-    z-index: 1001; /* Sit on top of the overlay */
+    z-index: 1003; /* Highest z-index to stay on top */
+    position: relative;
   }
   .logo {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    z-index: 2200;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    z-index: 1003; /* Same as hamburger icon */
+  }
+  
+  /* Add proper spacing for content below fixed header */
+  #profile {
+    margin-top: 80px; /* Account for fixed header */
+  }
+  
+  section:first-of-type {
+    padding-top: 80px; /* Account for fixed header */
   }
 }
 
@@ -1902,32 +1927,24 @@ body.body-no-scroll {
 
 /* 🔧 Dark Theme Mobile Patch — Improves Text + UI Visibility */
 @media screen and (max-width: 768px) {
-  body {
-    background-color: var(--background-color) !important;
-    color: var(--secondary-color) !important;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-  
-  #profile {
-    background-color: var(--background-color) !important;
-    padding-top: 20vh !important;
-  }
-  
-  /* Force light mode if preferred by system */
-  @media (prefers-color-scheme: light) {
-    :root {
-      --background-color: #f8f9fa !important;
-      --primary-color: #ffffff !important;
-      --secondary-color: #212529 !important;
-    }
-  }
-  
-  /* Ensure dark mode works properly */
   [theme="dark"] {
-    --background-color: #121212 !important;
-    --primary-color: #1e1e1e !important;
-    --secondary-color: #ffffff !important;
+    --background-color: #121212;
+    --primary-color: #1e1e1e;
+    --primary-color-2: #2a2a2a;
+    --primary-color-3: #333333;
+
+    --secondary-color: #ffffff;
+    --secondary-color-2: #cccccc;
+
+    --button-background: #ffffff;
+    --button-text-hover: #000000;
+
+    --container-border: #444444;
+  }
+
+  body[theme="dark"] {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
   }
 
   .section__text__p1,
