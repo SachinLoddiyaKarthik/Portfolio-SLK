@@ -1902,3 +1902,47 @@ body.body-no-scroll {
     display: flex;
   }
 }
+
+/* 🔧 Dark Theme Mobile Patch — Improves Text + UI Visibility */
+@media screen and (max-width: 768px) {
+  [theme="dark"] {
+    --background-color: #121212;
+    --primary-color: #1e1e1e;
+    --primary-color-2: #2a2a2a;
+    --primary-color-3: #333333;
+
+    --secondary-color: #ffffff;
+    --secondary-color-2: #cccccc;
+
+    --button-background: #ffffff;
+    --button-text-hover: #000000;
+
+    --container-border: #444444;
+  }
+
+  body[theme="dark"] {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+  }
+
+  .section__text__p1,
+  .section__text__p2,
+  .project-description,
+  .experience-list li,
+  .education-details span,
+  .education-details p {
+    color: var(--secondary-color-2) !important;
+  }
+
+  .btn,
+  .project-btn,
+  .btn-description {
+    background-color: var(--button-background) !important;
+    color: var(--button-text-hover) !important;
+    border: 1px solid var(--secondary-color);
+  }
+
+  .project-description {
+    background-color: var(--primary-color-2) !important;
+  }
+}
