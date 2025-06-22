@@ -98,21 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setLightMode();
   }
 
-  const accordions = document.querySelectorAll(".accordion .accordion-header");
-
-  accordions.forEach((accordion) => {
-    accordion.addEventListener("click", function () {
-      this.classList.toggle("active");
-      const content = this.nextElementSibling;
-
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
-  });
-
   const timelineItems = document.querySelectorAll(".timeline-item");
   const detailButtons = document.querySelectorAll(".btn-details");
 

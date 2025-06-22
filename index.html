@@ -228,145 +228,54 @@
 
         <section id="skills" aria-labelledby="skills-title" class="fade-in-section">
           <p class="section_text_p3">Explore My</p>
-          <h1 id="skills-title" class="title">Technical Skills by Role</h1>
-
-          <div class="skills-role-container">
-
-            <!-- Data Engineer -->
-            <div class="skills-role-block accordion">
-              <button class="accordion-header" aria-expanded="false">
-                <h2><i class="fas fa-cogs" aria-hidden="true"></i> Data Engineering</h2>
-                <i class="fas fa-chevron-down chevron"></i>
-              </button>
-              <div class="accordion-content">
-                <div class="skills-grid">
-                  <div class="skill-category">
-                    <h3><i class="fas fa-cloud" aria-hidden="true"></i> Cloud Platforms</h3>
-                    <div class="tags">
-                      <span>Azure (ADF, Synapse, Databricks)</span>
-                      <span>AWS (S3, Glue, Lambda, Redshift, SageMaker)</span>
-                      <span>GCP (BigQuery, Dataflow)</span>
-                      <span>Snowflake</span>
-                    </div>
-                  </div>
-
-                  <div class="skill-category">
-                    <h3><i class="fas fa-cogs" aria-hidden="true"></i> Orchestration & Pipelines</h3>
-                    <div class="tags">
-                      <span>Apache Spark</span>
-                      <span>Apache Kafka</span>
-                      <span>Apache Airflow</span>
-                      <span>Delta Live Tables</span>
-                      <span>CI/CD (DevOps, GitHub Actions)</span>
-                      <span>Docker</span>
-                      <span>MLflow</span>
-                      <span>FastAPI</span>
-                    </div>
-                  </div>
-
-                  <div class="skill-category">
-                    <h3><i class="fas fa-database" aria-hidden="true"></i> Databases</h3>
-                    <div class="tags">
-                      <span>Azure SQL</span>
-                      <span>PostgreSQL</span>
-                      <span>Oracle SQL</span>
-                      <span>DynamoDB</span>
-                      <span>MongoDB</span>
-                    </div>
-                  </div>
-                </div>
+          <h1 id="skills-title" class="title">Technical Skills</h1>
+          <div class="skill-grid-container">
+            <!-- Data Engineering -->
+            <div class="skill-category-container">
+              <h2 class="skill-category-title">Data Engineering</h2>
+              <div class="logo-grid">
+                <div class="skill-logo-item" data-skill="Azure"><img src="./assets/logos/azure.svg" alt="Azure"><span>Azure</span></div>
+                <div class="skill-logo-item" data-skill="AWS"><img src="./assets/logos/aws.svg" alt="AWS"><span>AWS</span></div>
+                <div class="skill-logo-item" data-skill="GCP"><img src="./assets/logos/gcp.svg" alt="GCP"><span>GCP</span></div>
+                <div class="skill-logo-item" data-skill="Snowflake"><img src="./assets/logos/snowflake.svg" alt="Snowflake"><span>Snowflake</span></div>
+                <div class="skill-logo-item" data-skill="Spark"><img src="./assets/logos/spark.svg" alt="Apache Spark"><span>Spark</span></div>
+                <div class="skill-logo-item" data-skill="Kafka"><img src="./assets/logos/kafka.svg" alt="Apache Kafka"><span>Kafka</span></div>
+                <div class="skill-logo-item" data-skill="Airflow"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg" alt="Apache Airflow"><span>Airflow</span></div>
+                <div class="skill-logo-item" data-skill="Docker"><img src="./assets/logos/docker.svg" alt="Docker"><span>Docker</span></div>
+                <div class="skill-logo-item" data-skill="SQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original-wordmark.svg" alt="SQL"><span>SQL</span></div>
+                <div class="skill-logo-item" data-skill="PostgreSQL"><img src="./assets/logos/postgresql.svg" alt="PostgreSQL"><span>PostgreSQL</span></div>
+                <div class="skill-logo-item" data-skill="MySQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" alt="MySQL"><span>MySQL</span></div>
+                <div class="skill-logo-item" data-skill="MongoDB"><img src="./assets/logos/mongodb.svg" alt="MongoDB"><span>MongoDB</span></div>
+                <div class="skill-logo-item" data-skill="DynamoDB"><img src="./assets/logos/dynamodb.svg" alt="DynamoDB"><span>DynamoDB</span></div>
               </div>
             </div>
-
             <!-- Data Science -->
-            <div class="skills-role-block accordion">
-              <button class="accordion-header" aria-expanded="false">
-                <h2><i class="fas fa-flask" aria-hidden="true"></i> Data Science</h2>
-                <i class="fas fa-chevron-down chevron"></i>
-              </button>
-              <div class="accordion-content">
-                <div class="skills-grid">
-                  <div class="skill-category">
-                    <h3><i class="fas fa-code" aria-hidden="true"></i> Programming & ML</h3>
-                    <div class="tags">
-                      <span>Python</span>
-                      <span>PySpark</span>
-                      <span>Scikit-learn</span>
-                      <span>Pandas</span>
-                      <span>NumPy</span>
-                      <span>OpenAI / LangChain</span>
-                      <span>XGBoost</span>
-                      <span>TensorFlow</span>
-                      <span>PyTorch</span>
-                      <span>Keras</span>
-                    </div>
-                  </div>
-
-                  <div class="skill-category">
-                    <h3><i class="fas fa-chart-bar" aria-hidden="true"></i> Statistics & Modeling</h3>
-                    <div class="tags">
-                      <span>Regression</span>
-                      <span>Classification</span>
-                      <span>Clustering</span>
-                      <span>Time Series</span>
-                      <span>Text Analysis</span>
-                    </div>
-                  </div>
-
-                  <div class="skill-category">
-                    <h3><i class="fas fa-tools" aria-hidden="true"></i> Tools</h3>
-                    <div class="tags">
-                      <span>Jupyter</span>
-                      <span>VS Code</span>
-                      <span>Pycharm</span>
-                      <span>Git</span>
-                      <span>RStudio</span>
-                      <span>WinSCP</span>
-                      <span>PuTTY</span>
-                    </div>
-                  </div>
-                </div>
+            <div class="skill-category-container">
+              <h2 class="skill-category-title">Data Science</h2>
+              <div class="logo-grid">
+                <div class="skill-logo-item" data-skill="Python"><img src="./assets/logos/python.svg" alt="Python"><span>Python</span></div>
+                <div class="skill-logo-item" data-skill="Scikit-learn"><img src="./assets/logos/scikitlearn.svg" alt="Scikit-learn"><span>Scikit-learn</span></div>
+                <div class="skill-logo-item" data-skill="Pandas"><img src="./assets/logos/pandas.svg" alt="Pandas"><span>Pandas</span></div>
+                <div class="skill-logo-item" data-skill="NumPy"><img src="./assets/logos/numpy.svg" alt="NumPy"><span>NumPy</span></div>
+                <div class="skill-logo-item" data-skill="TensorFlow"><img src="./assets/logos/tensorflow.svg" alt="TensorFlow"><span>TensorFlow</span></div>
+                <div class="skill-logo-item" data-skill="PyTorch"><img src="./assets/logos/pytorch.svg" alt="PyTorch"><span>PyTorch</span></div>
+                <div class="skill-logo-item" data-skill="Keras"><img src="./assets/logos/keras.svg" alt="Keras"><span>Keras</span></div>
+                <div class="skill-logo-item" data-skill="Jupyter"><img src="./assets/logos/jupyter.svg" alt="Jupyter"><span>Jupyter</span></div>
+                <div class="skill-logo-item" data-skill="VS Code"><img src="./assets/logos/vscode.svg" alt="VS Code"><span>VS Code</span></div>
+                <div class="skill-logo-item" data-skill="Git"><img src="./assets/logos/git.svg" alt="Git"><span>Git</span></div>
+                <div class="skill-logo-item" data-skill="LangChain"><img src="./assets/logos/langchain-color.svg" alt="LangChain"><span>LangChain</span></div>
               </div>
             </div>
-
-            <!-- Data Analyst -->
-            <div class="skills-role-block accordion">
-              <button class="accordion-header" aria-expanded="false">
-                <h2><i class="fas fa-chart-line" aria-hidden="true"></i> Data Analysis & BI</h2>
-                <i class="fas fa-chevron-down chevron"></i>
-              </button>
-              <div class="accordion-content">
-                <div class="skills-grid">
-                  <div class="skill-category">
-                    <h3><i class="fas fa-table" aria-hidden="true"></i> Visualization</h3>
-                    <div class="tags">
-                      <span>Power BI</span>
-                      <span>Tableau</span>
-                      <span>Excel</span>
-                      <span>Plotly</span>
-                      <span>Matplotlib</span>
-                    </div>
-                  </div>
-
-                  <div class="skill-category">
-                    <h3><i class="fas fa-database" aria-hidden="true"></i> Query & Exploration</h3>
-                    <div class="tags">
-                      <span>SQL</span>
-                      <span>Presto</span>
-                      <span>Athena</span>
-                      <span>Exploratory Data Analysis</span>
-                    </div>
-                  </div>
-
-                  <div class="skill-category">
-                    <h3><i class="fas fa-bell" aria-hidden="true"></i> Monitoring & Reporting</h3>
-                    <div class="tags">
-                      <span>CloudWatch</span>
-                      <span>Datadog</span>
-                      <span>Logging Pipelines</span>
-                    </div>
-                  </div>
-                </div>
+            <!-- Data Analysis & BI -->
+            <div class="skill-category-container">
+              <h2 class="skill-category-title">Data Analysis & BI</h2>
+              <div class="logo-grid">
+                <div class="skill-logo-item" data-skill="Power BI"><img src="./assets/logos/powerbi.svg" alt="Power BI"><span>Power BI</span></div>
+                <div class="skill-logo-item" data-skill="Tableau"><img src="./assets/logos/tableau-svgrepo-com.svg" alt="Tableau"><span>Tableau</span></div>
+                <div class="skill-logo-item" data-skill="Excel"><img src="./assets/logos/Microsoft_Office_Excel_Logo.svg" alt="Excel"><span>Excel</span></div>
+                <div class="skill-logo-item" data-skill="Plotly"><img src="./assets/logos/plotly.svg" alt="Plotly"><span>Plotly</span></div>
+                <div class="skill-logo-item" data-skill="Matplotlib"><img src="./assets/logos/matplotlib.svg" alt="Matplotlib"><span>Matplotlib</span></div>
+                <div class="skill-logo-item" data-skill="Athena"><img src="./assets/logos/athena.svg" alt="Athena"><span>Athena</span></div>
               </div>
             </div>
           </div>

@@ -664,105 +664,58 @@ section {
   text-align: center;
 }
 
-.skills-role-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+.skill-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   margin-top: 3rem;
-  text-align: left;
-  align-items: start; /* Prevents columns from stretching */
 }
 
-.skills-role-block {
-  background-color: var(--primary-color);
-  border: 1px solid var(--container-border);
-  border-radius: 12px;
-  padding: 0; /* Remove padding for the accordion structure */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.skills-role-block:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.accordion-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
+.skill-category-container {
   text-align: left;
 }
 
-.accordion-header h2 {
-  margin-bottom: 0;
-  color: var(--secondary-color);
+.skill-category-title {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--container-border);
+  text-align: center;
 }
 
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out;
-}
-
-.accordion-content .skills-grid {
-  padding: 0 2rem 2rem 2rem; /* Add padding to the content */
-}
-
-.chevron {
-  transition: transform 0.4s ease;
-}
-
-.accordion-header.active .chevron {
-  transform: rotate(180deg);
-}
-
-.skills-grid {
+.logo-grid {
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 2rem;
+  justify-items: center;
 }
 
-.skill-category h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+.skill-logo-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--secondary-color-2);
-}
-
-.skill-category {
-  background-color: var(--primary-color-2);
-  padding: 1.5rem;
-  border-radius: 8px;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
   gap: 0.75rem;
+  transition: transform 0.3s ease;
 }
 
-.tags span {
-  background-color: var(--primary-color-2);
-  color: var(--secondary-color-2);
-  padding: 0.5rem 1rem;
-  border-radius: 16px; /* Pill shape */
+.skill-logo-item:hover {
+  transform: translateY(-5px);
+}
+
+.skill-logo-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform var(--transition-speed-fast);
+}
+
+.skill-logo-item:hover img {
+  transform: scale(1.1);
+}
+
+.skill-logo-item span {
   font-size: 0.9rem;
-  font-weight: 500;
-  border: 1px solid var(--container-border);
-  transition: all 0.3s ease;
-}
-
-.tags span:hover {
-  background-color: var(--accent-color);
-  color: white;
-  border-color: var(--accent-color);
-  transform: translateY(-2px);
+  color: var(--secondary-color-2);
 }
 
 /* PROJECTS SECTION */
@@ -2072,4 +2025,14 @@ body.body-no-scroll {
   [theme="dark"] .project-description {
     background-color: var(--primary-color-2) !important;
   }
+}
+
+/* Dark Mode Styles */
+body.dark-mode .invert-in-dark-mode {
+  filter: invert(1);
+}
+
+/* Existing styles for .logo-grid img */
+.logo-grid img {
+  // ... existing code ...
 }
