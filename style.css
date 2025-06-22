@@ -1902,24 +1902,32 @@ body.body-no-scroll {
 
 /* 🔧 Dark Theme Mobile Patch — Improves Text + UI Visibility */
 @media screen and (max-width: 768px) {
-  [theme="dark"] {
-    --background-color: #121212;
-    --primary-color: #1e1e1e;
-    --primary-color-2: #2a2a2a;
-    --primary-color-3: #333333;
-
-    --secondary-color: #ffffff;
-    --secondary-color-2: #cccccc;
-
-    --button-background: #ffffff;
-    --button-text-hover: #000000;
-
-    --container-border: #444444;
+  body {
+    background-color: var(--background-color) !important;
+    color: var(--secondary-color) !important;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
-
-  body[theme="dark"] {
-    background-color: var(--background-color);
-    color: var(--secondary-color);
+  
+  #profile {
+    background-color: var(--background-color) !important;
+    padding-top: 20vh !important;
+  }
+  
+  /* Force light mode if preferred by system */
+  @media (prefers-color-scheme: light) {
+    :root {
+      --background-color: #f8f9fa !important;
+      --primary-color: #ffffff !important;
+      --secondary-color: #212529 !important;
+    }
+  }
+  
+  /* Ensure dark mode works properly */
+  [theme="dark"] {
+    --background-color: #121212 !important;
+    --primary-color: #1e1e1e !important;
+    --secondary-color: #ffffff !important;
   }
 
   .section__text__p1,

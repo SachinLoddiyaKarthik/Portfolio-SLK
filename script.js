@@ -82,17 +82,77 @@ document.addEventListener('DOMContentLoaded', function() {
       ripple.addEventListener('animationend', () => ripple.remove());
     });
   });
+
+  // Default to light theme on mobile if system prefers light
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  
+  let currentTheme = localStorage.getItem("theme");
+  if (!currentTheme) {
+    currentTheme = isMobile && !prefersDark ? "light" : (prefersDark ? "dark" : "light");
+  }
+  
+  if (currentTheme === "dark") {
+    setDarkMode();
+  } else {
+    setLightMode();
+  }
+
+  const accordions = document.querySelectorAll(".accordion .accordion-header");
+
+  accordions.forEach((accordion) => {
+    accordion.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+
+  const timelineItems = document.querySelectorAll(".timeline-item");
+  const detailButtons = document.querySelectorAll(".btn-details");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
+
+  timelineItems.forEach((item) => {
+    observer.observe(item);
+  });
+
+  detailButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const content = this.nextElementSibling;
+      const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+      this.setAttribute("aria-expanded", !isExpanded);
+      this.innerHTML = isExpanded ? "View Details" : "Hide Details";
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
 });
   
 // Dark / light mode with improved error handling
 const modeToggle = document.getElementById("modeToggle");
 const modeToggle2 = document.getElementById("modeToggle2");
-const themeIcons = document.querySelectorAll(".icon");
-
-const currentTheme = localStorage.getItem("theme");
-if (currentTheme === "dark") {
-  setDarkMode();
-}
 
 // Add event listeners with error handling
 if (modeToggle) {
@@ -116,29 +176,25 @@ function setTheme() {
 function setDarkMode() {
   document.documentElement.setAttribute("theme", "dark");
   localStorage.setItem("theme", "dark");
-
-  themeIcons.forEach((icon) => {
-    const image = icon.tagName === 'IMG' ? icon : icon.querySelector('img');
-    if (image) {
-      const darkSrc = image.getAttribute("src-dark");
-      if (darkSrc) {
-        image.src = darkSrc;
-      }
-    }
-  });
+  updateThemeIcons("dark");
 }
 
 function setLightMode() {
   document.documentElement.removeAttribute("theme");
   localStorage.setItem("theme", "light");
+  updateThemeIcons("light");
+}
 
-  themeIcons.forEach((icon) => {
-    const image = icon.tagName === 'IMG' ? icon : icon.querySelector('img');
-    if (image) {
-        const lightSrc = image.getAttribute("src-light");
-        if (lightSrc) {
-            image.src = lightSrc;
-        }
+function updateThemeIcons(theme) {
+  const themeToggles = document.querySelectorAll(".theme-toggle");
+  themeToggles.forEach(toggle => {
+    const img = toggle.querySelector("img");
+    if (img) {
+      if (theme === "dark") {
+        img.src = img.getAttribute("src-dark");
+      } else {
+        img.src = img.getAttribute("src-light");
+      }
     }
   });
 }
