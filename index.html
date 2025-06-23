@@ -282,200 +282,153 @@
         </section>
 
         <section id="projects" aria-labelledby="projects-title" class="fade-in-section">
-          <p class="section__text__p1">Browse My Recent</p>
-          <h1 id="projects-title" class="title">Projects</h1>
-
-          <!-- Project Tabs -->
-          <div class="project-tabs" role="tablist" aria-label="Project tabs">
-            <button class="project-tab-btn active" onclick="showProject(event, 'atsresume')" role="tab" aria-selected="true" aria-controls="project-atsresume">ATS Resume</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'askpdf')" role="tab" aria-selected="false" aria-controls="project-askpdf">Ask My PDF</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'scheduler')" role="tab" aria-selected="false" aria-controls="project-scheduler">Scheduler</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'chatbot')" role="tab" aria-selected="false" aria-controls="project-chatbot">AI Chatbot</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'olympics')" role="tab" aria-selected="false" aria-controls="project-olympics">Olympics</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'netflix')" role="tab" aria-selected="false" aria-controls="project-netflix">Netflix</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'covid')" role="tab" aria-selected="false" aria-controls="project-covid">Covid19</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'f1')" role="tab" aria-selected="false" aria-controls="project-f1">F1</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'twitter')" role="tab" aria-selected="false" aria-controls="project-twitter">Twitter NLP</button>
-            <button class="project-tab-btn" onclick="showProject(event, 'attendance')" role="tab" aria-selected="false" aria-controls="project-attendance">Attendance</button>
-          </div>
-
-          <!-- Project Panels -->
-           <div class="projects-container">
-            <div id="project-atsresume" class="project-item project-content active" role="tabpanel" aria-labelledby="project-atsresume">
-              <div class="project-icon-container">
-                <i class="fas fa-file-alt"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Enhanced ATS Resume Expert Pro – AI Resume Analyzer</h2>
-                <p class="project-time">May 2025 – Jun 2025</p>
-                <ul>
-                  <li>Developed an AI-powered Streamlit web app using Google Gemini Pro to evaluate resume–JD alignment with semantic scoring and NLP techniques.</li>
-                  <li>Integrated PDF & DOCX parsing, TF-IDF + cosine similarity, skill gap detection, and AI career coaching modes.</li>
-                  <li>Built interactive visualizations using Plotly, WordCloud, and Radar Charts, with exportable PDF, TXT, and JSON reports.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/ats-resume-expert" target="_blank" class="github-btn" aria-label="View ATS Resume project on GitHub">GitHub ↗</a>
-                  <a href="https://ats-resume-expert-slk.streamlit.app/" target="_blank" class="demo-btn" aria-label="View ATS Resume project live demo">Live Demo ↗</a>
-                </div>
-              </div>
+            <div class="section-header">
+                <p class="section_text_p3">Browse My Recent</p>
+                <h1 id="projects-title" class="title">Projects</h1>
             </div>
 
-            <div id="project-askpdf" class="project-item project-content" role="tabpanel" aria-labelledby="project-askpdf">
-              <div class="project-icon-container">
-                <i class="fas fa-file-pdf"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Ask My PDF Pro – Multilingual AI Document Q&A</h2>
-                <p class="project-time">Apr 2025 - May 2025</p>
-                <ul>
-                  <li>Developed a multi-PDF chat system using LangChain, FAISS + BM25 for hybrid retrieval, and Gemini/OpenAI LLMs.</li>
-                  <li>Enabled contextual Q&A via PyMuPDF chunking, multilingual translation, and Streamlit-based interactive UI.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/ask-my-pdf" target="_blank" class="github-btn" aria-label="View Ask My PDF project on GitHub">GitHub ↗</a>
-                  <a href="https://ask-my-pdf-pro.streamlit.app" target="_blank" class="demo-btn" aria-label="View Ask My PDF project live demo">Live Demo ↗</a>
+            <div class="projects-grid">
+                <!-- Project 1: ATS Resume Expert Pro -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3 class="project-card-title">Enhanced ATS Resume Expert Pro</h3>
+                    <p class="project-date">May 2025 – Jun 2025</p>
+                    <div class="project-tags">
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Google Gemini</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Plotly</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SachinLoddiyaKarthik/ats-resume-expert" target="_blank" class="project-link primary">GitHub ↗</a>
+                        <a href="https://ats-resume-expert-slk.streamlit.app/" target="_blank" class="project-link secondary">Live Demo ↗</a>
+                    </div>
+                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <div class="project-details" style="display:none">
+                        <ul class="project-features">
+                            <li>AI-powered Streamlit app to evaluate resume–JD alignment.</li>
+                            <li>Features PDF/DOCX parsing, TF-IDF, skill gap detection & AI coaching.</li>
+                            <li>Interactive visualizations with Plotly, WordCloud, and Radar Charts.</li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            </div>
 
-            <div id="project-scheduler" class="project-item project-content" role="tabpanel" aria-labelledby="project-scheduler">
-              <div class="project-icon-container">
-                <i class="fas fa-calendar-alt"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Class Scheduler for Administrator</h2>
-                <p class="project-time">Jan 2025 - Apr 2025</p>
-                <ul>
-                  <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming.</li>
-                  <li>Streamlit-based UI for CSV processing and schedule visualization.</li>
-                  <li>Minimized conflicts using optimization logic and frontend UX.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/Class-Scheduler" target="_blank" class="github-btn" aria-label="View Class Scheduler project on GitHub">GitHub ↗</a>
+                <!-- Project 2: Ask My PDF Pro -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="project-card-title">Ask My PDF Pro – AI Document Q&amp;A</h3>
+                    <p class="project-date">Apr 2025 - May 2025</p>
+                    <div class="project-tags">
+                        <span class="tag">LangChain</span>
+                        <span class="tag">FAISS</span>
+                        <span class="tag">Gemini</span>
+                        <span class="tag">Streamlit</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SachinLoddiyaKarthik/ask-my-pdf" target="_blank" class="project-link primary">GitHub ↗</a>
+                        <a href="https://ask-my-pdf-pro.streamlit.app" target="_blank" class="project-link secondary">Live Demo ↗</a>
+                    </div>
+                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <div class="project-details" style="display:none">
+                        <ul class="project-features">
+                            <li>Multi-PDF chat system using LangChain and FAISS+BM25 retrieval.</li>
+                            <li>Supports contextual Q&amp;A with Gemini/OpenAI LLMs.</li>
+                            <li>Multilingual translation and interactive Streamlit UI.</li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            </div>
 
-            <div id="project-chatbot" class="project-item project-content" role="tabpanel" aria-labelledby="project-chatbot">
-              <div class="project-icon-container">
-                <i class="fas fa-robot"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Conversational AI Chatbot</h2>
-                <p class="project-time">May 2025 - Jun 2025</p>
-                <ul>
-                  <li>Built using LangChain, OpenAI GPT-3.5-turbo, and Streamlit.</li>
-                  <li>Session memory with natural dialogue flow and secure API management.</li>
-                  <li>Engaging assistant persona created for user interaction.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/Conversational-AI-Chatbot-with-LangChain-and-OpenAI" target="_blank" class="github-btn" aria-label="View AI Chatbot project on GitHub">GitHub ↗</a>
+                <!-- Project 3: Class Scheduler -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 class="project-card-title">Class Scheduler for Administrator</h3>
+                    <p class="project-date">Jan 2025 - Apr 2025</p>
+                    <div class="project-tags">
+                        <span class="tag">Google OR-Tools</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Python</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SachinLoddiyaKarthik/Class-Scheduler" target="_blank" class="project-link primary">GitHub ↗</a>
+                    </div>
+                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <div class="project-details" style="display:none">
+                        <ul class="project-features">
+                            <li>Automated scheduling solution using Google OR-Tools.</li>
+                            <li>Streamlit-based UI for CSV processing and visualization.</li>
+                            <li>Minimized conflicts using advanced optimization algorithms.</li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            </div>
 
-            <div id="project-olympics" class="project-item project-content" role="tabpanel" aria-labelledby="project-olympics">
-              <div class="project-icon-container">
-                <i class="fas fa-trophy"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Tokyo Olympic Data Analytics Pipeline</h2>
-                <p class="project-time">Mar 2025 - Apr 2025</p>
-                <ul>
-                  <li>Built Azure pipeline with Databricks and Synapse to process 500K+ athlete records.</li>
-                  <li>Created Power BI dashboards for medal and performance analysis.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/tokyo-olympic-data-engineering-project" target="_blank" class="github-btn" aria-label="View Olympics project on GitHub">GitHub ↗</a>
+                <!-- Project 4: Conversational AI Chatbot -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="project-card-title">Conversational AI Chatbot</h3>
+                    <p class="project-date">May 2025 - Jun 2025</p>
+                    <div class="project-tags">
+                        <span class="tag">LangChain</span>
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">Streamlit</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SachinLoddiyaKarthik/Conversational-AI-Chatbot-with-LangChain-and-OpenAI" target="_blank" class="project-link primary">GitHub ↗</a>
+                    </div>
+                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <div class="project-details" style="display:none">
+                        <ul class="project-features">
+                            <li>Built with LangChain, OpenAI GPT-3.5-turbo, and Streamlit.</li>
+                            <li>Features session memory for natural dialogue flow.</li>
+                            <li>Engaging assistant persona for user interaction.</li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            </div>
 
-            <div id="project-netflix" class="project-item project-content" role="tabpanel" aria-labelledby="project-netflix">
-              <div class="project-icon-container">
-                <i class="fas fa-tv"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Netflix Data Engineering</h2>
-                <p class="project-time">Feb 2025 - Mar 2025</p>
-                <ul>
-                  <li>Delta Lake pipeline using AutoLoader + DLT on Databricks.</li>
-                  <li>Real-time dashboards for content analytics.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/Netflix_Data_Engineering_Project" target="_blank" class="github-btn" aria-label="View Netflix project on GitHub">GitHub ↗</a>
+                <!-- Project 5: Tokyo Olympic Data Analytics -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-trophy"></i></div>
+                    <h3 class="project-card-title">Tokyo Olympic Data Analytics</h3>
+                    <p class="project-date">Mar 2025 - Apr 2025</p>
+                    <div class="project-tags">
+                        <span class="tag">Azure</span>
+                        <span class="tag">Databricks</span>
+                        <span class="tag">Synapse</span>
+                        <span class="tag">Power BI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SachinLoddiyaKarthik/tokyo-olympic-data-engineering-project" target="_blank" class="project-link primary">GitHub ↗</a>
+                    </div>
+                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <div class="project-details" style="display:none">
+                        <ul class="project-features">
+                            <li>Azure pipeline with Databricks and Synapse to process 500K+ records.</li>
+                            <li>Created Power BI dashboards for medal and performance analysis.</li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            </div>
 
-            <div id="project-covid" class="project-item project-content" role="tabpanel" aria-labelledby="project-covid">
-              <div class="project-icon-container">
-                <i class="fas fa-virus"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Covid19 Data Engineering</h2>
-                <p class="project-time">Jun 2024 - Jul 2024</p>
-                <ul>
-                  <li>Real-time pipeline with Kafka + ADF + Power BI for trend monitoring.</li>
-                  <li>Metadata-driven pipeline design for flexibility.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/Covid19-Data-Engineering-Project" target="_blank" class="github-btn" aria-label="View Covid19 project on GitHub">GitHub ↗</a>
+                <!-- Project 6: Netflix Data Engineering -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-tv"></i></div>
+                    <h3 class="project-card-title">Netflix Data Engineering</h3>
+                    <p class="project-date">Feb 2025 - Mar 2025</p>
+                    <div class="project-tags">
+                        <span class="tag">Delta Lake</span>
+                        <span class="tag">Databricks</span>
+                        <span class="tag">AutoLoader</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/SachinLoddiyaKarthik/Netflix_Data_Engineering_Project" target="_blank" class="project-link primary">GitHub ↗</a>
+                    </div>
+                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <div class="project-details" style="display:none">
+                        <ul class="project-features">
+                            <li>Delta Lake pipeline using AutoLoader and DLT on Databricks.</li>
+                            <li>Real-time dashboards for content analytics and insights.</li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
             </div>
-
-            <div id="project-f1" class="project-item project-content" role="tabpanel" aria-labelledby="project-f1">
-              <div class="project-icon-container">
-                <i class="fas fa-flag-checkered"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">F1 Data Analytics</h2>
-                <p class="project-time">May 2024 - Jun 2024</p>
-                <ul>
-                  <li>ETL pipeline using Azure Synapse + PySpark for real-time telemetry.</li>
-                  <li>Optimized Spark jobs and schema enforcement with monitoring.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/F1-Data-Analytics-Project" target="_blank" class="github-btn" aria-label="View F1 project on GitHub">GitHub ↗</a>
-                </div>
-              </div>
-            </div>
-
-            <div id="project-twitter" class="project-item project-content" role="tabpanel" aria-labelledby="project-twitter">
-              <div class="project-icon-container">
-                <i class="fab fa-twitter"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Twitter Sentiment Analysis</h2>
-                <p class="project-time">Nov 2023 - Dec 2023</p>
-                <ul>
-                  <li>BiLSTM model with GloVe embeddings to analyze tweet sentiments.</li>
-                  <li>NER, word clouds, and metrics for interpretability.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/Twitter_Sentiment_Analysis" target="_blank" class="github-btn" aria-label="View Twitter NLP project on GitHub">GitHub ↗</a>
-                </div>
-              </div>
-            </div>
-
-            <div id="project-attendance" class="project-item project-content" role="tabpanel" aria-labelledby="project-attendance">
-              <div class="project-icon-container">
-                <i class="fas fa-user-check"></i>
-              </div>
-              <div class="project-details-container">
-                <h2 class="project-title">Automated Attendance System</h2>
-                <p class="project-time">Feb 2020 - Apr 2020</p>
-                <ul>
-                  <li>Real-time face detection using OpenCV + Haar Cascades.</li>
-                  <li>Email-based timestamped attendance logs.</li>
-                </ul>
-                <div class="project-links">
-                  <a href="https://github.com/SachinLoddiyaKarthik/Automated_Attendance_System_Using_Python" target="_blank" class="github-btn" aria-label="View Attendance project on GitHub">GitHub ↗</a>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
 
         <section id="education" class="education-container fade-in-section" aria-labelledby="education-title">
@@ -631,6 +584,17 @@
               </a>
             </div>
           </section>
+
+        <!-- Modal Structure -->
+        <div id="project-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="modal-content">
+                <button class="modal-close-btn" aria-label="Close project details"><i class="fas fa-times"></i></button>
+                <div class="modal-body">
+                    <!-- Project details will be injected here -->
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer>
