@@ -1155,8 +1155,8 @@ footer p {
 /* Project Tabs Styling */
 .project-tabs {
   display: flex;
-  flex-wrap: nowrap; /* prevents wrapping */
-  overflow-x: auto;   /* enables horizontal scrolling */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
   margin-bottom: 2rem;
   padding-bottom: 0.5rem;
@@ -1581,8 +1581,7 @@ footer p {
   .experience-details-container {
     margin-top: 2rem;
   }
-  #profile,
-  .section-container {
+  #profile {
     display: block;
   }
   .arrow {
@@ -2035,4 +2034,21 @@ body.dark-mode .invert-in-dark-mode {
 /* Existing styles for .logo-grid img */
 .logo-grid img {
   // ... existing code ...
+}
+
+/* Fix for About Me section on mobile */
+@media screen and (max-width: 768px) {
+  .about-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Add some space between the image and text */
+  }
+
+  .about-pic-container {
+    margin-bottom: 1rem; /* Add space below the image */
+  }
+
+  .text-container {
+    text-align: center; /* Center the text for better mobile appearance */
+  }
 }
