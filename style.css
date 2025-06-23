@@ -205,7 +205,7 @@ nav a:hover {
 /* HAMBURGER MENU */
 
 #hamburger-nav {
-  display: none;
+    display: none;
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5rem; /* Added padding */
@@ -238,35 +238,35 @@ nav a:hover {
 #hamburger-nav .theme-toggle img {
   width: 20px;
   height: 20px;
-}
-
-.hamburger-menu {
-  position: relative;
+  }
+  
+  .hamburger-menu {
+    position: relative;
   display: block;
-}
-
-.hamburger-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 24px;
-  width: 30px;
-  cursor: pointer;
+  }
+  
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
   background: none;
   border: none;
   padding: 0;
-}
-
-/* Fixed transition timing - was 0.3 without unit */
-.hamburger-icon span {
-  width: 100%;
-  height: 2px;
-  background-color: var(--secondary-color);
-  transition: all 0.3s ease-in-out;
-  transform-origin: center;
-}
-
-.menu-links {
+  }
+  
+  /* Fixed transition timing - was 0.3 without unit */
+  .hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+  }
+  
+  .menu-links {
   position: fixed;
   top: 8vh;
   left: 0;
@@ -288,11 +288,11 @@ nav a:hover {
 
 .menu-links.open {
   transform: translateY(0);
-}
-
+  }
+  
 .menu-links a,
 .menu-links button {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
   font-size: 1.5rem;
   display: block;
   width: 100%;
@@ -301,37 +301,37 @@ nav a:hover {
   transition: background-color 0.2s;
   background: none;
   border: none;
-}
-
-.menu-links li {
+  }
+  
+  .menu-links li {
   display: block;
   width: 100%;
-  list-style: none;
+    list-style: none;
 }
 
 .menu-links .theme-toggle {
   display: block;
   margin: 1rem auto;
-}
-
+  }
+  
 .menu-links .theme-toggle img {
   width: 2rem;
   height: 2rem;
-}
-
-/* Fixed transform values for the X animation */
-.hamburger-icon.open span:first-child {
-  transform: rotate(45deg) translate(8.5px, 7px); /* Adjusted translate values */
-}
-
-.hamburger-icon.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-icon.open span:last-child {
-  transform: rotate(-45deg) translate(8.5px, -7px); /* Adjusted translate values */
-}
-
+  }
+  
+  /* Fixed transform values for the X animation */
+  .hamburger-icon.open span:first-child {
+    transform: rotate(45deg) translate(8.5px, 7px); /* Adjusted translate values */
+  }
+  
+  .hamburger-icon.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-icon.open span:last-child {
+    transform: rotate(-45deg) translate(8.5px, -7px); /* Adjusted translate values */
+  }
+  
 /* SECTIONS */
 
 section {
@@ -580,83 +580,83 @@ section {
 .experience-card {
   transition-delay: 0.1s;
   padding: 1.5rem;
-}
+  }
 
 .experience-details-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-out;
-}
+  }
 
 .btn-details {
   margin-top: 1rem;
-}
+  }
 
 /* EXPERIENCE SECTION */
 
 #experience {
-  position: relative;
-}
-
-.experience-card-container {
-  display: grid;
+    position: relative;
+  }
+  
+  .experience-card-container {
+    display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
-  justify-content: center;
+    justify-content: center;
   align-items: stretch;
-}
-
-.experience-card {
-  padding: 2rem;
-  background-color: var(--primary-color-2);
-  border-radius: 1rem;
-  border: var(--button-border);
-  border-color: var(--container-border);
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  /* Optional: Add margin for additional spacing between cards */
-  margin-bottom: 1rem;
-}
-
-.experience-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.experience-duration {
-  font-weight: 600;
-  color: var(--secondary-color);
-}
-
-.experience-sub-title {
-  margin-bottom: 0;
-  color: var(--secondary-color);
-}
-
-.experience-company {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  color: var(--secondary-color);
-}
-
-.experience-list {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: var(--secondary-color-2);
-}
-
-.experience-list li {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
-
-#experience h1 {
-  margin-bottom: 2rem;
-}
+  }
+  
+  .experience-card {
+    padding: 2rem;
+    background-color: var(--primary-color-2);
+    border-radius: 1rem;
+    border: var(--button-border);
+    border-color: var(--container-border);
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    /* Optional: Add margin for additional spacing between cards */
+    margin-bottom: 1rem;
+  }
+  
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .experience-duration {
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+  
+  .experience-sub-title {
+    margin-bottom: 0;
+    color: var(--secondary-color);
+  }
+  
+  .experience-company {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--secondary-color);
+  }
+  
+  .experience-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: var(--secondary-color-2);
+  }
+  
+  .experience-list li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  
+  #experience h1 {
+    margin-bottom: 2rem;
+  }
 
 /* SKILLS SECTION */
 
@@ -700,7 +700,7 @@ section {
 
 .skill-logo-item:hover {
   transform: translateY(-5px);
-}
+  }
 
 .skill-logo-item img {
   width: 60px;
@@ -2337,7 +2337,8 @@ body.dark-mode .invert-in-dark-mode {
 .view-details-btn {
   display: block;
   width: 100%;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;   /* Adds space above the button */
+  margin-bottom: 0.5rem; /* Optional: space below */
   font-size: 1rem;
+  /* You can add more styling if you want */
 }

@@ -5,15 +5,15 @@ function toggleMenu() {
   menu.classList.toggle("open");
   icon.classList.toggle("open");
   document.body.classList.toggle("body-no-scroll");
-}
-
-function toggleDescription(button) {
+  }
+  
+  function toggleDescription(button) {
   if (!button) return;
 
-  const projectItem = button.closest(".project-item");
+    const projectItem = button.closest(".project-item");
   if (!projectItem) return;
 
-  const description = projectItem.querySelector(".project-description");
+    const description = projectItem.querySelector(".project-description");
   if (!description) return;
 
   const isVisible =
@@ -21,7 +21,7 @@ function toggleDescription(button) {
 
   description.style.display = isVisible ? "none" : "block";
   button.textContent = isVisible ? "Description" : "Collapse";
-}
+    }
 
 // Close menu when links are clicked and handle all other DOM content
 document.addEventListener("DOMContentLoaded", function () {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-
+  
   // Typing effect for main tagline
   const taglineEl = document.getElementById("typing-tagline");
   if (taglineEl) {
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     currentTheme =
       isMobile && !prefersDark ? "light" : prefersDark ? "dark" : "light";
   }
-
+  
   if (currentTheme === "dark") {
     setDarkMode();
   } else {
@@ -241,26 +241,26 @@ if (modeToggle2) {
 if (mobileThemeToggle) {
   mobileThemeToggle.addEventListener("click", setTheme);
 }
-
-function setTheme() {
+  
+  function setTheme() {
   const currentTheme = document.documentElement.getAttribute("theme");
-
-  if (currentTheme === "dark") {
-    setLightMode();
-  } else {
-    setDarkMode();
+  
+    if (currentTheme === "dark") {
+      setLightMode();
+    } else {
+      setDarkMode();
+    }
   }
-}
-
-function setDarkMode() {
+  
+  function setDarkMode() {
   document.documentElement.setAttribute("theme", "dark");
-  localStorage.setItem("theme", "dark");
+    localStorage.setItem("theme", "dark");
   updateImageSources("dark");
-}
-
-function setLightMode() {
+  }
+  
+  function setLightMode() {
   document.documentElement.removeAttribute("theme");
-  localStorage.setItem("theme", "light");
+    localStorage.setItem("theme", "light");
   updateImageSources("light");
 }
 
@@ -274,22 +274,22 @@ function updateImageSources(theme) {
         img.src = img.getAttribute("src-light");
       }
     }
-  });
-}
-
+    });
+  }
+  
 // Navigation functions with proper event handling
 function showExperience(event, id) {
   if (!id) {
     window.location.href = "#experience";
     return;
   }
-
+  
   // Hide all experience content
   document
     .querySelectorAll(".experience-content")
     .forEach((section) => {
       section.classList.remove("active");
-    });
+  });
 
   // Remove 'active' class from all buttons
   document.querySelectorAll(".tab-btn").forEach((btn) => {
@@ -334,7 +334,7 @@ function showProject(event, id) {
   // Add 'active' to the clicked button
   if (event && event.target) {
     event.target.classList.add("active");
-  }
+}
 }
 
 function showCerts(event, provider) {
