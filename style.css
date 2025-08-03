@@ -2032,9 +2032,7 @@ body.dark-mode .invert-in-dark-mode {
 }
 
 /* Existing styles for .logo-grid img */
-.logo-grid img {
-  // ... existing code ...
-}
+/* (removed empty ruleset) */
 
 /* Fix for About Me section on mobile */
 @media screen and (max-width: 768px) {
