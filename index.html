@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="performance.css" />
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -37,6 +36,7 @@
                 <li>
                         <button
                       id="modeToggle"
+                          type="button"
                           class="icon color-icon theme-toggle"
                           aria-label="Toggle dark/light mode"
                         >
@@ -54,11 +54,11 @@
         <nav id="hamburger-nav" aria-label="Mobile navigation">
         <div class="logo">Sachin Loddiya Karthik</div>
             <div class="mobile-header-actions">
-                <button id="mobileThemeToggle" class="icon color-icon theme-toggle mobile-theme-toggle" aria-label="Toggle dark/light mode">
+                <button id="mobileThemeToggle" type="button" class="icon color-icon theme-toggle mobile-theme-toggle" aria-label="Toggle dark/light mode">
                     <img src="./assets/theme_light.png" src-light="./assets/theme_light.png" src-dark="./assets/theme_dark.png" alt="Theme toggle icon">
                 </button>
         <div class="hamburger-menu">
-                    <button class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <button class="hamburger-icon" type="button" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
               <span></span>
               <span></span>
               <span></span>
@@ -88,18 +88,20 @@
               <p class="section__text__p2" aria-label="My professional title"><span id="typing-tagline">Building Scalable Data Solutions</span></p>
               <div class="btn-container">
                 <button
+                  type="button"
                   class="btn btn-color-2"
                   onclick="window.open('./assets/Sachin_Resume.pdf')"
                   aria-label="Download Resume"
                 >
                   Resume
                 </button>
-                <button class="btn btn-color-1" onclick="location.href='./#contact'" aria-label="Go to Contact section">
+                <button type="button" class="btn btn-color-1" onclick="location.href='./#contact'" aria-label="Go to Contact section">
                   Contact Info
                 </button>
               </div>
               <div id="socials-container">
                 <button
+                  type="button"
                   class="icon linkedin-icon"
                   onclick="location.href='https://www.linkedin.com/in/sachin-lk/'"
                   aria-label="Visit LinkedIn profile"
@@ -112,6 +114,7 @@
                   />
                 </button>
                 <button
+                  type="button"
                   class="icon github-icon"
                   onclick="location.href='https://github.com/SachinLoddiyaKarthik'"
                   aria-label="Visit GitHub profile"
@@ -157,7 +160,7 @@
                 <p class="experience-duration">Jun 2025 - Present</p>
               </div>
               <h3 class="experience-company">Goodie Bag, USA</h3>
-              <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+              <button type="button" class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
               <div class="experience-details-content">
                 <ul class="experience-list">
                   <li>Developed and deployed a stateful conversational AI using FastAPI to automate 7+ customer support use cases, reducing manual ticket handling by an estimated 30%.</li>
@@ -176,7 +179,7 @@
             <p class="experience-duration">Jan 2025 - Apr 2025</p>
           </div>
           <h3 class="experience-company">Western Michigan University, USA</h3>
-                <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+                <button type="button" class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
                 <div class="experience-details-content">
           <ul class="experience-list">
             <li>Designed an automated class scheduling solution using Google OR-Tools and constraint programming, reducing manual scheduling time by 85% and optimizing faculty-course assignments for 200+ courses across 15 departments.</li>
@@ -194,7 +197,7 @@
             <p class="experience-duration">Jan 2024 - Apr 2024</p>
           </div>
           <h3 class="experience-company">Green Expectations LLC, USA</h3>
-                <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+                <button type="button" class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
                 <div class="experience-details-content">
           <ul class="experience-list">
             <li>Built the backend infrastructure for an AI-powered home sustainability platform, processing 1K+ data points per user via a rule-based House Sustainability Calculator, boosting recommendation accuracy by 35%.</li>
@@ -212,7 +215,7 @@
             <p class="experience-duration">Jul 2021 - Jul 2023</p>
           </div>
           <h3 class="experience-company">Accenture, India</h3>
-                <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+                <button type="button" class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
                 <div class="experience-details-content">
           <ul class="experience-list">
             <li>Engineered ETL pipelines with Azure Data Factory to migrate and reformat critical supply chain data into Parquet format, boosting processing efficiency by 40% while minimizing disruption.</li>
@@ -231,7 +234,7 @@
             <p class="experience-duration">Nov 2020 - May 2021</p>
           </div>
           <h3 class="experience-company">Claritrics India Pvt Limited, India</h3>
-                <button class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
+                <button type="button" class="btn btn-color-2 btn-details" aria-expanded="false">View Details</button>
                 <div class="experience-details-content">
           <ul class="experience-list">
             <li>Pioneered an advanced ETL pipeline using Azure Data Factory and Azure Databricks to create an OCR solution for extracting text from images, improving extraction accuracy by 30%.</li>
@@ -321,7 +324,7 @@
                         <a href="https://github.com/SachinLoddiyaKarthik/ats-resume-expert" target="_blank" class="project-link primary">GitHub ↗</a>
                         <a href="https://ats-resume-expert-slk.streamlit.app/" target="_blank" class="project-link secondary">Live Demo ↗</a>
         </div>
-                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <button type="button" class="view-details-btn btn btn-color-1">View Details</button>
                     <div class="project-details" style="display:none">
                         <ul class="project-features">
                             <li>AI-powered Streamlit app to evaluate resume–JD alignment.</li>
@@ -346,7 +349,7 @@
                         <a href="https://github.com/SachinLoddiyaKarthik/ask-my-pdf" target="_blank" class="project-link primary">GitHub ↗</a>
                         <a href="https://ask-my-pdf-pro.streamlit.app" target="_blank" class="project-link secondary">Live Demo ↗</a>
         </div>
-                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <button type="button" class="view-details-btn btn btn-color-1">View Details</button>
                     <div class="project-details" style="display:none">
                         <ul class="project-features">
                             <li>Multi-PDF chat system using LangChain and FAISS+BM25 retrieval.</li>
@@ -369,7 +372,7 @@
                     <div class="project-links">
                         <a href="https://github.com/SachinLoddiyaKarthik/Class-Scheduler" target="_blank" class="project-link primary">GitHub ↗</a>
         </div>
-                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <button type="button" class="view-details-btn btn btn-color-1">View Details</button>
                     <div class="project-details" style="display:none">
                         <ul class="project-features">
                             <li>Automated scheduling solution using Google OR-Tools.</li>
@@ -392,7 +395,7 @@
           <div class="project-links">
                         <a href="https://github.com/SachinLoddiyaKarthik/Conversational-AI-Chatbot-with-LangChain-and-OpenAI" target="_blank" class="project-link primary">GitHub ↗</a>
           </div>
-                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <button type="button" class="view-details-btn btn btn-color-1">View Details</button>
                     <div class="project-details" style="display:none">
                         <ul class="project-features">
                             <li>Built with LangChain, OpenAI GPT-3.5-turbo, and Streamlit.</li>
@@ -416,7 +419,7 @@
           <div class="project-links">
                         <a href="https://github.com/SachinLoddiyaKarthik/tokyo-olympic-data-engineering-project" target="_blank" class="project-link primary">GitHub ↗</a>
           </div>
-                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <button type="button" class="view-details-btn btn btn-color-1">View Details</button>
                     <div class="project-details" style="display:none">
                         <ul class="project-features">
                             <li>Azure pipeline with Databricks and Synapse to process 500K+ records.</li>
@@ -438,7 +441,7 @@
           <div class="project-links">
                         <a href="https://github.com/SachinLoddiyaKarthik/Netflix_Data_Engineering_Project" target="_blank" class="project-link primary">GitHub ↗</a>
           </div>
-                    <button class="view-details-btn btn btn-color-1">View Details</button>
+                    <button type="button" class="view-details-btn btn btn-color-1">View Details</button>
                     <div class="project-details" style="display:none">
                         <ul class="project-features">
                             <li>Delta Lake pipeline using AutoLoader and DLT on Databricks.</li>
