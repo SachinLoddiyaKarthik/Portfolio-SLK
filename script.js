@@ -1,19 +1,22 @@
+// Function to toggle the hamburger menu
 const menu = document.querySelector(".menu-links");
 const icon = document.querySelector(".hamburger-icon");
 
 function toggleMenu() {
-  menu.classList.toggle("open");
+  const isOpen = menu.classList.toggle("open");
   icon.classList.toggle("open");
+  icon.setAttribute("aria-expanded", isOpen);
   document.body.classList.toggle("body-no-scroll");
-  }
-  
-  function toggleDescription(button) {
+}
+
+// Function to toggle project description visibility
+function toggleDescription(button) {
   if (!button) return;
 
-    const projectItem = button.closest(".project-item");
+  const projectItem = button.closest(".project-item");
   if (!projectItem) return;
 
-    const description = projectItem.querySelector(".project-description");
+  const description = projectItem.querySelector(".project-description");
   if (!description) return;
 
   const isVisible =
@@ -21,10 +24,11 @@ function toggleMenu() {
 
   description.style.display = isVisible ? "none" : "block";
   button.textContent = isVisible ? "Description" : "Collapse";
-    }
+}
 
-// Close menu when links are clicked and handle all other DOM content
+// Main DOMContentLoaded event listener
 document.addEventListener("DOMContentLoaded", function () {
+  // Close hamburger menu when a link is clicked
   const menuLinksAnchors = document.querySelectorAll(".menu-links a");
   menuLinksAnchors.forEach((link) => {
     link.addEventListener("click", () => {
@@ -34,15 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  
-  // Typing effect for main tagline
+
+  // Typing effect for the main tagline
   const taglineEl = document.getElementById("typing-tagline");
   if (taglineEl) {
     const fullText = taglineEl.textContent;
     let i = 0;
     let isDeleting = false;
-    let typingSpeed = 80;
-    let pauseAfter = 1200;
+    const typingSpeed = 80;
+    const pauseAfter = 1200;
 
     function type() {
       if (!isDeleting) {
@@ -84,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Default to light theme on mobile if system prefers light
+  // Initialize theme based on user preference or local storage
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
@@ -100,9 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
     setLightMode();
   }
 
+  // Intersection observer for timeline animations
   const timelineItems = document.querySelectorAll(".timeline-item");
-  const detailButtons = document.querySelectorAll(".btn-details");
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -115,11 +118,12 @@ document.addEventListener("DOMContentLoaded", function () {
       threshold: 0.1,
     }
   );
-
   timelineItems.forEach((item) => {
     observer.observe(item);
   });
 
+  // Event listener for "View Details" buttons in the experience section
+  const detailButtons = document.querySelectorAll(".btn-details");
   detailButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const content = this.nextElementSibling;
@@ -136,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // On-scroll animations for sections
+  // Intersection observer for fade-in section animations
   const sections = document.querySelectorAll(".fade-in-section");
   if (sections.length) {
     const sectionObserver = new IntersectionObserver(
@@ -154,27 +158,23 @@ document.addEventListener("DOMContentLoaded", function () {
         threshold: 0.1,
       }
     );
-
     sections.forEach((section) => {
       sectionObserver.observe(section);
     });
   }
 
-  // --- NEW Project Modal Logic ---
+  // Project Modal Logic
   const projectCards = document.querySelectorAll(".project-card");
   const modal = document.getElementById("project-modal");
-
   if (modal) {
     const modalBody = modal.querySelector(".modal-body");
     const closeModalBtn = modal.querySelector(".modal-close-btn");
 
-    // Only open modal when clicking the View Details button
     projectCards.forEach((card) => {
       const viewBtn = card.querySelector('.view-details-btn');
       if (viewBtn) {
         viewBtn.addEventListener("click", (e) => {
-          e.stopPropagation(); // Prevent bubbling if card has other listeners
-          // Extract data from the clicked card
+          e.stopPropagation();
           const iconHTML = card.querySelector(".project-icon").innerHTML;
           const title = card.querySelector(".project-card-title").textContent;
           const date = card.querySelector(".project-date").textContent;
@@ -182,7 +182,6 @@ document.addEventListener("DOMContentLoaded", function () {
           const tagsHTML = card.querySelector(".project-tags").innerHTML;
           const linksHTML = card.querySelector(".project-links").innerHTML;
 
-          // Build clean HTML for the modal body
           modalBody.innerHTML = `
             <div class="project-icon">${iconHTML}</div>
             <h3 class="project-card-title">${title}</h3>
@@ -223,44 +222,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Dark / light mode with improved error handling
-const modeToggle = document.getElementById("modeToggle");
-const modeToggle2 = document.getElementById("modeToggle2");
-const mobileThemeToggle = document.getElementById("mobileThemeToggle");
-const themeIcons = document.querySelectorAll(".icon");
+// --- Theme Toggling ---
+const themeToggles = document.querySelectorAll(".theme-toggle");
+themeToggles.forEach(toggle => {
+  toggle.addEventListener("click", setTheme);
+});
 
-// Add event listeners with error handling
-if (modeToggle) {
-  modeToggle.addEventListener("click", setTheme);
-}
-
-if (modeToggle2) {
-  modeToggle2.addEventListener("click", setTheme);
-}
-
-if (mobileThemeToggle) {
-  mobileThemeToggle.addEventListener("click", setTheme);
-}
-  
-  function setTheme() {
+function setTheme() {
   const currentTheme = document.documentElement.getAttribute("theme");
-  
-    if (currentTheme === "dark") {
-      setLightMode();
-    } else {
-      setDarkMode();
-    }
+  if (currentTheme === "dark") {
+    setLightMode();
+  } else {
+    setDarkMode();
   }
-  
-  function setDarkMode() {
+}
+
+function setDarkMode() {
   document.documentElement.setAttribute("theme", "dark");
-    localStorage.setItem("theme", "dark");
+  localStorage.setItem("theme", "dark");
   updateImageSources("dark");
-  }
-  
-  function setLightMode() {
+}
+
+function setLightMode() {
   document.documentElement.removeAttribute("theme");
-    localStorage.setItem("theme", "light");
+  localStorage.setItem("theme", "light");
   updateImageSources("light");
 }
 
@@ -268,41 +253,32 @@ function updateImageSources(theme) {
   const images = document.querySelectorAll("img[src-light][src-dark]");
   images.forEach((img) => {
     if (img) {
-      if (theme === "dark") {
-        img.src = img.getAttribute("src-dark");
-      } else {
-        img.src = img.getAttribute("src-light");
-      }
+      const src = theme === "dark" ? img.getAttribute("src-dark") : img.getAttribute("src-light");
+      img.src = src;
     }
-    });
-  }
-  
-// Navigation functions with proper event handling
+  });
+}
+
+// --- Tab Navigation Functions ---
 function showExperience(event, id) {
   if (!id) {
     window.location.href = "#experience";
     return;
   }
   
-  // Hide all experience content
-  document
-    .querySelectorAll(".experience-content")
-    .forEach((section) => {
-      section.classList.remove("active");
+  document.querySelectorAll(".experience-content").forEach((section) => {
+    section.classList.remove("active");
   });
 
-  // Remove 'active' class from all buttons
   document.querySelectorAll(".tab-btn").forEach((btn) => {
     btn.classList.remove("active");
   });
 
-  // Show the selected experience
   const selectedExp = document.getElementById(`exp-${id}`);
   if (selectedExp) {
     selectedExp.classList.add("active");
   }
 
-  // Add 'active' to the clicked button
   if (event && event.target) {
     event.target.classList.add("active");
   }
@@ -315,26 +291,22 @@ function showEducation() {
 function showProject(event, id) {
   if (!id) return;
 
-  // Hide all project content
   document.querySelectorAll(".project-content").forEach((proj) => {
     proj.classList.remove("active");
   });
 
-  // Remove 'active' from all buttons
   document.querySelectorAll(".project-tab-btn").forEach((btn) => {
     btn.classList.remove("active");
   });
 
-  // Show the selected project content
   const selected = document.getElementById(`project-${id}`);
   if (selected) {
     selected.classList.add("active");
   }
 
-  // Add 'active' to the clicked button
   if (event && event.target) {
     event.target.classList.add("active");
-}
+  }
 }
 
 function showCerts(event, provider) {
