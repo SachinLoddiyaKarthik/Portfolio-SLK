@@ -276,12 +276,21 @@ function setDarkMode() {
   document.documentElement.setAttribute("theme", "dark");
   localStorage.setItem("theme", "dark");
   updateImageSources("dark");
+  updateThemeColorMeta("dark");
 }
 
 function setLightMode() {
   document.documentElement.removeAttribute("theme");
   localStorage.setItem("theme", "light");
   updateImageSources("light");
+  updateThemeColorMeta("light");
+}
+
+function updateThemeColorMeta(theme) {
+  const meta = document.getElementById("theme-color-meta");
+  if (meta) {
+    meta.setAttribute("content", theme === "dark" ? "#121212" : "#f8f9fa");
+  }
 }
 
 function updateImageSources(theme) {
