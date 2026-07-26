@@ -462,19 +462,22 @@ section {
   display: grid;
   grid-template-columns: 1fr 1.5fr; /* Image takes 1 part, text 1.5 */
   gap: 4rem;
-  align-items: center;
+  align-items: stretch;
 }
 
 .about-pic-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }
 
 .about-pic {
   border-radius: 2rem;
   width: 100%;
   max-width: 400px; /* Control image size */
+  height: 100%;
+  min-height: 350px;
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
@@ -1124,14 +1127,14 @@ footer p {
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
+  margin: 0.3rem;
 }
 
 .project-tab-btn:hover,
 .project-tab-btn.active {
   background-color: #00adb5;
   color: #fff;
-  /* No changes to padding or font-size here */
 }
 
 /* Project Content Styling */
@@ -1235,25 +1238,6 @@ footer p {
   display: block;
 }
 
-.project-tab-btn {
-  background-color: #2c2c2c;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1.2rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 0.3rem;
-}
-
-.project-tab-btn:hover,
-.project-tab-btn.active {
-  background-color: #00adb5;
-  color: #fff;
-}
-
 .certification-item {
   background-color: var(--primary-color-2);
   border: 1px solid var(--container-border);
@@ -1296,17 +1280,6 @@ footer p {
 .certification-item a:hover {
   background-color: var(--accent-color);
   color: white;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Card styling */
@@ -1476,6 +1449,11 @@ footer p {
   .about-pic-container {
     order: -1; /* Move image to the top on mobile */
     margin: 0 auto;
+  }
+
+  .about-pic {
+    height: auto; /* Use natural aspect ratio once stacked */
+    min-height: 0;
   }
 
   .about-details-container .title,
@@ -2109,10 +2087,6 @@ body.dark-mode .invert-in-dark-mode {
 .modal-body p, .modal-body li {
     font-size: 1.05rem;
     color: inherit;
-}
-
-#experience h1 {
-  margin-bottom: 2rem;
 }
 
 .modal-overlay.active .modal-content {

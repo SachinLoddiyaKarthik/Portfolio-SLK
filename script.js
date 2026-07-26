@@ -169,12 +169,40 @@ document.addEventListener("DOMContentLoaded", function () {
   if (modal) {
     const modalBody = modal.querySelector(".modal-body");
     const closeModalBtn = modal.querySelector(".modal-close-btn");
+    let lastFocusedTrigger = null;
+
+    const getFocusableElements = () =>
+      Array.from(
+        modal.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.disabled && el.offsetParent !== null);
+
+    const trapFocus = (e) => {
+      if (e.key !== "Tab" || !modal.classList.contains("active")) return;
+
+      const focusable = getFocusableElements();
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
 
     projectCards.forEach((card) => {
       const viewBtn = card.querySelector('.view-details-btn');
       if (viewBtn) {
         viewBtn.addEventListener("click", (e) => {
           e.stopPropagation();
+          lastFocusedTrigger = viewBtn;
+
           const iconHTML = card.querySelector(".project-icon").innerHTML;
           const title = card.querySelector(".project-card-title").textContent;
           const date = card.querySelector(".project-date").textContent;
@@ -194,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
           modal.classList.add("active");
           modal.setAttribute("aria-hidden", "false");
           document.body.style.overflow = "hidden";
+          closeModalBtn.focus();
         });
       }
     });
@@ -202,6 +231,10 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.classList.remove("active");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      if (lastFocusedTrigger) {
+        lastFocusedTrigger.focus();
+        lastFocusedTrigger = null;
+      }
     };
 
     if (closeModalBtn) {
@@ -219,6 +252,8 @@ document.addEventListener("DOMContentLoaded", function () {
         closeModal();
       }
     });
+
+    modal.addEventListener("keydown", trapFocus);
   }
 });
 
@@ -260,55 +295,6 @@ function updateImageSources(theme) {
 }
 
 // --- Tab Navigation Functions ---
-function showExperience(event, id) {
-  if (!id) {
-    window.location.href = "#experience";
-    return;
-  }
-  
-  document.querySelectorAll(".experience-content").forEach((section) => {
-    section.classList.remove("active");
-  });
-
-  document.querySelectorAll(".tab-btn").forEach((btn) => {
-    btn.classList.remove("active");
-  });
-
-  const selectedExp = document.getElementById(`exp-${id}`);
-  if (selectedExp) {
-    selectedExp.classList.add("active");
-  }
-
-  if (event && event.target) {
-    event.target.classList.add("active");
-  }
-}
-
-function showEducation() {
-  window.location.href = "#education";
-}
-
-function showProject(event, id) {
-  if (!id) return;
-
-  document.querySelectorAll(".project-content").forEach((proj) => {
-    proj.classList.remove("active");
-  });
-
-  document.querySelectorAll(".project-tab-btn").forEach((btn) => {
-    btn.classList.remove("active");
-  });
-
-  const selected = document.getElementById(`project-${id}`);
-  if (selected) {
-    selected.classList.add("active");
-  }
-
-  if (event && event.target) {
-    event.target.classList.add("active");
-  }
-}
-
 function showCerts(event, provider) {
   if (!provider) return;
 
@@ -318,6 +304,7 @@ function showCerts(event, provider) {
 
   document.querySelectorAll(".project-tab-btn").forEach((btn) => {
     btn.classList.remove("active");
+    btn.setAttribute("aria-selected", "false");
   });
 
   const selectedCerts = document.getElementById(`certs-${provider}`);
@@ -327,5 +314,6 @@ function showCerts(event, provider) {
 
   if (event && event.target) {
     event.target.classList.add("active");
+    event.target.setAttribute("aria-selected", "true");
   }
 }
