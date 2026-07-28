@@ -9,23 +9,6 @@ function toggleMenu() {
   document.body.classList.toggle("body-no-scroll");
 }
 
-// Function to toggle project description visibility
-function toggleDescription(button) {
-  if (!button) return;
-
-  const projectItem = button.closest(".project-item");
-  if (!projectItem) return;
-
-  const description = projectItem.querySelector(".project-description");
-  if (!description) return;
-
-  const isVisible =
-    description.style.display !== "none" && description.style.display !== "";
-
-  description.style.display = isVisible ? "none" : "block";
-  button.textContent = isVisible ? "Description" : "Collapse";
-}
-
 // Main DOMContentLoaded event listener
 document.addEventListener("DOMContentLoaded", function () {
   // Close hamburger menu when a link is clicked
@@ -139,6 +122,35 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Scrollspy: highlight the nav link for the section currently in view
+  const spySections = document.querySelectorAll("main section[id]");
+  const navLinks = document.querySelectorAll(
+    '#desktop-nav .nav-links a[href^="#"], .menu-links a[href^="#"]'
+  );
+  if (spySections.length && navLinks.length) {
+    const setActiveLink = (id) => {
+      navLinks.forEach((link) => {
+        link.classList.toggle("active-link", link.getAttribute("href") === `#${id}`);
+      });
+    };
+
+    const spyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-45% 0px -50% 0px",
+        threshold: 0,
+      }
+    );
+    spySections.forEach((section) => spyObserver.observe(section));
+  }
 
   // Intersection observer for fade-in section animations
   const sections = document.querySelectorAll(".fade-in-section");
@@ -254,6 +266,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     modal.addEventListener("keydown", trapFocus);
+  }
+
+  // Scroll progress bar + back-to-top button
+  const progressBar = document.getElementById("scroll-progress-bar");
+  const backToTopBtn = document.getElementById("back-to-top");
+
+  const updateOnScroll = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+    if (progressBar) {
+      progressBar.style.width = `${progress}%`;
+    }
+    if (backToTopBtn) {
+      backToTopBtn.classList.toggle("visible", scrollTop > 500);
+    }
+  };
+
+  window.addEventListener("scroll", updateOnScroll, { passive: true });
+  updateOnScroll();
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 });
 

@@ -50,6 +50,69 @@
   outline-offset: var(--focus-outline-offset);
 }
 
+/* Scroll progress bar */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-color), #764ba2);
+  z-index: 1100;
+  transition: width 0.1s ease-out;
+  pointer-events: none;
+}
+
+/* Back to top button */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(76, 110, 245, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background 0.3s ease;
+  z-index: 900;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background: #3a56c4;
+  transform: translateY(-4px);
+}
+
+@media screen and (max-width: 600px) {
+  #back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #back-to-top {
+    transition: opacity 0.3s ease, visibility 0.3s;
+  }
+}
+
 /* Skip to main content link for screen readers */
 .skip-link {
   position: absolute;
@@ -177,6 +240,40 @@ a:hover {
 nav a:hover {
   color: var(--secondary-color);
   text-decoration-color: var(--secondary-color);
+}
+
+/* Animated sliding underline + scrollspy active state for main nav links */
+#desktop-nav .nav-links a {
+  position: relative;
+  text-decoration: none !important;
+  padding-bottom: 4px;
+}
+
+#desktop-nav .nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#desktop-nav .nav-links a:hover::after,
+#desktop-nav .nav-links a.active-link::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+#desktop-nav .nav-links a.active-link {
+  color: var(--accent-color);
+}
+
+.menu-links a.active-link {
+  color: var(--accent-color);
 }
 
 .logo:hover {
@@ -347,6 +444,37 @@ section {
   display: flex;
 }
 
+/* Subtle alternating background tint between sections for visual depth */
+#about,
+#skills,
+#education,
+#contact {
+  position: relative;
+}
+
+#about::after,
+#skills::after,
+#education::after,
+#contact::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.015);
+  z-index: -1;
+  pointer-events: none;
+}
+
+[theme="dark"] #about::after,
+[theme="dark"] #skills::after,
+[theme="dark"] #education::after,
+[theme="dark"] #contact::after {
+  background: rgba(255, 255, 255, 0.025);
+}
+
 /* PROFILE SECTION */
 
 #profile {
@@ -485,7 +613,8 @@ section {
 
 /* BUTTONS */
 
-#btn-container {
+.btn-container {
+  display: flex;
   gap: 1rem;
 }
 
@@ -629,15 +758,7 @@ section {
 #experience {
     position: relative;
   }
-  
-  .experience-card-container {
-    display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
-    justify-content: center;
-  align-items: stretch;
-  }
-  
+
   .experience-card {
     transition-delay: 0.1s;
     padding: 2rem;
@@ -816,101 +937,8 @@ section {
   text-align: center;
 }
 
-.projects-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem; /* Small gap between projects */
-  align-items: center;
-  width: 100%;
-  max-width: 900px;
-  margin: auto;
-}
-
-.project-item {
-  background: var(--primary-color-2);
-  border: 1px solid var(--container-border);
-  padding: 1rem;
-  border-radius: 10px;
-  width: 100%;
-  position: relative;
-  text-align: left;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start; /* Align items to the top */
-}
-
-/* Project Header (Title & Time) */
-.project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 0.5rem;
-}
-
-.project-title {
-  color: var(--secondary-color);
-}
-
-.project-time {
-  font-size: 1rem;
-  color: var(--secondary-color-2);
-}
-
 #projects h1 {
   margin-bottom: 2rem; /* Adjust this value to your preference */
-}
-
-/* Buttons in Same Row */
-.project-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.5rem;
-}
-
-/* GitHub & Description Button */
-.project-btn, .btn-description {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-description {
-  background: var(--button-text-hover);
-  color: var(--background-color);
-}
-
-/* Description Container (Initially Hidden) */
-.project-description {
-  display: none;
-  padding: 1rem;
-  background: var(--primary-color-3);
-  color: var(--secondary-color-2);
-  border-radius: 8px;
-  margin-top: 0.5rem;
-}
-
-.project-icon-container {
-  flex-shrink: 0;
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--primary-color-2);
-  border-radius: 50%;
-  font-size: 2rem;
-  color: var(--accent-color);
-}
-
-.project-details-container {
-  flex-grow: 1;
-  text-align: left;
 }
 
 /* EDUCATION SECTION */
@@ -943,14 +971,50 @@ section {
   justify-content: center; /* Center align */
   gap: 1rem;
   padding: 2rem;
-  border-radius: 2rem;
-  background: var(--primary-color-2);
-  border: var(--button-border);
-  border-color: var(--container-border);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid #d1d5db;
+  position: relative;
+  overflow: hidden;
   width: 90%; /* Ensure width consistency */
   max-width: 900px; /* Align with other sections */
   margin: 1rem auto; /* Center and add spacing */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
+}
+
+[theme="dark"] .education-box-container {
+  background: rgba(42, 42, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[theme="light"] .education-box-container {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: #d1d5db;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+}
+
+.education-box-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.8s ease;
+  pointer-events: none;
+}
+
+.education-box-container:hover::before {
+  left: 100%;
+}
+
+.education-box-container:hover {
+  transform: translateY(-7px);
+  border-color: rgba(76, 110, 245, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
 }
 
 /* University Logo */
@@ -1037,19 +1101,50 @@ section {
 }
 
 .certification-item {
-    background-color: var(--primary-color-2);
-    border: 1px solid var(--container-border);
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid #d1d5db;
     padding: 1.5rem;
-    border-radius: 0.75rem;
+    border-radius: 24px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
     width: 100%;
     height: 100%;
+}
+
+[theme="dark"] .certification-item {
+    background: rgba(42, 42, 42, 0.5);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+[theme="light"] .certification-item {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: #d1d5db;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+}
+
+.certification-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.8s ease;
+    pointer-events: none;
+}
+
+.certification-item:hover::before {
+    left: 100%;
 }
 
 .certification-item h3 {
@@ -1157,37 +1252,6 @@ footer p {
   width: 1.9rem;
 }
 
-.experience-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.tab-btn {
-  background-color: #444;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.tab-btn:hover,
-.tab-btn.active {
-  background-color: #00adb5;
-}
-
-.experience-content {
-  display: none;
-}
-
-.experience-content.active {
-  display: block;
-}
 /* Project Tabs Styling */
 .project-tabs {
   display: flex;
@@ -1203,70 +1267,12 @@ footer p {
 }
 
 .project-tab-btn {
-  background-color: #2c2c2c;
-  color: #fff;
-  border: none;
   padding: 0.5rem 1.2rem;
   font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   margin: 0.3rem;
-}
-
-.project-tab-btn:hover,
-.project-tab-btn.active {
-  background-color: #00adb5;
-  color: #fff;
-}
-
-/* Project Content Styling */
-.project-content {
-  display: none;
-}
-
-.project-content.active {
-  display: block;
-}
-
-/* GitHub Button */
-.project-links {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.github-btn, .demo-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.github-btn {
-  border: 1px solid var(--accent-color);
-  background-color: transparent;
-  color: var(--accent-color);
-}
-
-.github-btn:hover {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
-}
-
-.demo-btn {
-  color: var(--secondary-color);
-  text-decoration: none;
-}
-
-.demo-btn:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
 }
 
 /* Optional: Smooth Fade In Animation */
@@ -1280,34 +1286,6 @@ footer p {
     transform: translateY(0);
   }
 }
-/* Clean list styling with modern bullet */
-/* Project List Styling with Theme-Adaptive Bullets */
-.project-item ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.project-item li {
-  position: relative;
-  padding-left: 1.6rem;
-  margin-bottom: 0.6rem;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  color: var(--secondary-color-2); /* text color adapts with theme */
-}
-
-.project-item li::before {
-  content: '➤'; /* or try ▸ or • for subtler look */
-  position: absolute;
-  left: 0;
-  top: 2px;
-  color: var(--accent-color); /* uses theme-aware color */
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
 /* CERTIFICATIONS TABS STYLING */
 
 .certification-content {
@@ -1326,48 +1304,14 @@ footer p {
 }
 
 .certification-item:hover {
-  background-color: var(--primary-color-3);
-}
-
-.certification-item h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--secondary-color);
-  margin: 0;
+  transform: translateY(-7px);
+  border-color: rgba(76, 110, 245, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
 }
 
 .certification-item a {
-  display: inline-block;
-  background-color: transparent;
-  border: 2px solid var(--accent-color);
-  color: var(--accent-color);
-  padding: 0.5rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
   margin-top: 0.5rem;
   align-self: center;
-}
-
-.certification-item a:hover {
-  background-color: var(--accent-color);
-  color: white;
-}
-
-/* Card styling */
-.project-item, .certification-item, .details-container, .education-box-container {
-  background-color: var(--primary-color);
-  border-radius: 12px;
-  border: 1px solid var(--container-border);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 1.5rem;
-}
-
-.project-item:hover, .certification-item:hover, .details-container:hover, .education-box-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Button Styling */
@@ -1403,7 +1347,7 @@ footer p {
 }
 
 /* Tab styling */
-.tab-btn, .project-tab-btn {
+.project-tab-btn {
     border-radius: 8px;
     padding: 0.5rem 1rem;
     background: transparent;
@@ -1411,14 +1355,14 @@ footer p {
     border: 1px solid transparent;
 }
 
-.tab-btn.active, .project-tab-btn.active {
+.project-tab-btn.active {
     background-color: var(--accent-color);
     color: white;
     font-weight: 500;
     border-color: var(--accent-color);
 }
 
-.tab-btn:hover, .project-tab-btn:hover {
+.project-tab-btn:hover {
     background-color: var(--primary-color-2);
     color: var(--accent-color);
 }
@@ -1464,46 +1408,6 @@ footer p {
 .profile-pic:hover {
   transform: scale(1.05);
 }
-
-/* Add new keyframes for slide-in animation */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Enhanced animations for Experience and Project cards */
-.experience-card.active .experience-header,
-.experience-card.active .experience-company,
-.experience-card.active .experience-list li,
-.project-item.active .project-title,
-.project-item.active .project-time,
-.project-item.active ul li,
-.project-item.active .project-links {
-  opacity: 0; /* Start hidden */
-  animation: slideInUp 0.5s ease-out forwards;
-}
-
-/* Stagger the animation delays for Experience */
-.experience-card.active .experience-header { animation-delay: 0.1s; }
-.experience-card.active .experience-company { animation-delay: 0.2s; }
-.experience-card.active .experience-list li:nth-child(1) { animation-delay: 0.3s; }
-.experience-card.active .experience-list li:nth-child(2) { animation-delay: 0.4s; }
-.experience-card.active .experience-list li:nth-child(3) { animation-delay: 0.5s; }
-.experience-card.active .experience-list li:nth-child(4) { animation-delay: 0.6s; }
-
-/* Stagger the animation delays for Projects */
-.project-item.active .project-title { animation-delay: 0.1s; }
-.project-item.active .project-time { animation-delay: 0.2s; }
-.project-item.active ul li:nth-child(1) { animation-delay: 0.3s; }
-.project-item.active ul li:nth-child(2) { animation-delay: 0.4s; }
-.project-item.active ul li:nth-child(3) { animation-delay: 0.5s; }
-.project-item.active .project-links { animation-delay: 0.6s; }
 
 .project-links {
   margin-top: 1.5rem;
@@ -1560,17 +1464,6 @@ footer p {
   box-shadow: 0 2px 6px rgba(76, 110, 245, 0.10);
 }
 
-/* Card hover micro-interactions */
-.project-item, .skills-role-block, .experience-card, .certification-item {
-  transition: transform 0.22s cubic-bezier(0.4,0,0.2,1), box-shadow 0.32s cubic-bezier(0.4,0,0.2,1), filter 0.22s;
-}
-.project-item:hover, .skills-role-block:hover, .certification-item:hover {
-  transform: translateY(-7px) scale(1.025);
-  box-shadow: 0 12px 32px rgba(76, 110, 245, 0.13), 0 2px 8px rgba(0,0,0,0.10);
-  filter: brightness(1.03) saturate(1.04);
-  z-index: 2;
-}
-
 /* --- Enhanced micro-interactions and accessibility --- */
 
 /* Ripple effect container for buttons */
@@ -1600,17 +1493,9 @@ footer p {
   box-shadow: 0 0 0 4px rgba(76, 110, 245, 0.18), 0 6px 18px rgba(76, 110, 245, 0.12);
 }
 
-/* Animated shadow for cards */
-.project-item, .skills-role-block, .certification-item {
-  transition: transform 0.22s cubic-bezier(0.4,0,0.2,1), box-shadow 0.32s cubic-bezier(0.4,0,0.2,1), filter 0.22s;
-}
-.project-item:hover, .skills-role-block:hover, .certification-item:hover {
-  box-shadow: 0 16px 40px rgba(76, 110, 245, 0.18), 0 2px 8px rgba(0,0,0,0.12);
-}
-
 /* Improved focus states for accessibility */
 .btn:focus, .btn-color-1:focus, .btn-color-2:focus,
-.project-item:focus, .skills-role-block:focus, .experience-card:focus, .certification-item:focus {
+.experience-card:focus, .certification-item:focus, .education-box-container:focus {
   outline: 3px solid var(--accent-color);
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(76, 110, 245, 0.18);
@@ -1842,22 +1727,10 @@ body.body-no-scroll {
 
   [theme="dark"] .section__text__p1,
   [theme="dark"] .section__text__p2,
-  [theme="dark"] .project-description,
   [theme="dark"] .experience-list li,
   [theme="dark"] .education-details span,
   [theme="dark"] .education-details p {
     color: var(--secondary-color-2) !important;
-  }
-
-  [theme="dark"] .project-btn,
-  [theme="dark"] .btn-description {
-    background-color: var(--button-background) !important;
-    color: var(--button-text-hover) !important;
-    border: 1px solid var(--secondary-color);
-  }
-
-  [theme="dark"] .project-description {
-    background-color: var(--primary-color-2) !important;
   }
 }
 
@@ -2174,24 +2047,6 @@ body.dark-mode .invert-in-dark-mode {
 
 /* --- Consolidated Media Queries --- */
 
-@media (min-width: 768px) {
-  .projects-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .projects-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .projects-container {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media screen and (max-width: 1400px) {
   #profile {
     height: 83vh;
@@ -2219,15 +2074,11 @@ body.dark-mode .invert-in-dark-mode {
   [theme="dark"] #profile .title {
      color: #e9ecef !important;
   }
-  #experience,
-  .experience-details-container {
+  #experience {
     margin-top: 2rem;
   }
   #profile {
     display: block;
-  }
-  .arrow {
-    display: none;
   }
   section,
   .section-container {
@@ -2240,9 +2091,6 @@ body.dark-mode .invert-in-dark-mode {
     width: 275px;
     height: 275px;
     margin: 0 auto 2rem;
-  }
-  .about-containers {
-    margin-top: 0;
   }
   .title {
     font-size: 2.5rem;
@@ -2425,6 +2273,8 @@ img {
   #hamburger-nav,
   .btn-container,
   #socials-container,
+  #scroll-progress-bar,
+  #back-to-top,
   footer {
     display: none !important;
   }
@@ -2437,8 +2287,9 @@ img {
 
   .section-container,
   .experience-card,
-  .project-item,
-  .certification-item {
+  .project-card,
+  .certification-item,
+  .education-box-container {
     break-inside: avoid;
     page-break-inside: avoid;
   }
